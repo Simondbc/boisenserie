@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de cookies — Boisenserie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sapin:#225A3B;--sapin-l:#3A7A54;--sapin-50:#F0F6F2;--sapin-100:#D3E8D9;--sapin-200:#A1C9AE;
+  --gres-50:#FAFAF8;--gres-100:#F3EEE8;--gres-200:#E1D7CB;
+  --nuit:#1A1916;--nuit-4:#6E6C64;--nuit-5:#9C9A90;--nuit-7:#1A1916;
+  --font-d:'Fraunces',Georgia,serif;--font-b:'Outfit',sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-b);background:var(--gres-50);color:var(--nuit);line-height:1.65;min-height:100vh;display:flex;flex-direction:column}
+.header{background:rgba(250,250,248,.95);backdrop-filter:blur(12px);border-bottom:.5px solid var(--gres-200);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:var(--font-d);font-size:1.5rem;font-weight:400;color:var(--nuit);text-decoration:none}
+.logo span{color:var(--sapin)}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--nuit-4);text-decoration:none;transition:color .15s}
+.back-link:hover{color:var(--sapin)}
+.page-hero{background:var(--nuit-7);padding:56px 32px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(5deg,transparent,transparent 44px,rgba(163,140,107,.04) 44px,rgba(163,140,107,.04) 45px)}
+.page-hero-tag{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sapin-200);margin-bottom:10px;position:relative}
+.page-hero-title{font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#fff;letter-spacing:-.025em;position:relative}
+.page-hero-title em{font-style:italic;color:#D3E8D9}
+.page-hero-date{font-size:.8rem;color:var(--nuit-5);margin-top:12px;position:relative}
+main{flex:1;max-width:760px;margin:0 auto;padding:56px 32px;width:100%}
+h2{font-family:var(--font-d);font-size:1.5rem;font-weight:400;color:var(--nuit);margin:48px 0 16px;padding-bottom:10px;border-bottom:.5px solid var(--gres-200)}
+h2:first-of-type{margin-top:0}
+h3{font-size:1rem;font-weight:600;color:var(--nuit);margin:24px 0 8px}
+p{font-size:.9rem;color:var(--nuit-4);line-height:1.8;margin-bottom:12px}
+strong{color:var(--nuit);font-weight:600}
+a{color:var(--sapin);text-decoration:underline;text-underline-offset:3px}
+a:hover{color:var(--sapin-l)}
+ul{list-style:none;margin-bottom:12px}
+ul li{font-size:.9rem;color:var(--nuit-4);line-height:1.8;padding:4px 0 4px 16px;position:relative}
+ul li::before{content:'–';position:absolute;left:0;color:var(--sapin-200)}
+.highlight-box{background:var(--sapin-50);border:.5px solid var(--sapin-100);border-left:3px solid var(--sapin);border-radius:8px;padding:16px 20px;margin:16px 0;font-size:.85rem;color:var(--sapin-l);line-height:1.7}
+
+/* COOKIE CATEGORIES */
+.cookie-category{background:#fff;border-radius:12px;border:.5px solid var(--gres-200);margin:16px 0;overflow:hidden}
+.cookie-cat-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:.5px solid var(--gres-100)}
+.cookie-cat-left{display:flex;align-items:center;gap:12px}
+.cookie-cat-icon{font-size:1.2rem}
+.cookie-cat-name{font-weight:600;font-size:.9rem;color:var(--nuit)}
+.cookie-cat-desc{font-size:.78rem;color:var(--nuit-4);margin-top:2px}
+.cookie-badge{padding:3px 10px;border-radius:9999px;font-size:.72rem;font-weight:600;letter-spacing:.04em}
+.badge-required{background:var(--sapin-50);color:var(--sapin-l);border:.5px solid var(--sapin-200)}
+.badge-optional{background:var(--gres-100);color:var(--nuit-4);border:.5px solid var(--gres-200)}
+.cookie-cat-body{padding:16px 22px}
+.cookie-detail{display:flex;gap:12px;padding:8px 0;border-bottom:.5px solid var(--gres-100);font-size:.82rem}
+.cookie-detail:last-child{border-bottom:none}
+.cookie-detail-name{font-weight:600;color:var(--nuit);min-width:120px;flex-shrink:0}
+.cookie-detail-info{color:var(--nuit-4)}
+.cookie-detail-duration{color:var(--nuit-5);font-size:.75rem;margin-top:2px}
+
+/* TOGGLE SWITCH (déco) */
+.toggle-switch{position:relative;width:44px;height:24px;flex-shrink:0}
+.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:var(--gres-300);border-radius:12px;transition:.2s}
+.toggle-slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.2s}
+input:checked+.toggle-slider{background:var(--sapin)}
+input:checked+.toggle-slider:before{transform:translateX(20px)}
+input:disabled+.toggle-slider{opacity:.6;cursor:not-allowed}
+
+/* BROWSER TABLE */
+.browser-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.82rem}
+.browser-table th{background:var(--nuit-7);color:white;padding:10px 14px;text-align:left;font-weight:500;font-size:.78rem}
+.browser-table td{padding:10px 14px;border-bottom:.5px solid var(--gres-100)}
+.browser-table tr:hover td{background:var(--gres-100)}
+
+footer{border-top:.5px solid var(--gres-200);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.76rem;color:var(--nuit-5)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--nuit-5);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--sapin)}
+@media(max-width:600px){.header{padding:0 16px}.page-hero{padding:40px 16px}main{padding:40px 16px}.cookie-cat-header{flex-direction:column;align-items:flex-start;gap:10px}.cookie-detail{flex-direction:column;gap:4px}.cookie-detail-name{min-width:unset}footer{padding:20px 16px;flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="logo">Bois<span>enserie</span></a>
+  <a href="/" class="back-link">← Retour au site</a>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Navigation & données</div>
+  <h1 class="page-hero-title">Politique de <em>cookies</em></h1>
+  <div class="page-hero-date">Dernière mise à jour : 1er janvier 2025 — Conforme CNIL</div>
+</div>
+
+<main>
+
+  <div class="highlight-box">
+    🍪 <strong>Notre approche :</strong> Boisenserie utilise un minimum de cookies, strictement nécessaires au fonctionnement du site et au traitement de vos commandes. Nous ne déposons aucun cookie publicitaire ou de tracking tiers.
+  </div>
+
+  <h2>1. Qu'est-ce qu'un cookie ?</h2>
+  <p>Un cookie est un petit fichier texte déposé sur votre appareil (ordinateur, tablette, smartphone) lorsque vous visitez un site web. Il permet au site de mémoriser vos actions et préférences pendant une durée déterminée.</p>
+  <p>Les cookies peuvent être <strong>de session</strong> (supprimés à la fermeture du navigateur) ou <strong>persistants</strong> (conservés pour une durée définie).</p>
+
+  <h2>2. Les cookies utilisés sur boisenserie.fr</h2>
+
+  <!-- ESSENTIELS -->
+  <div class="cookie-category">
+    <div class="cookie-cat-header">
+      <div class="cookie-cat-left">
+        <span class="cookie-cat-icon">⚙️</span>
+        <div>
+          <div class="cookie-cat-name">Cookies essentiels</div>
+          <div class="cookie-cat-desc">Indispensables au fonctionnement du site — ne peuvent pas être désactivés</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="cookie-badge badge-required">Obligatoires</span>
+        <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-cat-body">
+      <div class="cookie-detail">
+        <div>
+          <div class="cookie-detail-name">Session panier</div>
+          <div class="cookie-detail-info">Mémorise le contenu de votre panier entre les pages</div>
+          <div class="cookie-detail-duration">Durée : session (supprimé à la fermeture du navigateur)</div>
+        </div>
+      </div>
+      <div class="cookie-detail">
+        <div>
+          <div class="cookie-detail-name">Préférences langue</div>
+          <div class="cookie-detail-info">Retient la langue choisie sur le site (FR / DE / EN)</div>
+          <div class="cookie-detail-duration">Durée : 12 mois</div>
+        </div>
+      </div>
+      <div class="cookie-detail">
+        <div>
+          <div class="cookie-detail-name">CSRF Token</div>
+          <div class="cookie-detail-info">Protection contre les attaques de falsification de requête (sécurité)</div>
+          <div class="cookie-detail-duration">Durée : session</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIEMENT -->
+  <div class="cookie-category">
+    <div class="cookie-cat-header">
+      <div class="cookie-cat-left">
+        <span class="cookie-cat-icon">💳</span>
+        <div>
+          <div class="cookie-cat-name">Cookies de paiement (Stripe)</div>
+          <div class="cookie-cat-desc">Nécessaires à la sécurisation des transactions — déposés par Stripe</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="cookie-badge badge-required">Obligatoires</span>
+        <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-cat-body">
+      <div class="cookie-detail">
+        <div>
+          <div class="cookie-detail-name">__stripe_mid</div>
+          <div class="cookie-detail-info">Identifiant de session Stripe pour la détection de fraude</div>
+          <div class="cookie-detail-duration">Durée : 1 an</div>
+        </div>
+      </div>
+      <div class="cookie-detail">
+        <div>
+          <div class="cookie-detail-name">__stripe_sid</div>
+          <div class="cookie-detail-info">Cookie de session Stripe pour la sécurité du paiement</div>
+          <div class="cookie-detail-duration">Durée : 30 minutes</div>
+        </div>
+      </div>
+      <p style="font-size:.78rem;color:var(--nuit-5);margin:12px 0 0;font-style:italic">Ces cookies sont déposés par Stripe uniquement sur les pages de paiement. Consultez la <a href="https://stripe.com/fr/privacy" target="_blank" rel="noopener">politique de confidentialité de Stripe</a>.</p>
+    </div>
+  </div>
+
+  <!-- ANALYTICS -->
+  <div class="cookie-category">
+    <div class="cookie-cat-header">
+      <div class="cookie-cat-left">
+        <span class="cookie-cat-icon">📊</span>
+        <div>
+          <div class="cookie-cat-name">Cookies analytiques</div>
+          <div class="cookie-cat-desc">Mesure d'audience anonyme pour améliorer le site — aucune donnée personnelle</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="cookie-badge badge-optional">Optionnels</span>
+        <label class="toggle-switch"><input type="checkbox" id="analytics-toggle" checked><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-cat-body">
+      <div class="cookie-detail">
+        <div>
+          <div class="cookie-detail-name">_plausible</div>
+          <div class="cookie-detail-info">Mesure d'audience via Plausible Analytics (sans cookie de tracking, RGPD natif). Données anonymisées : pages visitées, durée, pays. Aucune donnée personnelle collectée.</div>
+          <div class="cookie-detail-duration">Durée : 1 an — Hébergé en Europe (serveurs Plausible)</div>
+        </div>
+      </div>
+      <p style="font-size:.78rem;color:var(--nuit-5);margin:12px 0 0;font-style:italic">Plausible Analytics est une alternative RGPD-native à Google Analytics. Il ne dépose pas de cookies tiers et ne transfère aucune donnée à des annonceurs.</p>
+    </div>
+  </div>
+
+  <!-- PUB -->
+  <div class="cookie-category">
+    <div class="cookie-cat-header">
+      <div class="cookie-cat-left">
+        <span class="cookie-cat-icon">📢</span>
+        <div>
+          <div class="cookie-cat-name">Cookies publicitaires</div>
+          <div class="cookie-cat-desc">Ciblage publicitaire et réseaux sociaux</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="cookie-badge badge-optional">Optionnels</span>
+        <label class="toggle-switch"><input type="checkbox" id="ads-toggle"><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-cat-body">
+      <p style="font-size:.85rem;color:var(--nuit-4)">Boisenserie <strong>n'utilise actuellement aucun cookie publicitaire</strong>. Nous ne diffusons pas d'annonces ciblées et ne partageons pas vos données avec des régies publicitaires. Cette catégorie est désactivée par défaut.</p>
+    </div>
+  </div>
+
+  <h2>3. Durée de conservation et consentement</h2>
+  <p>Conformément aux recommandations de la <strong>CNIL</strong>, votre consentement est valable pour une durée maximale de <strong>13 mois</strong>. À l'expiration de ce délai, votre consentement vous sera à nouveau demandé.</p>
+  <p>Vous pouvez retirer votre consentement à tout moment en modifiant vos préférences via notre bandeau de gestion des cookies ou en effaçant les cookies de votre navigateur.</p>
+
+  <h2>4. Comment gérer vos cookies depuis votre navigateur</h2>
+  <p>Vous pouvez configurer votre navigateur pour accepter, refuser ou supprimer les cookies à tout moment :</p>
+  <table class="browser-table">
+    <thead><tr><th>Navigateur</th><th>Comment accéder aux réglages cookies</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Google Chrome</strong></td><td>Menu ⋮ → Paramètres → Confidentialité et sécurité → Cookies</td></tr>
+      <tr><td><strong>Mozilla Firefox</strong></td><td>Menu ☰ → Paramètres → Vie privée et sécurité → Cookies</td></tr>
+      <tr><td><strong>Safari (Mac)</strong></td><td>Safari → Préférences → Confidentialité → Cookies</td></tr>
+      <tr><td><strong>Safari (iPhone)</strong></td><td>Réglages → Safari → Confidentialité et sécurité</td></tr>
+      <tr><td><strong>Microsoft Edge</strong></td><td>Menu ⋯ → Paramètres → Confidentialité → Cookies</td></tr>
+    </tbody>
+  </table>
+  <p>⚠ Notez que la suppression des cookies essentiels peut perturber le fonctionnement du site (panier, paiement).</p>
+
+  <h2>5. Vos droits</h2>
+  <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et d'opposition concernant les données collectées via les cookies. Pour exercer ces droits, contactez-nous à <a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a>.</p>
+  <p>Vous pouvez également saisir la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a> en cas de litige relatif à vos données personnelles.</p>
+
+  <h2>6. Modifications</h2>
+  <p>Cette politique peut être mise à jour à tout moment pour refléter des changements dans nos pratiques ou la réglementation en vigueur. La date de mise à jour est indiquée en haut de cette page.</p>
+
+</main>
+
+<footer>
+  <span>© 2025 Boisenserie — Politique cookies conforme CNIL</span>
+  <div class="footer-links">
+    <a href="/mentions-legales.html">Mentions légales</a>
+    <a href="/confidentialite.html">Confidentialité</a>
+    <a href="/cgv.html">CGV</a>
+    <a href="/cookies.html">Cookies</a>
+  </div>
+</footer>
+
+</body>
+</html>

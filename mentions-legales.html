@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales — Boisenserie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sapin:#225A3B;--sapin-l:#3A7A54;--sapin-50:#F0F6F2;--sapin-100:#D3E8D9;--sapin-200:#A1C9AE;
+  --gres-50:#FAFAF8;--gres-100:#F3EEE8;--gres-200:#E1D7CB;--gres-300:#C9BEAF;
+  --nuit:#1A1916;--nuit-2:#2C2B27;--nuit-4:#6E6C64;--nuit-5:#9C9A90;--nuit-7:#1A1916;--nuit-8:#0F0E0C;
+  --font-d:'Fraunces',Georgia,serif;--font-b:'Outfit',sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-b);background:var(--gres-50);color:var(--nuit);line-height:1.65;min-height:100vh;display:flex;flex-direction:column}
+
+/* HEADER */
+.header{background:rgba(250,250,248,.95);backdrop-filter:blur(12px);border-bottom:.5px solid var(--gres-200);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:var(--font-d);font-size:1.5rem;font-weight:400;color:var(--nuit);text-decoration:none}
+.logo span{color:var(--sapin)}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--nuit-4);text-decoration:none;transition:color .15s}
+.back-link:hover{color:var(--sapin)}
+
+/* HERO */
+.page-hero{background:var(--nuit-7);padding:56px 32px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(5deg,transparent,transparent 44px,rgba(163,140,107,.04) 44px,rgba(163,140,107,.04) 45px)}
+.page-hero-tag{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sapin-200);margin-bottom:10px;position:relative}
+.page-hero-title{font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#fff;letter-spacing:-.025em;position:relative}
+.page-hero-title em{font-style:italic;color:#D3E8D9}
+.page-hero-date{font-size:.8rem;color:var(--nuit-5);margin-top:12px;position:relative}
+
+/* CONTENT */
+main{flex:1;max-width:760px;margin:0 auto;padding:56px 32px;width:100%}
+h2{font-family:var(--font-d);font-size:1.5rem;font-weight:400;color:var(--nuit);margin:48px 0 16px;padding-bottom:10px;border-bottom:.5px solid var(--gres-200)}
+h2:first-of-type{margin-top:0}
+h3{font-size:1rem;font-weight:600;color:var(--nuit);margin:24px 0 8px}
+p{font-size:.9rem;color:var(--nuit-4);line-height:1.8;margin-bottom:12px}
+strong{color:var(--nuit);font-weight:600}
+a{color:var(--sapin);text-decoration:underline;text-underline-offset:3px}
+a:hover{color:var(--sapin-l)}
+ul{list-style:none;margin-bottom:12px}
+ul li{font-size:.9rem;color:var(--nuit-4);line-height:1.8;padding:4px 0 4px 16px;position:relative}
+ul li::before{content:'–';position:absolute;left:0;color:var(--sapin-200)}
+
+/* INFO CARD */
+.info-card{background:#fff;border-radius:12px;padding:24px 28px;border:.5px solid var(--gres-200);margin:20px 0}
+.info-card-row{display:flex;gap:16px;padding:8px 0;border-bottom:.5px solid var(--gres-100);font-size:.85rem}
+.info-card-row:last-child{border-bottom:none}
+.info-label{font-weight:600;color:var(--nuit);min-width:160px;flex-shrink:0}
+.info-value{color:var(--nuit-4)}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--gres-200);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.76rem;color:var(--nuit-5)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--nuit-5);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--sapin)}
+
+@media(max-width:600px){.header{padding:0 16px}.page-hero{padding:40px 16px}main{padding:40px 16px}footer{padding:20px 16px;flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="/" class="logo">Bois<span>enserie</span></a>
+  <a href="/" class="back-link">← Retour au site</a>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-tag">Informations légales</div>
+  <h1 class="page-hero-title">Mentions <em>légales</em></h1>
+  <div class="page-hero-date">Dernière mise à jour : 1er janvier 2025</div>
+</div>
+
+<!-- CONTENU -->
+<main>
+
+  <h2>1. Éditeur du site</h2>
+  <p>Le site <strong>boisenserie.fr</strong> est édité par :</p>
+  <div class="info-card">
+    <div class="info-card-row"><span class="info-label">Raison sociale</span><span class="info-value">Boisenserie SAS</span></div>
+    <div class="info-card-row"><span class="info-label">Forme juridique</span><span class="info-value">Société par Actions Simplifiée (SAS)</span></div>
+    <div class="info-card-row"><span class="info-label">Capital social</span><span class="info-value">10 000 €</span></div>
+    <div class="info-card-row"><span class="info-label">SIRET</span><span class="info-value">XXX XXX XXX XXXXX — <em style="color:var(--nuit-5);font-size:.8rem">⚠ À remplacer par votre vrai numéro</em></span></div>
+    <div class="info-card-row"><span class="info-label">APE / NAF</span><span class="info-value">1629Z — Fabrication d'autres articles en bois</span></div>
+    <div class="info-card-row"><span class="info-label">TVA intracommunautaire</span><span class="info-value">FR XX XXX XXX XXX — <em style="color:var(--nuit-5);font-size:.8rem">⚠ À remplacer</em></span></div>
+    <div class="info-card-row"><span class="info-label">Siège social</span><span class="info-value">Saint-Dié-des-Vosges (88), Alsace, France</span></div>
+    <div class="info-card-row"><span class="info-label">Téléphone</span><span class="info-value">+33 X XX XX XX XX — <em style="color:var(--nuit-5);font-size:.8rem">⚠ À remplacer</em></span></div>
+    <div class="info-card-row"><span class="info-label">E-mail</span><span class="info-value"><a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></span></div>
+  </div>
+
+  <h2>2. Directeur de la publication</h2>
+  <p>Le directeur de la publication est <strong>[Votre Prénom Nom]</strong>, en qualité de gérant de Boisenserie SAS.</p>
+  <p><em style="font-size:.82rem;color:var(--nuit-5)">⚠ Remplacez [Votre Prénom Nom] par votre identité réelle.</em></p>
+
+  <h2>3. Hébergement</h2>
+  <p>Le site boisenserie.fr est hébergé par :</p>
+  <div class="info-card">
+    <div class="info-card-row"><span class="info-label">Société</span><span class="info-value">Vercel Inc.</span></div>
+    <div class="info-card-row"><span class="info-label">Adresse</span><span class="info-value">340 Pine Street, Suite 1700, San Francisco, CA 94104, États-Unis</span></div>
+    <div class="info-card-row"><span class="info-label">Site web</span><span class="info-value"><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></span></div>
+  </div>
+
+  <h2>4. Propriété intellectuelle</h2>
+  <p>L'ensemble du contenu du site boisenserie.fr (textes, images, graphismes, logos, icônes, sons, logiciels) est la propriété exclusive de Boisenserie SAS ou de ses partenaires, et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.</p>
+  <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Boisenserie SAS.</p>
+
+  <h2>5. Responsabilité</h2>
+  <p>Boisenserie SAS s'efforce de maintenir les informations accessibles sur le site aussi exactes que possible. Cependant, la société ne peut garantir l'exactitude, la complétude ou l'actualité des informations diffusées.</p>
+  <p>Boisenserie SAS décline toute responsabilité :</p>
+  <ul>
+    <li>Pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur le site</li>
+    <li>Pour tous dommages résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations</li>
+    <li>Pour tout dommage indirect, quelle qu'en soit la cause, l'origine, la nature ou les conséquences</li>
+  </ul>
+
+  <h2>6. Liens hypertextes</h2>
+  <p>Le site boisenserie.fr peut contenir des liens hypertextes vers d'autres sites. Boisenserie SAS n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou à leurs pratiques en matière de protection des données personnelles.</p>
+
+  <h2>7. Droit applicable</h2>
+  <p>Le présent site et ses mentions légales sont soumis au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux compétents sont ceux du ressort du siège social de Boisenserie SAS.</p>
+
+  <h2>8. Contact</h2>
+  <p>Pour toute question relative au site ou à son contenu, vous pouvez nous contacter par e-mail à <a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a>.</p>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Boisenserie — Saint-Dié-des-Vosges, Alsace</span>
+  <div class="footer-links">
+    <a href="/mentions-legales.html">Mentions légales</a>
+    <a href="/confidentialite.html">Confidentialité</a>
+    <a href="/cgv.html">CGV</a>
+    <a href="/cookies.html">Cookies</a>
+  </div>
+</footer>
+
+</body>
+</html>

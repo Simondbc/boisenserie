@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité — Boisenserie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sapin:#225A3B;--sapin-l:#3A7A54;--sapin-50:#F0F6F2;--sapin-100:#D3E8D9;--sapin-200:#A1C9AE;
+  --gres-50:#FAFAF8;--gres-100:#F3EEE8;--gres-200:#E1D7CB;
+  --nuit:#1A1916;--nuit-4:#6E6C64;--nuit-5:#9C9A90;--nuit-7:#1A1916;
+  --font-d:'Fraunces',Georgia,serif;--font-b:'Outfit',sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-b);background:var(--gres-50);color:var(--nuit);line-height:1.65;min-height:100vh;display:flex;flex-direction:column}
+.header{background:rgba(250,250,248,.95);backdrop-filter:blur(12px);border-bottom:.5px solid var(--gres-200);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:var(--font-d);font-size:1.5rem;font-weight:400;color:var(--nuit);text-decoration:none}
+.logo span{color:var(--sapin)}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--nuit-4);text-decoration:none;transition:color .15s}
+.back-link:hover{color:var(--sapin)}
+.page-hero{background:var(--nuit-7);padding:56px 32px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(5deg,transparent,transparent 44px,rgba(163,140,107,.04) 44px,rgba(163,140,107,.04) 45px)}
+.page-hero-tag{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sapin-200);margin-bottom:10px;position:relative}
+.page-hero-title{font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#fff;letter-spacing:-.025em;position:relative}
+.page-hero-title em{font-style:italic;color:#D3E8D9}
+.page-hero-date{font-size:.8rem;color:var(--nuit-5);margin-top:12px;position:relative}
+main{flex:1;max-width:760px;margin:0 auto;padding:56px 32px;width:100%}
+h2{font-family:var(--font-d);font-size:1.5rem;font-weight:400;color:var(--nuit);margin:48px 0 16px;padding-bottom:10px;border-bottom:.5px solid var(--gres-200)}
+h2:first-of-type{margin-top:0}
+h3{font-size:1rem;font-weight:600;color:var(--nuit);margin:24px 0 8px}
+p{font-size:.9rem;color:var(--nuit-4);line-height:1.8;margin-bottom:12px}
+strong{color:var(--nuit);font-weight:600}
+a{color:var(--sapin);text-decoration:underline;text-underline-offset:3px}
+a:hover{color:var(--sapin-l)}
+ul{list-style:none;margin-bottom:12px}
+ul li{font-size:.9rem;color:var(--nuit-4);line-height:1.8;padding:4px 0 4px 16px;position:relative}
+ul li::before{content:'–';position:absolute;left:0;color:var(--sapin-200)}
+.info-card{background:#fff;border-radius:12px;padding:24px 28px;border:.5px solid var(--gres-200);margin:20px 0}
+.info-card-row{display:flex;gap:16px;padding:8px 0;border-bottom:.5px solid var(--gres-100);font-size:.85rem}
+.info-card-row:last-child{border-bottom:none}
+.info-label{font-weight:600;color:var(--nuit);min-width:200px;flex-shrink:0}
+.info-value{color:var(--nuit-4)}
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.right-card{background:#fff;border-radius:10px;padding:18px 20px;border:.5px solid var(--gres-200)}
+.right-card-icon{font-size:1.4rem;margin-bottom:8px}
+.right-card-title{font-size:.85rem;font-weight:600;color:var(--nuit);margin-bottom:4px}
+.right-card-desc{font-size:.78rem;color:var(--nuit-4);line-height:1.6}
+.highlight-box{background:var(--sapin-50);border:.5px solid var(--sapin-100);border-left:3px solid var(--sapin);border-radius:8px;padding:16px 20px;margin:16px 0;font-size:.85rem;color:var(--sapin-l);line-height:1.7}
+footer{border-top:.5px solid var(--gres-200);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.76rem;color:var(--nuit-5)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--nuit-5);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--sapin)}
+@media(max-width:600px){.header{padding:0 16px}.page-hero{padding:40px 16px}main{padding:40px 16px}.rights-grid{grid-template-columns:1fr}footer{padding:20px 16px;flex-direction:column;align-items:flex-start}.info-label{min-width:140px}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="logo">Bois<span>enserie</span></a>
+  <a href="/" class="back-link">← Retour au site</a>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-tag">Protection des données</div>
+  <h1 class="page-hero-title">Politique de <em>confidentialité</em></h1>
+  <div class="page-hero-date">Dernière mise à jour : 1er janvier 2025 — Conforme au RGPD</div>
+</div>
+
+<main>
+
+  <div class="highlight-box">
+    🔒 <strong>Notre engagement :</strong> Chez Boisenserie, nous collectons uniquement les données strictement nécessaires à votre commande. Nous ne vendons jamais vos données à des tiers. Vous avez un contrôle total sur vos informations.
+  </div>
+
+  <h2>1. Responsable du traitement</h2>
+  <p>Le responsable du traitement des données personnelles collectées sur boisenserie.fr est :</p>
+  <div class="info-card">
+    <div class="info-card-row"><span class="info-label">Société</span><span class="info-value">Boisenserie SAS</span></div>
+    <div class="info-card-row"><span class="info-label">Adresse</span><span class="info-value">Saint-Dié-des-Vosges (88), Alsace, France</span></div>
+    <div class="info-card-row"><span class="info-label">Contact DPO</span><span class="info-value"><a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></span></div>
+  </div>
+
+  <h2>2. Données collectées</h2>
+  <h3>Lors d'une commande</h3>
+  <ul>
+    <li>Nom, prénom, adresse e-mail, numéro de téléphone</li>
+    <li>Adresse de livraison et adresse de facturation</li>
+    <li>Texte de gravure et personnalisation choisie</li>
+    <li>Données de paiement (gérées exclusivement par Stripe — nous ne voyons jamais votre numéro de carte)</li>
+    <li>Historique des commandes</li>
+  </ul>
+  <h3>Lors de la navigation</h3>
+  <ul>
+    <li>Adresse IP (anonymisée)</li>
+    <li>Type de navigateur et appareil utilisé</li>
+    <li>Pages visitées et durée de visite (analytics anonymes)</li>
+    <li>Cookies de fonctionnement (voir notre politique cookies)</li>
+  </ul>
+  <h3>Lors de l'inscription à la newsletter</h3>
+  <ul>
+    <li>Adresse e-mail uniquement</li>
+    <li>Consentement explicite enregistré avec date et heure</li>
+  </ul>
+
+  <h2>3. Finalités et bases légales</h2>
+  <div class="info-card">
+    <div class="info-card-row"><span class="info-label">Traitement commandes</span><span class="info-value">Exécution du contrat (art. 6.1.b RGPD)</span></div>
+    <div class="info-card-row"><span class="info-label">Facturation</span><span class="info-value">Obligation légale (art. 6.1.c RGPD)</span></div>
+    <div class="info-card-row"><span class="info-label">Newsletter</span><span class="info-value">Consentement (art. 6.1.a RGPD)</span></div>
+    <div class="info-card-row"><span class="info-label">Analytics</span><span class="info-value">Intérêt légitime (art. 6.1.f RGPD)</span></div>
+    <div class="info-card-row"><span class="info-label">Lutte contre la fraude</span><span class="info-value">Intérêt légitime (art. 6.1.f RGPD)</span></div>
+  </div>
+
+  <h2>4. Durée de conservation</h2>
+  <ul>
+    <li><strong>Données de commande :</strong> 10 ans (obligation comptable légale)</li>
+    <li><strong>Compte client :</strong> 3 ans après la dernière activité</li>
+    <li><strong>Newsletter :</strong> Jusqu'au désabonnement</li>
+    <li><strong>Données de navigation :</strong> 13 mois maximum</li>
+    <li><strong>Cookies :</strong> 13 mois maximum</li>
+  </ul>
+
+  <h2>5. Destinataires des données</h2>
+  <p>Vos données sont transmises uniquement aux partenaires indispensables au traitement de votre commande :</p>
+  <div class="info-card">
+    <div class="info-card-row"><span class="info-label">Stripe Inc.</span><span class="info-value">Paiement sécurisé — <a href="https://stripe.com/fr/privacy" target="_blank" rel="noopener">politique de confidentialité Stripe</a></span></div>
+    <div class="info-card-row"><span class="info-label">Colissimo / La Poste</span><span class="info-value">Livraison de vos commandes</span></div>
+    <div class="info-card-row"><span class="info-label">Vercel Inc.</span><span class="info-value">Hébergement du site (serveurs en Europe)</span></div>
+    <div class="info-card-row"><span class="info-label">Outil e-mailing</span><span class="info-value">Envoi des e-mails transactionnels (confirmations de commande)</span></div>
+  </div>
+  <p>Nous ne vendons, ne louons et ne partageons jamais vos données avec des tiers à des fins commerciales.</p>
+
+  <h2>6. Vos droits (RGPD)</h2>
+  <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
+  <div class="rights-grid">
+    <div class="right-card"><div class="right-card-icon">👁️</div><div class="right-card-title">Droit d'accès</div><div class="right-card-desc">Savoir quelles données nous détenons sur vous et en obtenir une copie.</div></div>
+    <div class="right-card"><div class="right-card-icon">✏️</div><div class="right-card-title">Droit de rectification</div><div class="right-card-desc">Corriger vos données si elles sont inexactes ou incomplètes.</div></div>
+    <div class="right-card"><div class="right-card-icon">🗑️</div><div class="right-card-title">Droit à l'effacement</div><div class="right-card-desc">Demander la suppression de vos données (sous réserve des obligations légales).</div></div>
+    <div class="right-card"><div class="right-card-icon">⏸️</div><div class="right-card-title">Droit à la limitation</div><div class="right-card-desc">Limiter le traitement de vos données dans certains cas.</div></div>
+    <div class="right-card"><div class="right-card-icon">📦</div><div class="right-card-title">Droit à la portabilité</div><div class="right-card-desc">Récupérer vos données dans un format lisible pour les transmettre ailleurs.</div></div>
+    <div class="right-card"><div class="right-card-icon">🚫</div><div class="right-card-title">Droit d'opposition</div><div class="right-card-desc">Vous opposer au traitement de vos données, notamment pour la prospection.</div></div>
+  </div>
+  <p>Pour exercer vos droits, contactez-nous à : <a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></p>
+  <p>Nous répondons dans un délai maximum de <strong>30 jours</strong>. En cas de litige, vous pouvez saisir la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a> (Commission Nationale de l'Informatique et des Libertés).</p>
+
+  <h2>7. Sécurité des données</h2>
+  <p>Nous mettons en œuvre les mesures techniques et organisationnelles appropriées pour protéger vos données :</p>
+  <ul>
+    <li>Chiffrement HTTPS (TLS 1.3) sur l'ensemble du site</li>
+    <li>Paiement géré par Stripe (certifié PCI-DSS niveau 1) — nous ne stockons aucune donnée bancaire</li>
+    <li>Accès aux données limité aux personnes habilitées</li>
+    <li>Hébergement sur des serveurs sécurisés en Europe</li>
+  </ul>
+
+  <h2>8. Transferts hors UE</h2>
+  <p>Certains de nos partenaires (Stripe, Vercel) sont basés aux États-Unis. Ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types de la Commission européenne ou accord de protection des données adéquat).</p>
+
+  <h2>9. Modifications</h2>
+  <p>Nous nous réservons le droit de modifier cette politique à tout moment. En cas de modification substantielle, vous en serez informé par e-mail ou par un avis visible sur le site. La version en vigueur est toujours accessible sur cette page.</p>
+
+</main>
+
+<footer>
+  <span>© 2025 Boisenserie — Conforme RGPD</span>
+  <div class="footer-links">
+    <a href="/mentions-legales.html">Mentions légales</a>
+    <a href="/confidentialite.html">Confidentialité</a>
+    <a href="/cgv.html">CGV</a>
+    <a href="/cookies.html">Cookies</a>
+  </div>
+</footer>
+
+</body>
+</html>
