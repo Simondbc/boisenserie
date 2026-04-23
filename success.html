@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commande confirmée — Boisenserie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sapin:#225A3B;--sapin-l:#3A7A54;--sapin-xl:#F0F6F2;--sapin-2:#D3E8D9;--sapin-d:#164530;
+  --ble:#D4A738;--ble-l:#FDF8EB;
+  --gres:#FAFAF8;--gres-2:#F3EEE8;--gres-3:#E1D7CB;
+  --nuit:#1A1916;--nuit-2:#2C2B27;--nuit-3:#464440;--nuit-4:#6E6C64;--nuit-5:#9C9A90;
+  --font-d:'Fraunces',Georgia,serif;--font-b:'Outfit',sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-b);background:var(--gres);color:var(--nuit);line-height:1.65;min-height:100vh;display:flex;flex-direction:column}
+
+/* HEADER */
+.header{background:rgba(250,250,248,.95);backdrop-filter:blur(12px);border-bottom:.5px solid var(--gres-3);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:var(--font-d);font-size:1.5rem;font-weight:400;color:var(--nuit);text-decoration:none}
+.logo span{color:var(--sapin)}
+
+/* MAIN */
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 24px}
+
+/* SUCCESS CARD */
+.success-card{background:#fff;border-radius:24px;padding:56px 48px;max-width:560px;width:100%;text-align:center;border:.5px solid var(--gres-3);box-shadow:0 16px 48px rgba(15,14,12,.08)}
+
+/* CHECKMARK ANIMATION */
+.check-circle{width:80px;height:80px;border-radius:50%;background:var(--sapin-xl);border:2px solid var(--sapin-2);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.check-icon{width:40px;height:40px;animation:drawCheck .4s .3s ease-out both}
+@keyframes drawCheck{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
+.check-icon polyline{stroke:var(--sapin);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;fill:none;stroke-dasharray:60;stroke-dashoffset:60;animation:drawCheck .4s .3s ease-out forwards}
+
+/* TYPOGRAPHY */
+.success-tag{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sapin);margin-bottom:12px;display:block}
+.success-title{font-family:var(--font-d);font-size:2.2rem;font-weight:300;color:var(--nuit);line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.success-title em{font-style:italic;color:var(--sapin)}
+.success-sub{font-size:.95rem;color:var(--nuit-4);line-height:1.7;max-width:400px;margin:0 auto 32px}
+
+/* ORDER INFO */
+.order-info{background:var(--gres-2);border-radius:14px;padding:20px 24px;margin-bottom:28px;text-align:left}
+.order-info-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:.5px solid var(--gres-3)}
+.order-info-row:last-child{border-bottom:none;padding-bottom:0}
+.order-info-row:first-child{padding-top:0}
+.oi-label{font-size:.8rem;color:var(--nuit-4)}
+.oi-value{font-size:.8rem;font-weight:500;color:var(--nuit);font-family:var(--font-d);font-style:italic}
+
+/* STEPS */
+.next-steps{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;text-align:left}
+.step-row{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--sapin-xl);border-radius:12px;border:.5px solid var(--sapin-2)}
+.step-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.step-text-title{font-size:.82rem;font-weight:600;color:var(--sapin-d);margin-bottom:2px}
+.step-text-desc{font-size:.76rem;color:var(--sapin);line-height:1.5}
+
+/* BUTTONS */
+.btn-home{display:inline-flex;align-items:center;gap:8px;background:var(--sapin);color:white;padding:14px 32px;border-radius:9999px;font-size:.9rem;font-weight:500;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+.btn-home:hover{background:var(--sapin-l);transform:translateY(-1px)}
+.btn-home::after{content:'→';transition:transform .15s}
+.btn-home:hover::after{transform:translateX(4px)}
+
+/* CONFETTI */
+.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall linear forwards}
+@keyframes confettiFall{
+  0%{transform:translateY(-20px) rotate(0deg);opacity:1}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0}
+}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--gres-3);padding:20px 32px;text-align:center;font-size:.76rem;color:var(--nuit-5)}
+
+@media(max-width:600px){
+  .success-card{padding:36px 24px;border-radius:16px}
+  .success-title{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Confetti container -->
+<div class="confetti-container" id="confetti"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="/" class="logo">Bois<span>enserie</span></a>
+  <span style="font-size:.8rem;color:var(--nuit-4)">Artisanat · Alsace · Vosges</span>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div class="success-card" id="success-card" style="opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(0,0,.2,1)">
+
+    <!-- Check icon animé -->
+    <div class="check-circle">
+      <svg class="check-icon" viewBox="0 0 24 24">
+        <polyline points="4 12 9 17 20 7"/>
+      </svg>
+    </div>
+
+    <span class="success-tag">Commande confirmée</span>
+    <h1 class="success-title">Votre planche est<br><em>entre nos mains.</em></h1>
+    <p class="success-sub">Paiement reçu avec succès. Votre gravure est en file de production. Vous recevrez un e-mail de confirmation avec votre numéro de suivi.</p>
+
+    <!-- Infos commande -->
+    <div class="order-info" id="order-details">
+      <div class="order-info-row">
+        <span class="oi-label">Statut</span>
+        <span class="oi-value" style="color:var(--sapin);font-style:normal;font-family:var(--font-b);font-size:.78rem;background:var(--sapin-xl);padding:2px 10px;border-radius:9999px;border:.5px solid var(--sapin-2)">✓ Payée</span>
+      </div>
+      <div class="order-info-row">
+        <span class="oi-label">Gravure</span>
+        <span class="oi-value" id="order-engraving">En cours de traitement</span>
+      </div>
+      <div class="order-info-row">
+        <span class="oi-label">Production</span>
+        <span class="oi-value" style="font-style:normal;font-family:var(--font-b);font-size:.8rem">Démarrée sous 24h</span>
+      </div>
+      <div class="order-info-row">
+        <span class="oi-label">Livraison estimée</span>
+        <span class="oi-value" style="font-style:normal;font-family:var(--font-b);font-size:.8rem" id="delivery-date">Dans 3 à 5 jours ouvrés</span>
+      </div>
+    </div>
+
+    <!-- Prochaines étapes -->
+    <div class="next-steps">
+      <div class="step-row">
+        <div class="step-icon">📧</div>
+        <div>
+          <div class="step-text-title">E-mail de confirmation</div>
+          <div class="step-text-desc">Vous recevrez les détails de votre commande et votre numéro de suivi dès l'expédition.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-icon">✦</div>
+        <div>
+          <div class="step-text-title">Gravure laser sous 24h</div>
+          <div class="step-text-desc">Notre artisan commence la gravure dans les 24h. Chaque pièce est contrôlée avant expédition.</div>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-icon">📦</div>
+        <div>
+          <div class="step-text-title">Expédition sous 48h ouvrées</div>
+          <div class="step-text-desc">Colissimo suivi. Emballage soigné. Vous recevrez un SMS avec le lien de suivi dès l'envoi.</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/" class="btn-home">Retour à la boutique</a>
+
+    <div style="margin-top:20px;font-size:.75rem;color:var(--nuit-5)">
+      Une question ? <a href="mailto:contact@boisenserie.fr" style="color:var(--sapin);text-decoration:none">contact@boisenserie.fr</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  © 2025 Boisenserie — Saint-Dié-des-Vosges, Alsace &nbsp;·&nbsp; Paiement sécurisé par Stripe &nbsp;·&nbsp; RGPD conforme
+</footer>
+
+<script>
+// Affiche la carte avec animation
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const card = document.getElementById('success-card');
+    card.style.opacity = '1';
+    card.style.transform = 'translateY(0)';
+  }, 100);
+
+  // Confetti
+  launchConfetti();
+
+  // Date de livraison estimée
+  const date = new Date();
+  date.setDate(date.getDate() + 5);
+  const options = { weekday:'long', day:'numeric', month:'long' };
+  const dateStr = date.toLocaleDateString('fr-FR', options);
+  const el = document.getElementById('delivery-date');
+  if (el) el.textContent = 'Au plus tard le ' + dateStr;
+});
+
+// ── CONFETTI ──────────────────────────────────────────────
+function launchConfetti() {
+  const container = document.getElementById('confetti');
+  const colors = ['#225A3B','#D4A738','#A1C9AE','#F3EEE8','#66A47B','#ECC96E'];
+  const count = 60;
+
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.cssText = `
+      left: ${Math.random() * 100}%;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      width: ${Math.random() * 8 + 5}px;
+      height: ${Math.random() * 8 + 5}px;
+      border-radius: ${Math.random() > .5 ? '50%' : '2px'};
+      animation-duration: ${Math.random() * 2 + 2}s;
+      animation-delay: ${Math.random() * 1}s;
+    `;
+    container.appendChild(piece);
+  }
+
+  // Nettoie après l'animation
+  setTimeout(() => container.remove(), 4000);
+}
+</script>
+
+</body>
+</html>
