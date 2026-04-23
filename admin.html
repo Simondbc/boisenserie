@@ -259,7 +259,7 @@ canvas{display:block}
     <div class="err-msg" id="login-err" style="display:none">Mot de passe incorrect.</div>
 <label class="f-label">Mot de passe</label>
     <input type="password" class="f-input" id="pwd" placeholder="••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="primary-btn" onclick="doLogin()">Accéder →</button>
+    <button class="primary-btn" id="login-btn" onclick="doLogin()">Accéder →</button>
   </div>
 </div>
 
@@ -516,7 +516,7 @@ let period = 'month';
 async function doLogin() {
   const v = document.getElementById('pwd').value.trim();
   if (!v) return;
-  const btn = document.querySelector('.primary-btn');
+  const btn = document.getElementById('login-btn');
   const err = document.getElementById('login-err');
   btn.textContent = 'Vérification…'; btn.disabled = true;
   err.classList.remove('show');
