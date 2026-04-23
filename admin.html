@@ -510,23 +510,72 @@ let caChart = null, nbChart = null, avgChart = null;
 let period = 'month';
 
 // ════════════════════════════════════════════════════════════
-// AUTH
+// AUTH — Vérification côté serveur
 // ════════════════════════════════════════════════════════════
-function doLogin() {
+async function doLogin() {
   const v = document.getElementById('pwd').value.trim();
   if (!v) return;
-  localStorage.setItem('boi_key', v);
-  document.getElementById('login').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
-  boot();
+  const btn = document.querySelector('.primary-btn');
+  const err = document.getElementById('login-err');
+  btn.textContent = 'Vérification…'; btn.disabled = true;
+  err.classList.remove('show');
+  try {
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: v })
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      err.classList.add('show');
+      btn.textContent = 'Accéder →'; btn.disabled = false;
+      return;
+    }
+    localStorage.setItem('boi_token', data.token);
+    // Supprime l'ancien token si présent
+    localStorage.removeItem('boi_key');
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    boot();
+  } catch(e) {
+    err.classList.add('show');
+    btn.textContent = 'Accéder →'; btn.disabled = false;
+  }
 }
+
 function doLogout() {
+  localStorage.removeItem('boi_token');
   localStorage.removeItem('boi_key');
   document.getElementById('app').style.display = 'none';
   document.getElementById('login').style.display = 'flex';
   document.getElementById('pwd').value = '';
 }
-window.addEventListener('load', () => { if (localStorage.getItem('boi_key')) doLogin(); });
+
+window.addEventListener('load', async () => {
+  const token = localStorage.getItem('boi_token');
+  if (!token) return;
+  try {
+    const res = await fetch('/api/admin/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    });
+    const data = await res.json();
+    if (data.valid) {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('app').style.display = 'flex';
+      boot();
+    } else {
+      localStorage.removeItem('boi_token');
+      if (data.expired) {
+        document.getElementById('login-err').textContent = 'Session expirée, reconnectez-vous.';
+        document.getElementById('login-err').classList.add('show');
+      }
+    }
+  } catch(e) {
+    localStorage.removeItem('boi_token');
+  }
+});
 
 // ════════════════════════════════════════════════════════════
 // BOOT
@@ -591,6 +640,7 @@ function renderOrders() {
       <div class="c-date">${fmtd(o.date)}</div>
       <div onclick="event.stopPropagation()" style="display:flex;gap:6px;flex-wrap:wrap">
         ${o.status==='paid' ? `<button class="btn btn-g btn-xs" onclick="openShip('${o.id}');event.stopPropagation()">Expédier</button>` : ''}
+        ${o.status!=='refunded' && o.status!=='delivered' ? `<button class="btn btn-r btn-xs" onclick="openRefund('${o.id}');event.stopPropagation()">Rembourser</button>` : ''}
         <button class="btn btn-w btn-xs" onclick="printOneLabel('${o.id}');event.stopPropagation()" title="Imprimer étiquette">🏷</button>
       </div>
     </div>`;
@@ -693,6 +743,7 @@ function buildLabel(o) {
   return `<div class="shipping-label">
     <div class="label-from"><strong>DE :</strong> ${SELLER.name} · ${SELLER.address.replace('\n',' ')}</div>
     <div class="label-to">
+      <div class="label-to-name">${o.customer.name}</div>
       <div class="label-to-addr">${o.address}</div>
     </div>
     <div class="label-order">Commande ${o.num} · ${fmtd(o.date)}${o.tracking?' · Suivi : '+o.tracking:''}</div>
