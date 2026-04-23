@@ -218,7 +218,7 @@ function buildOrderConfirmationEmail(order) {
           <div class="step-num">3</div>
           <div>
             <div class="step-title">Expédition Colissimo</div>
-            <div class="step-text">Vous recevrez un SMS avec votre numéro de suivi dès l'envoi. Livraison estimée : <strong>${delivery}</strong>.</div>
+            <div class="step-text">Vous recevrez un email avec votre numéro de suivi dès l'envoi. Livraison estimée : <strong>${delivery}</strong>.</div>
           </div>
         </li>
       </ul>
@@ -281,7 +281,7 @@ function buildShippingEmail(order) {
       </div>` : `
       <div class="card" style="text-align:center">
         <div style="font-size:13px;color:#6E6C64">Livraison estimée : <strong>${delivery}</strong></div>
-        <div style="font-size:12px;color:#9C9A90;margin-top:6px">Vous recevrez votre numéro de suivi par SMS</div>
+        <div style="font-size:12px;color:#9C9A90;margin-top:6px">Vous recevrez votre numéro de suivi par email</div>
       </div>`}
 
       <div class="label" style="margin-top:24px">Dans votre colis</div>
