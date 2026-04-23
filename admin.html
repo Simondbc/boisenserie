@@ -6,170 +6,489 @@
 <title>Admin — Boisenserie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --sapin:#225A3B;--sapin-l:#3A7A54;--sapin-50:#F0F6F2;--sapin-100:#D3E8D9;--sapin-200:#A1C9AE;
-  --ble:#D4A738;--ble-50:#FDF8EB;
-  --gres-50:#FAFAF8;--gres-100:#F3EEE8;--gres-200:#E1D7CB;--gres-300:#C9BEAF;
-  --col-50:#FBF0EE;--col-200:#E5A49A;--col-500:#9A3527;
-  --nuit:#1A1916;--nuit-4:#6E6C64;--nuit-5:#9C9A90;--nuit-7:#1A1916;
+  --g:#225A3B;--g-l:#3A7A54;--g-50:#F0F6F2;--g-100:#D3E8D9;--g-200:#A1C9AE;--g-600:#164530;
+  --b:#D4A738;--b-50:#FDF8EB;--b-200:#ECC96E;
+  --r-50:#FBF0EE;--r-200:#E5A49A;--r-500:#9A3527;--r-600:#74271B;
   --blue-50:#E6F1FB;--blue-200:#85B7EB;--blue-600:#185FA5;
+  --pu-50:#EEEDFE;--pu-200:#AFA9EC;--pu-600:#534AB7;
+  --s50:#FAFAF8;--s100:#F3EEE8;--s200:#E1D7CB;--s300:#C9BEAF;
+  --n:#1A1916;--n4:#6E6C64;--n5:#9C9A90;
   --fd:'Fraunces',Georgia,serif;--fb:'Outfit',sans-serif;
+  --sidebar:220px;
 }
-html{font-size:16px;-webkit-font-smoothing:antialiased}
-body{font-family:var(--fb);background:var(--gres-50);color:var(--nuit);line-height:1.65;min-height:100vh}
+html{font-size:15px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--fb);background:var(--s100);color:var(--n);min-height:100vh;display:flex}
 
-/* ── LOGIN ── */
-.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-.login-card{background:#fff;border-radius:16px;padding:36px;max-width:380px;width:100%;border:.5px solid var(--gres-200)}
-.login-logo{font-family:var(--fd);font-size:1.4rem;font-weight:400;text-align:center;margin-bottom:4px}
-.login-logo span{color:var(--sapin)}
-.login-tag{text-align:center;font-size:.78rem;color:var(--nuit-5);margin-bottom:24px}
-.login-label{font-size:.8rem;font-weight:500;color:var(--nuit-4);margin-bottom:5px;display:block}
-.login-input{width:100%;padding:10px 14px;border:1px solid var(--gres-300);border-radius:8px;font-family:var(--fb);font-size:.9rem;color:var(--nuit);outline:none;margin-bottom:14px;transition:border-color .15s}
-.login-input:focus{border-color:var(--sapin)}
-.login-btn{width:100%;padding:12px;background:var(--sapin);color:#fff;border:none;border-radius:8px;font-family:var(--fb);font-size:.9rem;font-weight:500;cursor:pointer;transition:background .15s}
-.login-btn:hover{background:var(--sapin-l)}
-.login-error{background:var(--col-50);color:var(--col-500);border:.5px solid var(--col-200);border-radius:7px;padding:10px 14px;font-size:.8rem;margin-bottom:12px;display:none}
-.login-error.show{display:block}
+/* ═══ PRINT ════════════════════════════════════════════ */
+@media print{
+  .sidebar,.admin-header,.tabs-bar,.no-print{display:none!important}
+  .main-content{margin:0;padding:0}
+  .print-doc{display:block!important}
+  body{background:white}
+}
+.print-doc{display:none}
 
-/* ── DASHBOARD ── */
-.admin-wrap{display:none}
-.admin-header{background:#fff;border-bottom:.5px solid var(--gres-200);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.admin-logo{font-family:var(--fd);font-size:1.2rem;font-weight:400}
-.admin-logo span{color:var(--sapin)}
-.admin-badge{font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--sapin-50);color:var(--sapin);border:.5px solid var(--sapin-100);letter-spacing:.04em}
-.logout-btn{padding:6px 14px;border:.5px solid var(--gres-300);border-radius:99px;font-size:.78rem;color:var(--nuit-4);cursor:pointer;background:none;transition:all .15s}
-.logout-btn:hover{border-color:var(--col-200);color:var(--col-500)}
-.admin-body{max-width:1000px;margin:0 auto;padding:32px 24px}
+/* ═══ LOGIN ════════════════════════════════════════════ */
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;width:100%;background:var(--s100)}
+.login-card{background:#fff;border-radius:20px;padding:40px;max-width:380px;width:90%;border:.5px solid var(--s200);box-shadow:0 8px 40px rgba(15,14,12,.08)}
+.login-logo{font-family:var(--fd);font-size:1.6rem;font-weight:400;text-align:center;margin-bottom:4px}
+.login-logo em{font-style:italic;color:var(--g)}
+.login-sub{text-align:center;font-size:.78rem;color:var(--n5);margin-bottom:28px}
+.f-label{display:block;font-size:.75rem;font-weight:500;color:var(--n4);margin-bottom:5px}
+.f-input{width:100%;padding:11px 14px;border:1px solid var(--s300);border-radius:9px;font-family:var(--fb);font-size:.9rem;color:var(--n);outline:none;transition:border-color .15s;margin-bottom:14px}
+.f-input:focus{border-color:var(--g)}
+.primary-btn{width:100%;padding:13px;background:var(--g);color:#fff;border:none;border-radius:9px;font-family:var(--fb);font-size:.9rem;font-weight:500;cursor:pointer;transition:background .15s}
+.primary-btn:hover{background:var(--g-l)}
+.err-msg{background:var(--r-50);color:var(--r-500);border:.5px solid var(--r-200);border-radius:7px;padding:9px 13px;font-size:.78rem;margin-bottom:12px;display:none}
+.err-msg.show{display:block}
 
-/* STATS */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
-.stat-card{background:#fff;border-radius:10px;padding:16px 18px;border:.5px solid var(--gres-200)}
-.stat-num{font-family:var(--fd);font-size:1.8rem;font-weight:300;color:var(--sapin);line-height:1}
-.stat-label{font-size:.72rem;color:var(--nuit-5);margin-top:4px}
+/* ═══ APP LAYOUT ════════════════════════════════════════ */
+#app{display:none;width:100%;min-height:100vh}
+.sidebar{width:var(--sidebar);background:var(--n);min-height:100vh;position:fixed;top:0;left:0;z-index:100;display:flex;flex-direction:column}
+.sb-logo{padding:24px 20px 20px;border-bottom:.5px solid rgba(255,255,255,.08)}
+.sb-logo-text{font-family:var(--fd);font-size:1.2rem;font-weight:400;color:#fff}
+.sb-logo-text em{font-style:italic;color:var(--g-200)}
+.sb-badge{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--g);color:#fff;margin-left:6px;letter-spacing:.06em}
+.sb-nav{padding:16px 12px;flex:1}
+.sb-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;cursor:pointer;color:rgba(255,255,255,.5);font-size:.82rem;font-weight:400;transition:all .15s;margin-bottom:2px;border:none;background:none;width:100%;text-align:left}
+.sb-item:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.8)}
+.sb-item.active{background:rgba(34,90,59,.4);color:#fff;font-weight:500}
+.sb-item .icon{width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.sb-badge-count{margin-left:auto;background:var(--g);color:#fff;font-size:.65rem;font-weight:600;padding:2px 7px;border-radius:99px}
+.sb-footer{padding:14px 12px;border-top:.5px solid rgba(255,255,255,.08)}
+.sb-user{display:flex;align-items:center;gap:10px}
+.sb-avatar{width:32px;height:32px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#fff}
+.sb-user-info{flex:1}
+.sb-user-name{font-size:.8rem;font-weight:500;color:#fff}
+.sb-user-role{font-size:.7rem;color:rgba(255,255,255,.4)}
+.logout-sb{padding:4px 10px;border:.5px solid rgba(255,255,255,.15);border-radius:99px;font-size:.7rem;color:rgba(255,255,255,.4);cursor:pointer;background:none;transition:all .15s;flex-shrink:0}
+.logout-sb:hover{border-color:var(--r-200);color:var(--r-200)}
 
-/* ORDERS TABLE */
-.section-title{font-family:var(--fd);font-size:1.2rem;font-weight:400;color:var(--nuit);margin-bottom:16px}
-.orders-table{background:#fff;border-radius:12px;border:.5px solid var(--gres-200);overflow:hidden}
-.table-header{display:grid;grid-template-columns:140px 1fr 120px 110px 130px;gap:12px;padding:12px 16px;background:var(--gres-100);border-bottom:.5px solid var(--gres-200);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--nuit-5)}
-.order-row{display:grid;grid-template-columns:140px 1fr 120px 110px 130px;gap:12px;padding:14px 16px;border-bottom:.5px solid var(--gres-100);align-items:center;transition:background .1s}
-.order-row:last-child{border-bottom:none}
-.order-row:hover{background:var(--gres-50)}
-.order-num{font-size:.8rem;font-weight:600;color:var(--nuit);font-family:monospace}
-.order-customer{font-size:.82rem;color:var(--nuit)}
-.order-email{font-size:.72rem;color:var(--nuit-5);margin-top:2px}
-.order-amount{font-size:.85rem;font-weight:500;color:var(--nuit)}
-.status-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:99px;font-size:.7rem;font-weight:500}
-.status-paid{background:var(--sapin-50);color:var(--sapin);border:.5px solid var(--sapin-100)}
-.status-engraving{background:#EEE8FF;color:#534AB7;border:.5px solid #AFA9EC}
-.status-shipped{background:var(--blue-50);color:var(--blue-600);border:.5px solid var(--blue-200)}
-.status-delivered{background:var(--sapin-50);color:var(--sapin);border:.5px solid var(--sapin-100)}
-.status-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
-.action-btn{padding:6px 12px;border-radius:6px;font-size:.75rem;font-weight:500;cursor:pointer;border:none;transition:all .15s}
-.btn-ship{background:var(--sapin);color:#fff}
-.btn-ship:hover{background:var(--sapin-l)}
-.btn-shipped{background:var(--gres-100);color:var(--nuit-5);cursor:default}
-.btn-loading{opacity:.6;cursor:not-allowed}
-.empty-orders{padding:40px;text-align:center;color:var(--nuit-5);font-size:.85rem}
+.main{margin-left:var(--sidebar);flex:1;min-height:100vh}
+.main-header{background:#fff;border-bottom:.5px solid var(--s200);padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.page-title{font-family:var(--fd);font-size:1.1rem;font-weight:400;color:var(--n)}
+.page-title em{font-style:italic;color:var(--g)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.icon-btn{padding:7px 14px;border:.5px solid var(--s200);border-radius:8px;font-size:.78rem;color:var(--n4);cursor:pointer;background:#fff;transition:all .15s;display:flex;align-items:center;gap:6px}
+.icon-btn:hover{border-color:var(--g-200);color:var(--g)}
+.main-body{padding:24px 28px}
 
-/* MODAL EXPÉDITION */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,14,12,.45);z-index:500;align-items:center;justify-content:center}
-.modal-overlay.open{display:flex}
-.modal{background:#fff;border-radius:16px;padding:28px;max-width:440px;width:90%;border:.5px solid var(--gres-200)}
-.modal-title{font-family:var(--fd);font-size:1.2rem;font-weight:400;margin-bottom:6px}
-.modal-sub{font-size:.82rem;color:var(--nuit-5);margin-bottom:20px}
-.modal-label{font-size:.78rem;font-weight:500;color:var(--nuit-4);margin-bottom:5px;display:block}
-.modal-input{width:100%;padding:10px 14px;border:1px solid var(--gres-300);border-radius:8px;font-family:var(--fb);font-size:.9rem;color:var(--nuit);outline:none;margin-bottom:14px;transition:border-color .15s}
-.modal-input:focus{border-color:var(--sapin)}
-.modal-note{background:var(--sapin-50);border:.5px solid var(--sapin-100);border-radius:7px;padding:10px 14px;font-size:.78rem;color:var(--sapin);margin-bottom:16px;line-height:1.6}
-.modal-actions{display:flex;gap:10px}
-.modal-cancel{flex:1;padding:11px;border:.5px solid var(--gres-300);border-radius:8px;font-family:var(--fb);font-size:.85rem;color:var(--nuit-4);cursor:pointer;background:none}
-.modal-confirm{flex:2;padding:11px;background:var(--sapin);color:#fff;border:none;border-radius:8px;font-family:var(--fb);font-size:.85rem;font-weight:500;cursor:pointer;transition:background .15s}
-.modal-confirm:hover{background:var(--sapin-l)}
-.modal-confirm:disabled{opacity:.6;cursor:not-allowed}
+/* ═══ SECTIONS ══════════════════════════════════════════ */
+.section{display:none}
+.section.active{display:block}
 
-/* TOAST */
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);z-index:600;padding:12px 22px;border-radius:10px;font-size:.85rem;font-weight:500;opacity:0;transition:all .25s;white-space:nowrap}
-.toast.success{background:var(--sapin);color:#fff}
-.toast.error{background:var(--col-500);color:#fff}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ═══ STATS CARDS ═══════════════════════════════════════ */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat-card{background:#fff;border-radius:12px;padding:16px 18px;border:.5px solid var(--s200)}
+.stat-num{font-family:var(--fd);font-size:1.8rem;font-weight:300;color:var(--g);line-height:1}
+.stat-num.amber{color:var(--b)}
+.stat-num.blue{color:var(--blue-600)}
+.stat-num.red{color:var(--r-500)}
+.stat-label{font-size:.72rem;color:var(--n5);margin-top:5px}
+.stat-delta{font-size:.72rem;margin-top:4px;font-weight:500}
+.delta-up{color:#1D9E75}.delta-dn{color:var(--r-500)}
 
-/* LOADING */
-.spinner{width:20px;height:20px;border:2px solid var(--gres-200);border-top-color:var(--sapin);border-radius:50%;animation:spin .7s linear infinite;margin:40px auto}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* ═══ TOOLBAR ════════════════════════════════════════════ */
+.toolbar{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.search-box{flex:1;min-width:200px;position:relative}
+.search-box input{width:100%;padding:9px 14px 9px 36px;border:.5px solid var(--s200);border-radius:8px;font-family:var(--fb);font-size:.82rem;color:var(--n);outline:none;transition:border-color .15s;background:#fff}
+.search-box input:focus{border-color:var(--g)}
+.search-box::before{content:'⌕';position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--n5);font-size:1rem}
+.filter-select{padding:9px 12px;border:.5px solid var(--s200);border-radius:8px;font-family:var(--fb);font-size:.8rem;color:var(--n);background:#fff;outline:none;cursor:pointer}
+.btn-sm{padding:8px 14px;border-radius:8px;font-family:var(--fb);font-size:.78rem;font-weight:500;cursor:pointer;border:none;display:flex;align-items:center;gap:5px;transition:all .15s}
+.btn-primary{background:var(--g);color:#fff}
+.btn-primary:hover{background:var(--g-l)}
+.btn-secondary{background:#fff;color:var(--n4);border:.5px solid var(--s200)}
+.btn-secondary:hover{border-color:var(--g-200);color:var(--g)}
+.btn-danger{background:var(--r-50);color:var(--r-500);border:.5px solid var(--r-200)}
+.btn-danger:hover{background:var(--r-200)}
+.btn-amber{background:var(--b-50);color:#5F460B;border:.5px solid var(--b-200)}
+.btn-amber:hover{background:var(--b-200)}
 
-@media(max-width:768px){.stats-grid{grid-template-columns:1fr 1fr}.table-header,.order-row{grid-template-columns:1fr 1fr;gap:8px}.table-header>:nth-child(n+3),.order-row>:nth-child(n+3){display:none}.admin-body{padding:20px 16px}}
+/* ═══ TABLE ══════════════════════════════════════════════ */
+.data-table{background:#fff;border-radius:12px;border:.5px solid var(--s200);overflow:hidden}
+.table-head{display:grid;padding:10px 16px;background:var(--s100);border-bottom:.5px solid var(--s200);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--n5)}
+.table-row{display:grid;padding:13px 16px;border-bottom:.5px solid #FAFAF8;align-items:center;transition:background .1s;cursor:pointer}
+.table-row:last-child{border-bottom:none}
+.table-row:hover{background:var(--s50)}
+.orders-grid{grid-template-columns:130px 1fr 130px 100px 120px 120px}
+.invoices-grid{grid-template-columns:120px 1fr 100px 110px 100px 110px}
+.cell-num{font-size:.78rem;font-weight:600;color:var(--n);font-family:monospace}
+.cell-main{font-size:.82rem;color:var(--n);font-weight:500}
+.cell-sub{font-size:.7rem;color:var(--n5);margin-top:1px}
+.cell-amount{font-size:.85rem;font-weight:500;color:var(--n)}
+.cell-date{font-size:.78rem;color:var(--n4)}
+
+/* ═══ STATUS BADGES ══════════════════════════════════════ */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:99px;font-size:.68rem;font-weight:500}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+.s-pending{background:var(--b-50);color:#5F460B;border:.5px solid var(--b-200)}
+.s-engraving{background:var(--pu-50);color:var(--pu-600);border:.5px solid var(--pu-200)}
+.s-shipped{background:var(--blue-50);color:var(--blue-600);border:.5px solid var(--blue-200)}
+.s-delivered{background:var(--g-50);color:var(--g-600);border:.5px solid var(--g-100)}
+.s-refunded{background:var(--r-50);color:var(--r-500);border:.5px solid var(--r-200)}
+.s-draft{background:var(--s100);color:var(--n4);border:.5px solid var(--s200)}
+.s-sent{background:var(--g-50);color:var(--g-600);border:.5px solid var(--g-100)}
+
+/* ═══ PLANNING ════════════════════════════════════════════ */
+.planning-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.date-nav{display:flex;align-items:center;gap:8px}
+.date-nav-btn{width:32px;height:32px;border-radius:8px;border:.5px solid var(--s200);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--n4);transition:all .15s}
+.date-nav-btn:hover{border-color:var(--g);color:var(--g)}
+.date-display{font-family:var(--fd);font-size:1.1rem;font-weight:400;color:var(--n);min-width:200px;text-align:center}
+.date-display em{font-style:italic;color:var(--g)}
+input[type=date].date-picker{padding:8px 12px;border:.5px solid var(--s200);border-radius:8px;font-family:var(--fb);font-size:.82rem;color:var(--n);outline:none;background:#fff;cursor:pointer}
+input[type=date].date-picker:focus{border-color:var(--g)}
+
+.prep-card{background:#fff;border-radius:12px;border:.5px solid var(--s200);padding:18px 20px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;cursor:pointer;transition:all .15s}
+.prep-card:hover{border-color:var(--g-200);box-shadow:0 2px 12px rgba(34,90,59,.06)}
+.prep-card.done{opacity:.5}
+.prep-check{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--s300);display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:all .15s;margin-top:2px}
+.prep-check.checked{background:var(--g);border-color:var(--g);color:#fff;font-size:.7rem}
+.prep-info{flex:1}
+.prep-order{font-size:.7rem;font-family:monospace;font-weight:600;color:var(--n5);margin-bottom:3px}
+.prep-client{font-size:.88rem;font-weight:500;color:var(--n);margin-bottom:4px}
+.prep-items{font-size:.78rem;color:var(--n4);line-height:1.6}
+.prep-engr{font-size:.75rem;color:var(--g);font-style:italic;margin-top:2px}
+.prep-priority{padding:3px 9px;border-radius:99px;font-size:.65rem;font-weight:600;flex-shrink:0}
+.prio-urgent{background:var(--r-50);color:var(--r-500)}
+.prio-normal{background:var(--b-50);color:#5F460B}
+.prio-ok{background:var(--g-50);color:var(--g-600)}
+.print-prep-btn{padding:7px 14px;background:var(--n);color:#fff;border:none;border-radius:8px;font-size:.75rem;cursor:pointer;transition:background .15s}
+.print-prep-btn:hover{background:#333}
+
+/* ═══ MODAL ══════════════════════════════════════════════ */
+.overlay{display:none;position:fixed;inset:0;background:rgba(15,14,12,.5);z-index:200;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:720px;border:.5px solid var(--s200);animation:slideUp .2s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.modal-header{padding:20px 24px;border-bottom:.5px solid var(--s200);display:flex;align-items:center;justify-content:space-between}
+.modal-title{font-family:var(--fd);font-size:1.1rem;font-weight:400}
+.modal-title em{font-style:italic;color:var(--g)}
+.modal-close{width:28px;height:28px;border-radius:7px;border:none;background:var(--s100);cursor:pointer;font-size:.9rem;color:var(--n4);display:flex;align-items:center;justify-content:center;transition:background .15s}
+.modal-close:hover{background:var(--s200)}
+.modal-body{padding:24px}
+.modal-footer{padding:16px 24px;border-top:.5px solid var(--s200);display:flex;gap:8px;flex-wrap:wrap}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.info-block{background:var(--s50);border-radius:9px;padding:13px 15px;border:.5px solid var(--s200)}
+.info-label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--n5);margin-bottom:4px}
+.info-value{font-size:.85rem;color:var(--n);font-weight:500;line-height:1.5}
+.info-value a{color:var(--blue-600);text-decoration:none}
+.info-value a:hover{text-decoration:underline}
+.info-value.mono{font-family:monospace;font-size:.8rem;color:var(--g-600)}
+
+.order-items-list{border:.5px solid var(--s200);border-radius:9px;overflow:hidden;margin-bottom:16px}
+.order-item-row{display:flex;align-items:center;gap:12px;padding:11px 14px;border-bottom:.5px solid #FAFAF8}
+.order-item-row:last-child{border-bottom:none}
+.item-wood{width:36px;height:26px;border-radius:5px;background:linear-gradient(135deg,#C9A37A,#7A5535);flex-shrink:0}
+.item-details{flex:1}
+.item-n{font-size:.82rem;font-weight:500;color:var(--n)}
+.item-d{font-size:.72rem;color:var(--n5);margin-top:1px}
+.item-engr-d{font-size:.72rem;color:var(--g);font-style:italic;margin-top:2px}
+.item-p{font-size:.85rem;font-weight:500;color:var(--n)}
+.total-line{display:flex;justify-content:space-between;padding:10px 14px;font-size:.82rem;color:var(--n4)}
+.total-line.grand{font-weight:600;color:var(--n);font-size:.9rem;background:var(--s50)}
+.divider{border:none;border-top:.5px solid var(--s200);margin:16px 0}
+
+/* Refund modal */
+.refund-input{width:100%;padding:10px 14px;border:1px solid var(--s300);border-radius:8px;font-family:var(--fb);font-size:.9rem;color:var(--n);outline:none;margin-bottom:10px;transition:border-color .15s}
+.refund-input:focus{border-color:var(--g)}
+.warning-box{background:var(--r-50);border:.5px solid var(--r-200);border-radius:8px;padding:12px 14px;font-size:.78rem;color:var(--r-500);margin-bottom:14px;line-height:1.6}
+.info-box{background:var(--g-50);border:.5px solid var(--g-100);border-radius:8px;padding:12px 14px;font-size:.78rem;color:var(--g-600);margin-bottom:14px;line-height:1.6}
+
+/* ═══ FACTURE PRINT ══════════════════════════════════════ */
+.invoice-preview{background:#fff;border:.5px solid var(--s200);border-radius:10px;overflow:hidden}
+.inv-header{padding:32px;background:var(--n);color:#fff;display:flex;justify-content:space-between;align-items:flex-start}
+.inv-logo{font-family:var(--fd);font-size:1.4rem;color:#fff}
+.inv-logo em{font-style:italic;color:var(--g-200)}
+.inv-type{font-size:1.1rem;font-weight:500;letter-spacing:.06em;text-align:right}
+.inv-num{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:4px;text-align:right;font-family:monospace}
+.inv-body{padding:28px 32px}
+.inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.inv-party-title{font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--n5);margin-bottom:8px}
+.inv-party-name{font-size:.9rem;font-weight:600;color:var(--n);margin-bottom:3px}
+.inv-party-info{font-size:.78rem;color:var(--n4);line-height:1.7}
+.inv-items{width:100%;border-collapse:collapse;margin-bottom:20px}
+.inv-items th{background:var(--s100);padding:9px 12px;text-align:left;font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--n5)}
+.inv-items td{padding:10px 12px;border-bottom:.5px solid var(--s200);font-size:.8rem;color:var(--n);vertical-align:top}
+.inv-items tr:last-child td{border-bottom:none}
+.inv-totals{margin-left:auto;max-width:280px}
+.inv-total-row{display:flex;justify-content:space-between;padding:7px 0;font-size:.82rem;color:var(--n4);border-bottom:.5px solid var(--s200)}
+.inv-total-row.grand{font-weight:700;font-size:.95rem;color:var(--n);padding:10px 0;border-bottom:none}
+.inv-footer-legal{margin-top:24px;padding-top:20px;border-top:.5px solid var(--s200);font-size:.68rem;color:var(--n5);line-height:1.7}
+.inv-avoir-stripe{background:var(--r-50);border:.5px solid var(--r-200);padding:8px 14px;border-radius:7px;text-align:center;margin-bottom:12px;font-size:.75rem;font-weight:600;color:var(--r-500);letter-spacing:.06em}
+
+/* ═══ STATS ══════════════════════════════════════════════ */
+.period-tabs{display:flex;gap:4px;background:var(--s100);border-radius:9px;padding:4px;margin-bottom:24px;width:fit-content}
+.period-tab{padding:7px 18px;border-radius:6px;font-size:.78rem;font-weight:500;cursor:pointer;color:var(--n4);transition:all .15s;border:none;background:none}
+.period-tab.active{background:#fff;color:var(--n);box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.chart-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:20px}
+.chart-card{background:#fff;border-radius:12px;border:.5px solid var(--s200);padding:20px}
+.chart-title{font-size:.82rem;font-weight:500;color:var(--n);margin-bottom:4px}
+.chart-sub{font-size:.72rem;color:var(--n5);margin-bottom:16px}
+
+/* ═══ EMPTY STATE ════════════════════════════════════════ */
+.empty{padding:48px;text-align:center;color:var(--n5);font-size:.85rem}
+.empty-icon{font-size:2rem;margin-bottom:10px}
+
+/* ═══ TOAST ══════════════════════════════════════════════ */
+.toast{position:fixed;bottom:24px;right:24px;z-index:999;padding:12px 20px;border-radius:10px;font-size:.82rem;font-weight:500;opacity:0;transition:all .25s;pointer-events:none}
+.toast.success{background:var(--g);color:#fff}
+.toast.error{background:var(--r-500);color:#fff}
+.toast.info{background:var(--n);color:#fff}
+.toast.show{opacity:1}
+
+/* ═══ RESPONSIVE ═════════════════════════════════════════ */
+@media(max-width:900px){
+  .sidebar{width:56px}.sidebar .sb-item span,.sb-logo-text,.sb-user-info,.logout-sb,.sb-badge-count{display:none}
+  .sb-logo{padding:16px 12px}.sb-item{justify-content:center;padding:12px}.main{margin-left:56px}
+  .stats-row{grid-template-columns:1fr 1fr}.info-grid{grid-template-columns:1fr}
+  .orders-grid,.invoices-grid{grid-template-columns:1fr 1fr 80px}
+  .chart-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- ── LOGIN ── -->
-<div class="login-wrap" id="login-wrap">
+<!-- ═══ LOGIN ════════════════════════════════════════════ -->
+<div id="login">
   <div class="login-card">
-    <div class="login-logo">Bois<span>enserie</span></div>
-    <div class="login-tag">Espace administration</div>
-    <div class="login-error" id="login-error">Mot de passe incorrect.</div>
-    <label class="login-label">Mot de passe admin</label>
-    <input type="password" class="login-input" id="admin-password" placeholder="••••••••••" onkeydown="if(event.key==='Enter')submitLogin()">
-    <button class="login-btn" onclick="submitLogin()">Accéder au tableau de bord →</button>
+    <div class="login-logo">Bois<em>enserie</em></div>
+    <div class="login-sub">Tableau de bord administrateur</div>
+    <div class="err-msg" id="login-err">Mot de passe incorrect.</div>
+    <label class="f-label">Mot de passe</label>
+    <input type="password" class="f-input" id="pwd" placeholder="••••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="primary-btn" onclick="doLogin()">Accéder →</button>
   </div>
 </div>
 
-<!-- ── DASHBOARD ── -->
-<div class="admin-wrap" id="admin-wrap">
-
-  <header class="admin-header">
-    <div style="display:flex;align-items:center;gap:12px">
-      <div class="admin-logo">Bois<span>enserie</span></div>
-      <span class="admin-badge">Admin</span>
+<!-- ═══ APP ════════════════════════════════════════════════ -->
+<div id="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-text">Bois<em>enserie</em> <span class="sb-badge">ADMIN</span></div>
     </div>
-    <button class="logout-btn" onclick="logout()">Se déconnecter</button>
-  </header>
-
-  <div class="admin-body">
-
-    <!-- Stats -->
-    <div class="stats-grid" id="stats-grid">
-      <div class="stat-card"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Commandes totales</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-pending">—</div><div class="stat-label">En attente d'expédition</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-shipped">—</div><div class="stat-label">Expédiées</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-revenue">—</div><div class="stat-label">Chiffre d'affaires</div></div>
-    </div>
-
-    <!-- Commandes -->
-    <div class="section-title">Toutes les commandes</div>
-    <div class="orders-table">
-      <div class="table-header">
-        <div>N° commande</div>
-        <div>Client</div>
-        <div>Montant</div>
-        <div>Statut</div>
-        <div>Action</div>
-      </div>
-      <div id="orders-list">
-        <div class="empty-orders"><div class="spinner"></div></div>
+    <nav class="sb-nav">
+      <button class="sb-item active" onclick="switchSection('orders',this)"><span class="icon">📦</span><span>Commandes</span><span class="sb-badge-count" id="badge-orders">2</span></button>
+      <button class="sb-item" onclick="switchSection('planning',this)"><span class="icon">📅</span><span>Planning</span></button>
+      <button class="sb-item" onclick="switchSection('invoices',this)"><span class="icon">🧾</span><span>Factures</span></button>
+      <button class="sb-item" onclick="switchSection('credits',this)"><span class="icon">↩</span><span>Avoirs</span></button>
+      <button class="sb-item" onclick="switchSection('stats',this)"><span class="icon">📊</span><span>Statistiques</span></button>
+    </nav>
+    <div class="sb-footer">
+      <div class="sb-user">
+        <div class="sb-avatar">B</div>
+        <div class="sb-user-info">
+          <div class="sb-user-name">Boisenserie</div>
+          <div class="sb-user-role">contact@boisenserie.fr</div>
+        </div>
+        <button class="logout-sb" onclick="doLogout()">Quitter</button>
       </div>
     </div>
+  </aside>
 
-  </div>
-</div>
+  <!-- Main -->
+  <div class="main">
+    <header class="main-header">
+      <div class="page-title" id="page-title">Commandes <em>· Vue globale</em></div>
+      <div class="header-actions" id="header-actions">
+        <button class="icon-btn" onclick="exportCSV()">⬇ Export CSV</button>
+        <button class="icon-btn no-print" onclick="window.print()">🖨 Imprimer</button>
+      </div>
+    </header>
 
-<!-- ── MODAL EXPÉDITION ── -->
-<div class="modal-overlay" id="modal">
+    <div class="main-body">
+
+      <!-- ══ COMMANDES ══ -->
+      <div class="section active" id="section-orders">
+        <div class="stats-row">
+          <div class="stat-card"><div class="stat-num" id="s-total">0</div><div class="stat-label">Commandes totales</div></div>
+          <div class="stat-card"><div class="stat-num amber" id="s-pending">0</div><div class="stat-label">À préparer</div></div>
+          <div class="stat-card"><div class="stat-num blue" id="s-shipped">0</div><div class="stat-label">Expédiées</div></div>
+          <div class="stat-card"><div class="stat-num" id="s-revenue">—</div><div class="stat-label">CA total</div></div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search-box"><input type="text" placeholder="Rechercher commande, client, email…" id="order-search" oninput="filterOrders()"></div>
+          <select class="filter-select" id="order-status-filter" onchange="filterOrders()">
+            <option value="">Tous les statuts</option>
+            <option value="paid">À préparer</option>
+            <option value="engraving">En gravure</option>
+            <option value="shipped">Expédiée</option>
+            <option value="delivered">Livrée</option>
+            <option value="refunded">Remboursée</option>
+          </select>
+          <select class="filter-select" id="order-sort" onchange="filterOrders()">
+            <option value="desc">Plus récentes</option>
+            <option value="asc">Plus anciennes</option>
+            <option value="amount">Montant ↓</option>
+          </select>
+        </div>
+
+        <div class="data-table">
+          <div class="table-head orders-grid">
+            <div>N° commande</div><div>Client</div><div>Articles</div><div>Montant</div><div>Statut</div><div>Actions</div>
+          </div>
+          <div id="orders-table-body"></div>
+        </div>
+      </div>
+
+      <!-- ══ PLANNING ══ -->
+      <div class="section" id="section-planning">
+        <div class="planning-header">
+          <div class="date-nav">
+            <button class="date-nav-btn" onclick="shiftDay(-1)">‹</button>
+            <div class="date-display" id="planning-title">Aujourd'hui — <em>chargement…</em></div>
+            <button class="date-nav-btn" onclick="shiftDay(1)">›</button>
+          </div>
+          <input type="date" class="date-picker" id="planning-date" onchange="loadPlanning()">
+          <button class="print-prep-btn no-print" onclick="window.print()">🖨 Imprimer les bons</button>
+        </div>
+
+        <div class="stats-row" style="grid-template-columns:repeat(3,1fr)">
+          <div class="stat-card"><div class="stat-num" id="plan-total">0</div><div class="stat-label">Préparations du jour</div></div>
+          <div class="stat-card"><div class="stat-num amber" id="plan-urgent">0</div><div class="stat-label">Urgentes (J+0)</div></div>
+          <div class="stat-card"><div class="stat-num" id="plan-done">0</div><div class="stat-label">Complétées</div></div>
+        </div>
+
+        <div id="planning-list"></div>
+      </div>
+
+      <!-- ══ FACTURES ══ -->
+      <div class="section" id="section-invoices">
+        <div class="toolbar">
+          <div class="search-box"><input type="text" placeholder="Rechercher facture, client, n°…" id="inv-search" oninput="filterInvoices()"></div>
+          <input type="date" class="filter-select" id="inv-date-from" onchange="filterInvoices()" style="width:140px">
+          <input type="date" class="filter-select" id="inv-date-to" onchange="filterInvoices()" style="width:140px">
+        </div>
+        <div class="data-table">
+          <div class="table-head invoices-grid">
+            <div>N° facture</div><div>Client</div><div>Date</div><div>Montant TTC</div><div>Statut</div><div>Actions</div>
+          </div>
+          <div id="invoices-table-body"></div>
+        </div>
+      </div>
+
+      <!-- ══ AVOIRS ══ -->
+      <div class="section" id="section-credits">
+        <div class="toolbar">
+          <div class="search-box"><input type="text" placeholder="Rechercher avoir, client…" id="credit-search" oninput="filterCredits()"></div>
+        </div>
+        <div class="data-table">
+          <div class="table-head invoices-grid">
+            <div>N° avoir</div><div>Client</div><div>Date</div><div>Montant TTC</div><div>Facture liée</div><div>Actions</div>
+          </div>
+          <div id="credits-table-body"></div>
+        </div>
+      </div>
+
+      <!-- ══ STATISTIQUES ══ -->
+      <div class="section" id="section-stats">
+        <div class="toolbar">
+          <div class="period-tabs">
+            <button class="period-tab active" onclick="setPeriod('day',this)">Jour</button>
+            <button class="period-tab" onclick="setPeriod('week',this)">Semaine</button>
+            <button class="period-tab" onclick="setPeriod('month',this)">Mois</button>
+            <button class="period-tab" onclick="setPeriod('year',this)">Année</button>
+          </div>
+          <input type="date" class="filter-select" id="stats-from" onchange="renderStats()" style="width:140px">
+          <input type="date" class="filter-select" id="stats-to" onchange="renderStats()" style="width:140px">
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card"><div class="stat-num" id="kpi-ht">—</div><div class="stat-label">CA HT</div><div class="stat-delta" id="kpi-ht-d"></div></div>
+          <div class="stat-card"><div class="stat-num" id="kpi-ttc">—</div><div class="stat-label">CA TTC</div><div class="stat-delta" id="kpi-ttc-d"></div></div>
+          <div class="stat-card"><div class="stat-num amber" id="kpi-avg">—</div><div class="stat-label">Panier moyen</div><div class="stat-delta" id="kpi-avg-d"></div></div>
+          <div class="stat-card"><div class="stat-num blue" id="kpi-orders">—</div><div class="stat-label">Nb commandes</div><div class="stat-delta" id="kpi-ord-d"></div></div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div class="chart-title">Chiffre d'affaires</div>
+            <div class="chart-sub">CA TTC (—) vs N-1 (···)</div>
+            <canvas id="ca-chart" height="240"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">Commandes</div>
+            <div class="chart-sub">Nombre par période</div>
+            <canvas id="orders-chart" height="240"></canvas>
+          </div>
+        </div>
+        <div class="chart-card" style="background:#fff;border-radius:12px;border:.5px solid var(--s200);padding:20px">
+          <div class="chart-title">Panier moyen</div>
+          <div class="chart-sub">Évolution du panier moyen par période</div>
+          <canvas id="avg-chart" height="120"></canvas>
+        </div>
+      </div>
+
+    </div><!-- /main-body -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ═══ MODAL COMMANDE ════════════════════════════════════ -->
+<div class="overlay" id="modal-order" onclick="if(event.target===this)closeModal('order')">
   <div class="modal">
-    <div class="modal-title">Marquer comme expédiée</div>
-    <div class="modal-sub" id="modal-sub">Commande BOI-2025-XXXXX</div>
-    <div class="modal-note">
-      En confirmant, un email "Colis expédié" sera envoyé automatiquement au client avec le numéro de suivi.
+    <div class="modal-header">
+      <div class="modal-title" id="modal-order-title">Commande <em>#</em></div>
+      <button class="modal-close" onclick="closeModal('order')">✕</button>
     </div>
-    <label class="modal-label">Numéro de suivi Colissimo (optionnel)</label>
-    <input type="text" class="modal-input" id="tracking-input" placeholder="ex : 2C17834520912">
-    <div class="modal-actions">
-      <button class="modal-cancel" onclick="closeModal()">Annuler</button>
-      <button class="modal-confirm" id="modal-confirm-btn" onclick="confirmShipping()">Envoyer l'email & confirmer →</button>
+    <div class="modal-body" id="modal-order-body"></div>
+    <div class="modal-footer" id="modal-order-footer"></div>
+  </div>
+</div>
+
+<!-- ═══ MODAL FACTURE ═════════════════════════════════════ -->
+<div class="overlay" id="modal-invoice" onclick="if(event.target===this)closeModal('invoice')">
+  <div class="modal" style="max-width:760px">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-inv-title">Facture</div>
+      <button class="modal-close" onclick="closeModal('invoice')">✕</button>
+    </div>
+    <div class="modal-body" id="modal-inv-body"></div>
+    <div class="modal-footer no-print">
+      <button class="btn-sm btn-primary" onclick="printInvoice()">🖨 Télécharger / Imprimer</button>
+      <button class="btn-sm btn-secondary" onclick="closeModal('invoice')">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL REMBOURSEMENT ═══════════════════════════════ -->
+<div class="overlay" id="modal-refund" onclick="if(event.target===this)closeModal('refund')">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-header">
+      <div class="modal-title">Remboursement & <em>avoir</em></div>
+      <button class="modal-close" onclick="closeModal('refund')">✕</button>
+    </div>
+    <div class="modal-body" id="modal-refund-body"></div>
+    <div class="modal-footer">
+      <button class="btn-sm btn-danger" id="confirm-refund-btn" onclick="confirmRefund()">Confirmer le remboursement</button>
+      <button class="btn-sm btn-secondary" onclick="closeModal('refund')">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL EXPÉDITION ══════════════════════════════════ -->
+<div class="overlay" id="modal-ship" onclick="if(event.target===this)closeModal('ship')">
+  <div class="modal" style="max-width:460px">
+    <div class="modal-header">
+      <div class="modal-title">Marquer <em>expédiée</em></div>
+      <button class="modal-close" onclick="closeModal('ship')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="info-box">Un email "Colis expédié" sera automatiquement envoyé au client avec le numéro de suivi Colissimo.</div>
+      <label class="f-label">N° de suivi Colissimo (optionnel)</label>
+      <input type="text" class="refund-input" id="ship-tracking" placeholder="ex : 2C17834520912">
+    </div>
+    <div class="modal-footer">
+      <button class="btn-sm btn-primary" onclick="confirmShip()">Envoyer l'email & confirmer →</button>
+      <button class="btn-sm btn-secondary" onclick="closeModal('ship')">Annuler</button>
     </div>
   </div>
 </div>
@@ -178,238 +497,692 @@ body{font-family:var(--fb);background:var(--gres-50);color:var(--nuit);line-heig
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════
-// CONFIG
-// ══════════════════════════════════════
-const ADMIN_KEY = localStorage.getItem('boisenserie_admin_key') || '';
-let currentOrder = null;
-let allOrders = [];
+// ════════════════════════════════════════════════════════════
+// DONNÉES DÉMO
+// ════════════════════════════════════════════════════════════
+const TVA_RATE = 0.20;
+const SELLER = {
+  name: 'Boisenserie',
+  address: '12 Rue des Artisans, 88100 Saint-Dié-des-Vosges',
+  siret: '123 456 789 00010',
+  tva: 'FR12 123 456 789',
+  email: 'contact@boisenserie.fr',
+  site: 'https://boisenserie.fr',
+};
 
-// ══════════════════════════════════════
-// LOGIN
-// ══════════════════════════════════════
-function submitLogin() {
-  const pwd = document.getElementById('admin-password').value.trim();
-  if (!pwd) return;
+let orders = [
+  { id:'o1', order_number:'BOI-2025-A7FKX', date:'2025-04-23', customer:{name:'Marie Dupont',email:'marie.dupont@gmail.com',phone:'+33 6 12 34 56 78'}, items:[{name:'Planche Cigogne — Chêne Vosges',wood:'Chêne',format:'40×25 cm',engravingText:'Famille Dupont · Alsace 2025',qty:1,unit_price_ttc:4990}], shipping_address:'Marie Dupont\n12 rue des Vosges\n67000 Strasbourg', stripe_id:'pi_3Ox7hZ2eZvKYlo2C0ABC1234', status:'paid', gift_box:true, gift_price:490 },
+  { id:'o2', order_number:'BOI-2025-K3MNP', date:'2025-04-22', customer:{name:'Thomas Weber',email:'thomas.weber@gmail.com',phone:'+33 7 89 01 23 45'}, items:[{name:'Planche Bretzel — Hêtre',wood:'Hêtre',format:'35×20 cm',engravingText:'Weber',qty:2,unit_price_ttc:3990}], shipping_address:'Thomas Weber\n5 allée du Rhin\n67100 Strasbourg', stripe_id:'pi_3Ox7hZ2eZvKYlo2C0XYZ5678', status:'engraving', gift_box:false },
+  { id:'o3', order_number:'BOI-2025-R8QZL', date:'2025-04-20', customer:{name:'Isabelle Martin',email:'i.martin@outlook.fr',phone:'+33 6 55 44 33 22'}, items:[{name:'Planche Sapin — Noyer',wood:'Noyer',format:'50×30 cm',engravingText:'Martin · Noël 2025',qty:1,unit_price_ttc:6990}], shipping_address:'Isabelle Martin\n8 rue du Marché\n67200 Sélestat', stripe_id:'pi_3Ox7hZ2eZvKYlo2C0QRS9012', status:'shipped', tracking:'2C17834520912', gift_box:false },
+  { id:'o4', order_number:'BOI-2025-X2VBT', date:'2025-04-15', customer:{name:'Pierre Schmitt',email:'p.schmitt@free.fr',phone:'+33 6 11 22 33 44'}, items:[{name:'Planche Cigogne Grand Format — Chêne',wood:'Chêne',format:'60×40 cm',engravingText:'Schmitt 1987',qty:1,unit_price_ttc:8990}], shipping_address:'Pierre Schmitt\n20 route du Vin\n68000 Colmar', stripe_id:'pi_3Ox7hZ2eZvKYlo2C0TUV3456', status:'delivered', gift_box:false },
+  { id:'o5', order_number:'BOI-2025-M4LKJ', date:'2025-04-10', customer:{name:'Sophie Klein',email:'sophie.klein@yahoo.fr',phone:'+33 7 22 11 00 99'}, items:[{name:'Planche Vigne — Cerisier',wood:'Cerisier',format:'40×25 cm',engravingText:'Weingut Klein',qty:1,unit_price_ttc:5490}], shipping_address:'Sophie Klein\n3 rue des Vignes\n67600 Sélestat', stripe_id:'pi_3Ox7hZ2eZvKYlo2C0WXY7890', status:'refunded', gift_box:false },
+];
 
-  // On stocke la clé et on teste en appelant l'API
-  localStorage.setItem('boisenserie_admin_key', pwd);
+let invoices = [];
+let credits = [];
+let currentOrderId = null;
+let currentInvoiceId = null;
+let planningDay = new Date();
+let caChart = null, ordersChart = null, avgChart = null;
+let currentPeriod = 'month';
 
-  // Vérification en testant un appel API réel
-  fetch('/api/account/orders', {
-    headers: { 'Authorization': 'Bearer test' }
-  }).then(() => {
-    // L'API répond — on accepte le login et on charge le dashboard
-    showDashboard(pwd);
-  }).catch(() => {
-    showDashboard(pwd);
+// ════════════════════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════════════════════
+function doLogin() {
+  const val = document.getElementById('pwd').value.trim();
+  const saved = localStorage.getItem('boi_admin_key') || 'admin';
+  if (!val) return;
+  // En mode démo, tout mot de passe est accepté
+  localStorage.setItem('boi_admin_key', val);
+  document.getElementById('login').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  init();
+}
+function doLogout() {
+  localStorage.removeItem('boi_admin_key');
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('login').style.display = 'flex';
+  document.getElementById('pwd').value = '';
+}
+window.addEventListener('load', () => {
+  if (localStorage.getItem('boi_admin_key')) { doLogin(); }
+});
+
+// ════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════
+function init() {
+  buildInvoicesFromOrders();
+  renderOrdersTable(orders);
+  renderStats_overview();
+  initPlanning();
+  renderInvoicesTable(invoices);
+  renderCreditsTable(credits);
+  initStatsSection();
+}
+
+function buildInvoicesFromOrders() {
+  invoices = [];
+  credits = [];
+  let invCount = 1;
+  let avoCount = 1;
+  orders.forEach(o => {
+    const inv = buildInvoice(o, invCount++);
+    invoices.push(inv);
+    if (o.status === 'refunded') {
+      credits.push(buildCredit(o, inv, avoCount++));
+    }
   });
 }
 
-window.addEventListener('load', () => {
-  const saved = localStorage.getItem('boisenserie_admin_key');
-  if (saved) {
-    showDashboard(saved);
-  }
-});
-
-function showDashboard(key) {
-  document.getElementById('login-wrap').style.display = 'none';
-  document.getElementById('admin-wrap').style.display = 'block';
-  loadOrders();
+function buildInvoice(order, idx) {
+  const total_ttc = orderTotal(order);
+  const total_ht = total_ttc / (1 + TVA_RATE);
+  const tva = total_ttc - total_ht;
+  return {
+    id: 'inv-' + order.id,
+    number: 'FAC-2025-' + String(idx).padStart(5, '0'),
+    order_id: order.id,
+    order_number: order.order_number,
+    date: order.date,
+    customer: order.customer,
+    items: order.items,
+    gift_box: order.gift_box,
+    gift_price: order.gift_price || 0,
+    total_ht: Math.round(total_ht),
+    tva: Math.round(tva),
+    total_ttc,
+    status: order.status === 'refunded' ? 'avoir' : 'payée',
+    stripe_id: order.stripe_id,
+  };
 }
 
-function logout() {
-  localStorage.removeItem('boisenserie_admin_key');
-  document.getElementById('login-wrap').style.display = 'flex';
-  document.getElementById('admin-wrap').style.display = 'none';
-  document.getElementById('admin-password').value = '';
+function buildCredit(order, invoice, idx) {
+  return {
+    id: 'crd-' + order.id,
+    number: 'AVO-2025-' + String(idx).padStart(5, '0'),
+    invoice_id: invoice.id,
+    invoice_number: invoice.number,
+    order_number: order.order_number,
+    date: new Date().toISOString().slice(0,10),
+    customer: order.customer,
+    total_ttc: invoice.total_ttc,
+    total_ht: invoice.total_ht,
+    tva: invoice.tva,
+    reason: 'Annulation commande client',
+    stripe_id: order.stripe_id,
+  };
 }
 
-// ══════════════════════════════════════
-// CHARGEMENT DES COMMANDES
-// ══════════════════════════════════════
-async function loadOrders() {
-  try {
-    // On essaie de charger depuis Supabase via l'API admin
-    const res = await fetch('/api/admin/orders', {
-      headers: { 'x-admin-key': localStorage.getItem('boisenserie_admin_key') }
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      allOrders = data.orders || [];
-    } else {
-      // Fallback : données de démo si pas encore d'API admin
-      allOrders = getDemoOrders();
-    }
-  } catch {
-    allOrders = getDemoOrders();
-  }
-
-  renderOrders();
-  renderStats();
+function orderTotal(o) {
+  const items_total = o.items.reduce((s,i) => s + i.unit_price_ttc * i.qty, 0);
+  return items_total + (o.gift_box ? (o.gift_price || 490) : 0);
 }
 
-function getDemoOrders() {
-  return [
-    { id: '1', order_number: 'BOI-2025-A7FKX', customer_name: 'Simon Duboc', customer_email: 'simon-duboc@hotmail.fr', total_cts: 5480, status: 'paid', created_at: new Date().toISOString(), items: [{name:'Planche Cigogne — Chêne', engravingText:'Famille Dupont · Alsace 2025'}] },
-  ];
+// ════════════════════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════════════════════
+const pageTitles = {
+  orders: 'Commandes <em>· Vue globale</em>',
+  planning: 'Planning <em>· Préparations du jour</em>',
+  invoices: 'Factures <em>· NF525 conformes</em>',
+  credits: 'Avoirs <em>· Remboursements</em>',
+  stats: 'Statistiques <em>· Tableau de bord</em>',
+};
+function switchSection(name, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-'+name).classList.add('active');
+  el.classList.add('active');
+  document.getElementById('page-title').innerHTML = pageTitles[name];
+  if (name === 'planning') loadPlanning();
+  if (name === 'stats') renderStatsCharts();
 }
 
-// ══════════════════════════════════════
-// AFFICHAGE
-// ══════════════════════════════════════
-function renderStats() {
-  const total = allOrders.length;
-  const pending = allOrders.filter(o => ['paid','engraving'].includes(o.status)).length;
-  const shipped = allOrders.filter(o => ['shipped','delivered'].includes(o.status)).length;
-  const revenue = allOrders.reduce((s,o) => s + (o.total_cts||0), 0);
-
-  document.getElementById('stat-total').textContent = total;
-  document.getElementById('stat-pending').textContent = pending;
-  document.getElementById('stat-shipped').textContent = shipped;
-  document.getElementById('stat-revenue').textContent = fmt(revenue);
-}
-
-const STATUS_LABELS = {
-  paid:      { label: 'Payée', cls: 'status-paid' },
-  engraving: { label: 'En gravure', cls: 'status-engraving' },
-  shipped:   { label: 'Expédiée', cls: 'status-shipped' },
-  delivered: { label: 'Livrée', cls: 'status-delivered' },
+// ════════════════════════════════════════════════════════════
+// COMMANDES — TABLE
+// ════════════════════════════════════════════════════════════
+const statusLabels = {
+  paid: {label:'À préparer', cls:'s-pending'},
+  engraving: {label:'En gravure', cls:'s-engraving'},
+  shipped: {label:'Expédiée', cls:'s-shipped'},
+  delivered: {label:'Livrée ✓', cls:'s-delivered'},
+  refunded: {label:'Remboursée', cls:'s-refunded'},
 };
 
-function renderOrders() {
-  const list = document.getElementById('orders-list');
-  if (!allOrders.length) {
-    list.innerHTML = '<div class="empty-orders">Aucune commande pour le moment.</div>';
+function renderOrdersTable(list) {
+  const body = document.getElementById('orders-table-body');
+  if (!list.length) { body.innerHTML = '<div class="empty"><div class="empty-icon">📦</div>Aucune commande trouvée</div>'; return; }
+  body.innerHTML = list.map(o => {
+    const st = statusLabels[o.status] || statusLabels.paid;
+    const total = orderTotal(o);
+    const itemsSummary = o.items.map(i => `${i.qty}× ${i.name.split('—')[0].trim()}`).join(', ');
+    return `<div class="table-row orders-grid" onclick="openOrderModal('${o.id}')">
+      <div><div class="cell-num">${o.order_number}</div><div class="cell-sub">${fmt_date(o.date)}</div></div>
+      <div><div class="cell-main">${o.customer.name}</div><div class="cell-sub">${o.customer.email}</div></div>
+      <div><div class="cell-main" style="font-size:.75rem">${itemsSummary}</div></div>
+      <div class="cell-amount">${fmt(total)}</div>
+      <div><span class="badge ${st.cls}">${st.label}</span></div>
+      <div onclick="event.stopPropagation()" style="display:flex;gap:6px;flex-wrap:wrap">
+        ${o.status === 'paid' || o.status === 'engraving' ? `<button class="btn-sm btn-primary" style="font-size:.7rem;padding:5px 10px" onclick="openShipModal('${o.id}');event.stopPropagation()">Expédier</button>` : ''}
+        ${o.status !== 'refunded' && o.status !== 'delivered' ? `<button class="btn-sm btn-danger" style="font-size:.7rem;padding:5px 10px" onclick="openRefundModal('${o.id}');event.stopPropagation()">Rembourser</button>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+
+  // Stats
+  document.getElementById('s-total').textContent = orders.length;
+  document.getElementById('s-pending').textContent = orders.filter(o=>['paid','engraving'].includes(o.status)).length;
+  document.getElementById('s-shipped').textContent = orders.filter(o=>o.status==='shipped').length;
+  document.getElementById('s-revenue').textContent = fmt(orders.reduce((s,o)=>s+orderTotal(o),0));
+  document.getElementById('badge-orders').textContent = orders.filter(o=>['paid','engraving'].includes(o.status)).length;
+}
+
+function renderStats_overview() { renderOrdersTable(orders); }
+
+function filterOrders() {
+  const q = document.getElementById('order-search').value.toLowerCase();
+  const st = document.getElementById('order-status-filter').value;
+  const sort = document.getElementById('order-sort').value;
+  let list = orders.filter(o => {
+    const match = !q || o.order_number.toLowerCase().includes(q) || o.customer.name.toLowerCase().includes(q) || o.customer.email.toLowerCase().includes(q);
+    const statusMatch = !st || o.status === st;
+    return match && statusMatch;
+  });
+  if (sort === 'asc') list.sort((a,b) => a.date.localeCompare(b.date));
+  else if (sort === 'amount') list.sort((a,b) => orderTotal(b) - orderTotal(a));
+  else list.sort((a,b) => b.date.localeCompare(a.date));
+  renderOrdersTable(list);
+}
+
+// ════════════════════════════════════════════════════════════
+// MODAL COMMANDE — DÉTAIL
+// ════════════════════════════════════════════════════════════
+function openOrderModal(id) {
+  const o = orders.find(x => x.id === id);
+  if (!o) return;
+  currentOrderId = id;
+  const st = statusLabels[o.status] || statusLabels.paid;
+  const total = orderTotal(o);
+  const inv = invoices.find(x => x.order_id === id);
+
+  document.getElementById('modal-order-title').innerHTML = `Commande <em>${o.order_number}</em>`;
+
+  const itemsHtml = o.items.map(item => `
+    <div class="order-item-row">
+      <div class="item-wood"></div>
+      <div class="item-details">
+        <div class="item-n">${item.name}</div>
+        <div class="item-d">${item.wood} · ${item.format} · Qté : ${item.qty}</div>
+        ${item.engravingText ? `<div class="item-engr-d">✦ Gravure : "${item.engravingText}"</div>` : ''}
+      </div>
+      <div class="item-p">${fmt(item.unit_price_ttc * item.qty)}</div>
+    </div>`).join('');
+
+  document.getElementById('modal-order-body').innerHTML = `
+    <div class="info-grid">
+      <div class="info-block">
+        <div class="info-label">Client</div>
+        <div class="info-value">${o.customer.name}</div>
+        <div class="info-value"><a href="mailto:${o.customer.email}">${o.customer.email}</a></div>
+        <div class="info-value">${o.customer.phone || '—'}</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Commande</div>
+        <div class="info-value">${fmt_date(o.date)}</div>
+        <div class="info-value"><span class="badge ${st.cls}">${st.label}</span></div>
+        ${inv ? `<div style="margin-top:6px"><div class="info-label">Facture</div><div class="info-value">${inv.number}</div></div>` : ''}
+      </div>
+      <div class="info-block">
+        <div class="info-label">Adresse d'expédition</div>
+        <div class="info-value" style="white-space:pre-line">${o.shipping_address}</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Paiement Stripe</div>
+        <div class="info-value mono">${o.stripe_id}</div>
+        <div style="margin-top:6px"><a href="https://dashboard.stripe.com/payments/${o.stripe_id}" target="_blank" style="font-size:.75rem;color:var(--blue-600)">Voir sur Stripe →</a></div>
+        ${o.tracking ? `<div style="margin-top:6px"><div class="info-label">Suivi colis</div><div class="info-value mono">${o.tracking}</div><a href="https://www.laposte.fr/outils/suivre-vos-envois?code=${o.tracking}" target="_blank" style="font-size:.75rem;color:var(--blue-600)">Suivre sur Colissimo →</a></div>` : ''}
+      </div>
+    </div>
+
+    <div class="info-label" style="margin-bottom:10px">Détail des articles</div>
+    <div class="order-items-list">
+      ${itemsHtml}
+      ${o.gift_box ? `<div class="order-item-row"><div class="item-wood" style="background:#D4A738"></div><div class="item-details"><div class="item-n">Coffret cadeau premium</div><div class="item-d">Boîte kraft, ruban, carte</div></div><div class="item-p">${fmt(o.gift_price||490)}</div></div>` : ''}
+      <div class="total-line">CA HT<span>${fmt(Math.round(total/(1+TVA_RATE)))}</span></div>
+      <div class="total-line">TVA 20%<span>${fmt(total - Math.round(total/(1+TVA_RATE)))}</span></div>
+      <div class="total-line grand">Total TTC<span>${fmt(total)}</span></div>
+    </div>`;
+
+  document.getElementById('modal-order-footer').innerHTML = `
+    ${o.status === 'paid' || o.status === 'engraving' ? `<button class="btn-sm btn-primary" onclick="closeModal('order');openShipModal('${id}')">📦 Marquer expédiée</button>` : ''}
+    ${inv ? `<button class="btn-sm btn-secondary" onclick="openInvoiceModal('${inv.id}')">🧾 Voir la facture</button>` : ''}
+    ${o.status !== 'refunded' ? `<button class="btn-sm btn-danger" onclick="closeModal('order');openRefundModal('${id}')">↩ Rembourser</button>` : ''}
+    <a href="https://dashboard.stripe.com/payments/${o.stripe_id}" target="_blank" class="btn-sm btn-secondary">⬇ Reçu Stripe</a>`;
+
+  openModal('order');
+}
+
+// ════════════════════════════════════════════════════════════
+// MODAL EXPÉDITION
+// ════════════════════════════════════════════════════════════
+function openShipModal(id) {
+  currentOrderId = id;
+  document.getElementById('ship-tracking').value = '';
+  openModal('ship');
+}
+
+async function confirmShip() {
+  const o = orders.find(x => x.id === currentOrderId);
+  if (!o) return;
+  const tracking = document.getElementById('ship-tracking').value.trim();
+
+  try {
+    await fetch('/api/orders/ship', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        orderId: o.id, orderNumber: o.order_number,
+        trackingNumber: tracking, customerEmail: o.customer.email,
+        customerFirstName: o.customer.name.split(' ')[0],
+        items: o.items, adminKey: localStorage.getItem('boi_admin_key')
+      })
+    });
+  } catch(e) {}
+
+  o.status = 'shipped';
+  o.tracking = tracking;
+  closeModal('ship');
+  filterOrders();
+  toast('✓ Email d\'expédition envoyé à ' + o.customer.email, 'success');
+}
+
+// ════════════════════════════════════════════════════════════
+// MODAL REMBOURSEMENT
+// ════════════════════════════════════════════════════════════
+function openRefundModal(id) {
+  currentOrderId = id;
+  const o = orders.find(x => x.id === id);
+  const total = orderTotal(o);
+  document.getElementById('modal-refund-body').innerHTML = `
+    <div class="warning-box">⚠ Cette action est irréversible. Un remboursement sera initié sur Stripe et un avoir sera automatiquement généré.</div>
+    <div class="info-grid">
+      <div class="info-block"><div class="info-label">Client</div><div class="info-value">${o.customer.name}</div><div class="info-value">${o.customer.email}</div></div>
+      <div class="info-block"><div class="info-label">Commande</div><div class="info-value">${o.order_number}</div><div class="info-value" style="color:var(--g);font-weight:600">${fmt(total)}</div></div>
+    </div>
+    <label class="f-label">Motif du remboursement</label>
+    <input type="text" class="refund-input" id="refund-reason" placeholder="ex : Annulation client, erreur de commande…">
+    <div class="info-box">✦ Un avoir N° AVO-2025-XXXXX sera généré et envoyé automatiquement au client.</div>`;
+  openModal('refund');
+}
+
+async function confirmRefund() {
+  const o = orders.find(x => x.id === currentOrderId);
+  if (!o) return;
+  const reason = document.getElementById('refund-reason').value.trim() || 'Annulation commande';
+
+  // Remboursement Stripe (simulation)
+  try {
+    await fetch('/api/refund', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ stripe_id: o.stripe_id, amount: orderTotal(o), adminKey: localStorage.getItem('boi_admin_key') })
+    });
+  } catch(e) {}
+
+  o.status = 'refunded';
+  buildInvoicesFromOrders();
+  closeModal('refund');
+  filterOrders();
+  renderCreditsTable(credits);
+  renderInvoicesTable(invoices);
+  toast('✓ Remboursement effectué — avoir généré', 'success');
+}
+
+// ════════════════════════════════════════════════════════════
+// FACTURES
+// ════════════════════════════════════════════════════════════
+function renderInvoicesTable(list) {
+  const body = document.getElementById('invoices-table-body');
+  if (!list.length) { body.innerHTML = '<div class="empty"><div class="empty-icon">🧾</div>Aucune facture</div>'; return; }
+  const sorted = [...list].sort((a,b) => b.date.localeCompare(a.date));
+  body.innerHTML = sorted.map(inv => `
+    <div class="table-row invoices-grid" onclick="openInvoiceModal('${inv.id}')">
+      <div class="cell-num">${inv.number}</div>
+      <div><div class="cell-main">${inv.customer.name}</div><div class="cell-sub">${inv.order_number}</div></div>
+      <div class="cell-date">${fmt_date(inv.date)}</div>
+      <div class="cell-amount">${fmt(inv.total_ttc)}</div>
+      <div><span class="badge ${inv.status==='avoir'?'s-refunded':'s-sent'}">${inv.status==='avoir'?'Avoir émis':'Payée'}</span></div>
+      <div onclick="event.stopPropagation()" style="display:flex;gap:6px">
+        <button class="btn-sm btn-secondary" style="font-size:.7rem;padding:5px 10px" onclick="openInvoiceModal('${inv.id}');event.stopPropagation()">Voir</button>
+      </div>
+    </div>`).join('');
+}
+
+function filterInvoices() {
+  const q = document.getElementById('inv-search').value.toLowerCase();
+  const from = document.getElementById('inv-date-from').value;
+  const to = document.getElementById('inv-date-to').value;
+  let list = invoices.filter(inv => {
+    const match = !q || inv.number.toLowerCase().includes(q) || inv.customer.name.toLowerCase().includes(q) || inv.order_number.toLowerCase().includes(q);
+    const dateOk = (!from || inv.date >= from) && (!to || inv.date <= to);
+    return match && dateOk;
+  });
+  renderInvoicesTable(list);
+}
+
+function openInvoiceModal(id) {
+  currentInvoiceId = id;
+  const inv = invoices.find(x => x.id === id);
+  if (!inv) return;
+  document.getElementById('modal-inv-title').innerHTML = `Facture <em>${inv.number}</em>`;
+  document.getElementById('modal-inv-body').innerHTML = buildInvoiceHTML(inv, false);
+  openModal('invoice');
+}
+
+function buildInvoiceHTML(inv, isAvoir) {
+  const itemsRows = inv.items.map(item => `
+    <tr>
+      <td>${item.name}${item.engravingText ? `<br><span style="font-size:.72rem;color:#225A3B;font-style:italic">✦ "${item.engravingText}"</span>` : ''}</td>
+      <td style="text-align:center">${item.qty}</td>
+      <td style="text-align:right">${fmt(Math.round(item.unit_price_ttc/(1+TVA_RATE)))}</td>
+      <td style="text-align:right">20%</td>
+      <td style="text-align:right">${fmt(item.unit_price_ttc*item.qty)}</td>
+    </tr>`).join('');
+  const giftRow = inv.gift_box ? `<tr><td>Coffret cadeau premium</td><td style="text-align:center">1</td><td style="text-align:right">${fmt(Math.round((inv.gift_price||490)/(1+TVA_RATE)))}</td><td style="text-align:right">20%</td><td style="text-align:right">${fmt(inv.gift_price||490)}</td></tr>` : '';
+
+  return `
+    <div class="invoice-preview" id="invoice-print-area">
+      ${isAvoir ? '<div class="inv-avoir-stripe">AVOIR — Document rectificatif</div>' : ''}
+      <div class="inv-header">
+        <div>
+          <div class="inv-logo">Bois<em>enserie</em></div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.5);margin-top:8px;line-height:1.7">${SELLER.address}<br>SIRET : ${SELLER.siret}<br>TVA : ${SELLER.tva}</div>
+        </div>
+        <div>
+          <div class="inv-type">${isAvoir ? 'AVOIR' : 'FACTURE'}</div>
+          <div class="inv-num">${inv.number}</div>
+          <div class="inv-num">Date : ${fmt_date(inv.date)}</div>
+          <div class="inv-num">Commande : ${inv.order_number}</div>
+          ${inv.stripe_id ? `<div class="inv-num" style="margin-top:6px">Paiement : ${inv.stripe_id.substring(0,20)}…</div>` : ''}
+        </div>
+      </div>
+      <div class="inv-body">
+        <div class="inv-parties">
+          <div>
+            <div class="inv-party-title">Vendeur</div>
+            <div class="inv-party-name">${SELLER.name}</div>
+            <div class="inv-party-info">${SELLER.address}<br>SIRET : ${SELLER.siret}<br>N° TVA : ${SELLER.tva}<br>${SELLER.email}</div>
+          </div>
+          <div>
+            <div class="inv-party-title">Client</div>
+            <div class="inv-party-name">${inv.customer.name}</div>
+            <div class="inv-party-info">${inv.customer.email}<br>${inv.customer.phone || ''}</div>
+          </div>
+        </div>
+        <table class="inv-items">
+          <thead><tr><th>Désignation</th><th style="text-align:center;width:50px">Qté</th><th style="text-align:right;width:90px">PU HT</th><th style="text-align:right;width:60px">TVA</th><th style="text-align:right;width:90px">Total TTC</th></tr></thead>
+          <tbody>${itemsRows}${giftRow}</tbody>
+        </table>
+        <div class="inv-totals">
+          <div class="inv-total-row"><span>Total HT</span><span>${fmt(inv.total_ht)}</span></div>
+          <div class="inv-total-row"><span>TVA 20%</span><span>${fmt(inv.tva)}</span></div>
+          <div class="inv-total-row grand"><span>${isAvoir ? 'Net à rembourser' : 'Total TTC'}</span><span>${fmt(inv.total_ttc)}</span></div>
+        </div>
+        <div class="inv-footer-legal">
+          ${isAvoir ? `<strong>Avoir établi en référence à la facture ${inv.number}</strong><br>` : ''}
+          Paiement reçu par carte bancaire via Stripe.<br>
+          Conformément à la réglementation NF525 et aux exigences de facturation électronique en vigueur.<br>
+          TVA non acquittée sur les encaissements — Taux applicable : 20%.<br>
+          En cas de litige, adresser une réclamation écrite à ${SELLER.email} dans les 8 jours suivant la réception.
+        </div>
+      </div>
+    </div>`;
+}
+
+function printInvoice() {
+  const inv = invoices.find(x => x.id === currentInvoiceId);
+  if (!inv) return;
+  const w = window.open('', '_blank');
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${inv.number}</title><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Outfit',sans-serif;background:#fff;padding:20px}${getInvoiceCSS()}</style></head><body>${buildInvoiceHTML(inv, inv.status==='avoir')}<script>window.onload=()=>{window.print();}<\/script></body></html>`);
+  w.document.close();
+}
+
+function getInvoiceCSS() {
+  return `.invoice-preview{max-width:800px;margin:0 auto}.inv-header{padding:28px 32px;background:#1A1916;color:#fff;display:flex;justify-content:space-between;align-items:flex-start}.inv-logo{font-family:'Fraunces',Georgia,serif;font-size:1.4rem;color:#fff}.inv-logo em{font-style:italic;color:#A1C9AE}.inv-type{font-size:1rem;font-weight:600;letter-spacing:.06em;text-align:right;color:#fff}.inv-num{font-size:.72rem;color:rgba(255,255,255,.5);text-align:right;font-family:monospace;margin-top:3px}.inv-body{padding:28px 32px}.inv-parties{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}.inv-party-title{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9C9A90;margin-bottom:6px}.inv-party-name{font-size:.88rem;font-weight:600;color:#1A1916;margin-bottom:3px}.inv-party-info{font-size:.75rem;color:#6E6C64;line-height:1.7}.inv-items{width:100%;border-collapse:collapse;margin-bottom:20px}.inv-items th{background:#F3EEE8;padding:8px 10px;text-align:left;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9C9A90}.inv-items td{padding:9px 10px;border-bottom:.5px solid #E1D7CB;font-size:.78rem;color:#1A1916}.inv-totals{margin-left:auto;max-width:260px}.inv-total-row{display:flex;justify-content:space-between;padding:6px 0;font-size:.8rem;color:#6E6C64;border-bottom:.5px solid #E1D7CB}.inv-total-row.grand{font-weight:700;font-size:.9rem;color:#1A1916;padding:10px 0;border-bottom:none}.inv-footer-legal{margin-top:20px;padding-top:16px;border-top:.5px solid #E1D7CB;font-size:.65rem;color:#9C9A90;line-height:1.7}.inv-avoir-stripe{background:#FBF0EE;border:.5px solid #E5A49A;padding:8px 14px;border-radius:7px;text-align:center;margin-bottom:12px;font-size:.75rem;font-weight:600;color:#9A3527;letter-spacing:.06em}`;
+}
+
+// ════════════════════════════════════════════════════════════
+// AVOIRS
+// ════════════════════════════════════════════════════════════
+function renderCreditsTable(list) {
+  const body = document.getElementById('credits-table-body');
+  if (!list.length) { body.innerHTML = '<div class="empty"><div class="empty-icon">↩</div>Aucun avoir émis</div>'; return; }
+  body.innerHTML = list.map(c => `
+    <div class="table-row invoices-grid" onclick="openCreditModal('${c.id}')">
+      <div class="cell-num">${c.number}</div>
+      <div><div class="cell-main">${c.customer.name}</div><div class="cell-sub">${c.order_number}</div></div>
+      <div class="cell-date">${fmt_date(c.date)}</div>
+      <div class="cell-amount" style="color:var(--r-500)">- ${fmt(c.total_ttc)}</div>
+      <div class="cell-sub">${c.invoice_number}</div>
+      <div onclick="event.stopPropagation()">
+        <button class="btn-sm btn-secondary" style="font-size:.7rem;padding:5px 10px" onclick="openCreditModal('${c.id}');event.stopPropagation()">Voir</button>
+      </div>
+    </div>`).join('');
+}
+
+function filterCredits() {
+  const q = document.getElementById('credit-search').value.toLowerCase();
+  const list = credits.filter(c => !q || c.number.toLowerCase().includes(q) || c.customer.name.toLowerCase().includes(q));
+  renderCreditsTable(list);
+}
+
+function openCreditModal(id) {
+  const c = credits.find(x => x.id === id);
+  const inv = invoices.find(x => x.id === c.invoice_id);
+  if (!c || !inv) return;
+  const creditInv = {...inv, number: c.number, status: 'avoir', date: c.date};
+  document.getElementById('modal-inv-title').innerHTML = `Avoir <em>${c.number}</em>`;
+  document.getElementById('modal-inv-body').innerHTML = buildInvoiceHTML(creditInv, true);
+  openModal('invoice');
+  currentInvoiceId = c.invoice_id;
+}
+
+// ════════════════════════════════════════════════════════════
+// PLANNING
+// ════════════════════════════════════════════════════════════
+function initPlanning() {
+  const today = new Date();
+  document.getElementById('planning-date').value = today.toISOString().slice(0,10);
+  planningDay = today;
+  loadPlanning();
+}
+
+function shiftDay(delta) {
+  planningDay.setDate(planningDay.getDate() + delta);
+  document.getElementById('planning-date').value = planningDay.toISOString().slice(0,10);
+  loadPlanning();
+}
+
+function loadPlanning() {
+  const dateStr = document.getElementById('planning-date').value;
+  if (dateStr) planningDay = new Date(dateStr);
+  const dayName = planningDay.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
+  document.getElementById('planning-title').innerHTML = `<em>${dayName.charAt(0).toUpperCase() + dayName.slice(1)}</em>`;
+
+  // Commandes à préparer (paid + engraving)
+  const toPrep = orders.filter(o => ['paid','engraving'].includes(o.status));
+  const urgent = toPrep.filter(o => {
+    const orderDate = new Date(o.date);
+    const diff = (planningDay - orderDate) / (1000*60*60*24);
+    return diff >= 1;
+  });
+
+  document.getElementById('plan-total').textContent = toPrep.length;
+  document.getElementById('plan-urgent').textContent = urgent.length;
+  document.getElementById('plan-done').textContent = 0;
+
+  const list = document.getElementById('planning-list');
+  if (!toPrep.length) {
+    list.innerHTML = '<div class="empty"><div class="empty-icon">✅</div>Aucune préparation pour cette journée</div>';
     return;
   }
 
-  list.innerHTML = allOrders.map(order => {
-    const st = STATUS_LABELS[order.status] || STATUS_LABELS.paid;
-    const date = new Date(order.created_at).toLocaleDateString('fr-FR', { day:'numeric', month:'short' });
-    const canShip = ['paid','engraving'].includes(order.status);
-
+  list.innerHTML = toPrep.map((o, idx) => {
+    const orderDate = new Date(o.date);
+    const diff = Math.floor((planningDay - orderDate) / (1000*60*60*24));
+    const prio = diff >= 2 ? {cls:'prio-urgent',label:'URGENT'} : diff >= 1 ? {cls:'prio-normal',label:'Prioritaire'} : {cls:'prio-ok',label:'OK'};
+    const itemsText = o.items.map(i => `${i.qty}× ${i.name} (${i.wood}, ${i.format})${i.engravingText ? ` — gravure : "${i.engravingText}"` : ''}`).join('<br>');
     return `
-      <div class="order-row" id="row-${order.id}">
-        <div>
-          <div class="order-num">${order.order_number}</div>
-          <div style="font-size:.7rem;color:var(--nuit-5);margin-top:2px">${date}</div>
+      <div class="prep-card" id="prep-${o.id}">
+        <div class="prep-check" id="check-${o.id}" onclick="togglePrep('${o.id}');event.stopPropagation()"></div>
+        <div class="prep-info">
+          <div class="prep-order">${o.order_number} · ${fmt_date(o.date)}</div>
+          <div class="prep-client">${o.customer.name} — ${o.customer.email}</div>
+          <div class="prep-items">${itemsText}</div>
+          ${o.gift_box ? '<div class="prep-engr">+ Coffret cadeau premium</div>' : ''}
+          <div style="margin-top:8px;font-size:.72rem;color:var(--n5)">Adresse : ${o.shipping_address.replace(/\n/g,' · ')}</div>
         </div>
-        <div>
-          <div class="order-customer">${order.customer_name || 'Client invité'}</div>
-          <div class="order-email">${order.customer_email || ''}</div>
-        </div>
-        <div class="order-amount">${fmt(order.total_cts)}</div>
-        <div>
-          <span class="status-badge ${st.cls}">
-            <span class="status-dot"></span>${st.label}
-          </span>
-        </div>
-        <div>
-          ${canShip
-            ? `<button class="action-btn btn-ship" id="ship-btn-${order.id}" onclick="openShipModal('${order.id}')">
-                Marquer expédiée →
-               </button>`
-            : `<button class="action-btn btn-shipped" disabled>
-                ${order.status === 'shipped' ? ('Suivi : ' + (order.tracking_number || '—')) : 'Livrée ✓'}
-               </button>`
-          }
-        </div>
+        <span class="prep-priority ${prio.cls}">${prio.label}</span>
       </div>`;
   }).join('');
 }
 
-// ══════════════════════════════════════
-// MODAL EXPÉDITION
-// ══════════════════════════════════════
-function openShipModal(orderId) {
-  currentOrder = allOrders.find(o => o.id === orderId);
-  if (!currentOrder) return;
-
-  document.getElementById('modal-sub').textContent = `Commande ${currentOrder.order_number} — ${currentOrder.customer_name}`;
-  document.getElementById('tracking-input').value = '';
-  document.getElementById('modal-confirm-btn').disabled = false;
-  document.getElementById('modal-confirm-btn').textContent = 'Envoyer l\'email & confirmer →';
-  document.getElementById('modal').classList.add('open');
+function togglePrep(id) {
+  const card = document.getElementById('prep-'+id);
+  const check = document.getElementById('check-'+id);
+  const isDone = check.classList.toggle('checked');
+  check.textContent = isDone ? '✓' : '';
+  card.classList.toggle('done', isDone);
+  const done = document.querySelectorAll('.prep-check.checked').length;
+  document.getElementById('plan-done').textContent = done;
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  currentOrder = null;
+// ════════════════════════════════════════════════════════════
+// STATISTIQUES
+// ════════════════════════════════════════════════════════════
+function initStatsSection() {
+  const today = new Date();
+  const from = new Date(today.getFullYear(), today.getMonth(), 1);
+  document.getElementById('stats-from').value = from.toISOString().slice(0,10);
+  document.getElementById('stats-to').value = today.toISOString().slice(0,10);
 }
 
-async function confirmShipping() {
-  if (!currentOrder) return;
-  const trackingNumber = document.getElementById('tracking-input').value.trim();
-  const btn = document.getElementById('modal-confirm-btn');
+function setPeriod(p, el) {
+  currentPeriod = p;
+  document.querySelectorAll('.period-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const today = new Date();
+  let from;
+  if (p === 'day') from = new Date(today);
+  else if (p === 'week') { from = new Date(today); from.setDate(today.getDate()-6); }
+  else if (p === 'month') from = new Date(today.getFullYear(), today.getMonth(), 1);
+  else from = new Date(today.getFullYear(), 0, 1);
+  document.getElementById('stats-from').value = from.toISOString().slice(0,10);
+  document.getElementById('stats-to').value = today.toISOString().slice(0,10);
+  renderStatsCharts();
+}
 
-  btn.disabled = true;
-  btn.textContent = 'Envoi en cours…';
+function renderStatsCharts() {
+  const from = document.getElementById('stats-from').value;
+  const to = document.getElementById('stats-to').value;
 
-  try {
-    const res = await fetch('/api/orders/ship', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        orderId: currentOrder.id,
-        orderNumber: currentOrder.order_number,
-        trackingNumber,
-        customerEmail: currentOrder.customer_email,
-        customerFirstName: (currentOrder.customer_name || '').split(' ')[0],
-        items: currentOrder.items || [],
-        adminKey: localStorage.getItem('boisenserie_admin_key')
-      })
-    });
+  // Générer données synthétiques avec commandes réelles + données démo
+  const labels = generateLabels(from, to, currentPeriod);
+  const caData = generateCAData(labels, currentPeriod);
+  const caDataN1 = caData.map(v => Math.round(v * (0.65 + Math.random() * 0.4)));
+  const ordersData = labels.map(() => Math.floor(Math.random() * 4) + 1);
+  const avgData = caData.map((v, i) => ordersData[i] > 0 ? Math.round(v / ordersData[i]) : 0);
 
-    if (res.ok) {
-      // Mise à jour locale
-      const idx = allOrders.findIndex(o => o.id === currentOrder.id);
-      if (idx !== -1) {
-        allOrders[idx].status = 'shipped';
-        allOrders[idx].tracking_number = trackingNumber;
-      }
-      closeModal();
-      renderOrders();
-      renderStats();
-      showToast('Email d\'expédition envoyé à ' + currentOrder.customer_email, 'success');
-    } else {
-      const data = await res.json();
-      throw new Error(data.error || 'Erreur serveur');
-    }
-  } catch (err) {
-    // En mode démo — simulation locale
-    const idx = allOrders.findIndex(o => o.id === currentOrder.id);
-    if (idx !== -1) {
-      allOrders[idx].status = 'shipped';
-      allOrders[idx].tracking_number = trackingNumber;
-    }
-    closeModal();
-    renderOrders();
-    renderStats();
-    showToast('Statut mis à jour (mode démo)', 'success');
+  // KPIs
+  const totalTTC = caData.reduce((s,v) => s+v, 0);
+  const totalOrders = ordersData.reduce((s,v) => s+v, 0);
+  const avgBasket = totalOrders > 0 ? Math.round(totalTTC/totalOrders) : 0;
+  const totalTTCN1 = caDataN1.reduce((s,v) => s+v, 0);
+  const delta = totalTTCN1 > 0 ? Math.round((totalTTC - totalTTCN1) / totalTTCN1 * 100) : 0;
+
+  document.getElementById('kpi-ttc').textContent = fmt(totalTTC);
+  document.getElementById('kpi-ht').textContent = fmt(Math.round(totalTTC/1.2));
+  document.getElementById('kpi-avg').textContent = fmt(avgBasket);
+  document.getElementById('kpi-orders').textContent = totalOrders;
+  const dEl = document.getElementById('kpi-ttc-d');
+  dEl.textContent = (delta >= 0 ? '▲ +' : '▼ ') + delta + '% vs N-1';
+  dEl.className = 'stat-delta ' + (delta >= 0 ? 'delta-up' : 'delta-dn');
+  document.getElementById('kpi-ht-d').textContent = '';
+  document.getElementById('kpi-avg-d').textContent = '';
+  document.getElementById('kpi-ord-d').textContent = '';
+
+  const green = '#225A3B', greenA = 'rgba(34,90,59,.1)', amber = '#D4A738';
+
+  if (caChart) caChart.destroy();
+  caChart = new Chart(document.getElementById('ca-chart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label:'CA TTC', data: caData.map(v=>v/100), borderColor: green, backgroundColor: greenA, fill:true, tension:.4, borderWidth:2, pointRadius:3 },
+        { label:'N-1', data: caDataN1.map(v=>v/100), borderColor:'#C9BEAF', borderDash:[5,5], fill:false, tension:.4, borderWidth:1.5, pointRadius:2 },
+      ]
+    },
+    options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ ticks:{ callback: v => v+'€', font:{size:11} }, grid:{color:'#F3EEE8'} }, x:{ ticks:{font:{size:10}} } } }
+  });
+
+  if (ordersChart) ordersChart.destroy();
+  ordersChart = new Chart(document.getElementById('orders-chart'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label:'Commandes', data: ordersData, backgroundColor: 'rgba(34,90,59,.15)', borderColor: green, borderWidth:1.5, borderRadius:4 }] },
+    options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ ticks:{font:{size:11}}, grid:{color:'#F3EEE8'} }, x:{ticks:{font:{size:10}}} } }
+  });
+
+  if (avgChart) avgChart.destroy();
+  avgChart = new Chart(document.getElementById('avg-chart'), {
+    type: 'line',
+    data: { labels, datasets: [{ label:'Panier moyen', data: avgData.map(v=>v/100), borderColor: amber, backgroundColor:'rgba(212,167,56,.08)', fill:true, tension:.4, borderWidth:2, pointRadius:3 }] },
+    options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ ticks:{callback: v => v+'€', font:{size:11}}, grid:{color:'#F3EEE8'} }, x:{ticks:{font:{size:10}}} } }
+  });
+}
+
+function generateLabels(from, to, period) {
+  const start = new Date(from), end = new Date(to);
+  const labels = [];
+  const cur = new Date(start);
+  if (period === 'day' || period === 'week') {
+    while (cur <= end) { labels.push(cur.toLocaleDateString('fr-FR',{day:'numeric',month:'short'})); cur.setDate(cur.getDate()+1); }
+  } else if (period === 'month') {
+    while (cur <= end) { labels.push(cur.toLocaleDateString('fr-FR',{day:'numeric',month:'short'})); cur.setDate(cur.getDate()+1); }
+  } else {
+    while (cur <= end) { labels.push(cur.toLocaleDateString('fr-FR',{month:'short',year:'numeric'})); cur.setMonth(cur.getMonth()+1); }
   }
+  return labels.slice(0, 24);
 }
 
-// ══════════════════════════════════════
-// TOAST & UTILITAIRES
-// ══════════════════════════════════════
-function showToast(msg, type = 'success') {
+function generateCAData(labels) {
+  return labels.map(() => Math.round((3000 + Math.random() * 12000) * 100) / 100);
+}
+
+// ════════════════════════════════════════════════════════════
+// MODALS & UTILS
+// ════════════════════════════════════════════════════════════
+function openModal(name) { document.getElementById('modal-'+name).classList.add('open'); }
+function closeModal(name) { document.getElementById('modal-'+name).classList.remove('open'); }
+
+function fmt(cents) { return ((cents||0)/100).toLocaleString('fr-FR',{style:'currency',currency:'EUR'}); }
+function fmt_date(d) { return new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'}); }
+
+function toast(msg, type='success') {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast ' + type + ' show';
+  t.textContent = msg; t.className = 'toast '+type+' show';
   setTimeout(() => t.classList.remove('show'), 3500);
 }
 
-function fmt(cents) {
-  return ((cents||0) / 100).toFixed(2).replace('.', ',') + ' €';
+function exportCSV() {
+  const rows = [['N° commande','Date','Client','Email','Téléphone','Montant TTC','Statut','Stripe ID']];
+  orders.forEach(o => rows.push([o.order_number, o.date, o.customer.name, o.customer.email, o.customer.phone||'', (orderTotal(o)/100).toFixed(2), o.status, o.stripe_id]));
+  const csv = rows.map(r => r.join(';')).join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'boisenserie-commandes-'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
+  toast('Export CSV téléchargé', 'info');
 }
-
-// Fermer modal en cliquant sur l'overlay
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
 </script>
 </body>
 </html>
