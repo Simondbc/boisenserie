@@ -591,7 +591,6 @@ function renderOrders() {
       <div class="c-date">${fmtd(o.date)}</div>
       <div onclick="event.stopPropagation()" style="display:flex;gap:6px;flex-wrap:wrap">
         ${o.status==='paid' ? `<button class="btn btn-g btn-xs" onclick="openShip('${o.id}');event.stopPropagation()">Expédier</button>` : ''}
-        ${o.status!=='refunded' && o.status!=='delivered' ? `<button class="btn btn-r btn-xs" onclick="openRefund('${o.id}');event.stopPropagation()">Rembourser</button>` : ''}
         <button class="btn btn-w btn-xs" onclick="printOneLabel('${o.id}');event.stopPropagation()" title="Imprimer étiquette">🏷</button>
       </div>
     </div>`;
@@ -694,7 +693,6 @@ function buildLabel(o) {
   return `<div class="shipping-label">
     <div class="label-from"><strong>DE :</strong> ${SELLER.name} · ${SELLER.address.replace('\n',' ')}</div>
     <div class="label-to">
-      <div class="label-to-name">${o.customer.name}</div>
       <div class="label-to-addr">${o.address}</div>
     </div>
     <div class="label-order">Commande ${o.num} · ${fmtd(o.date)}${o.tracking?' · Suivi : '+o.tracking:''}</div>
