@@ -1,5 +1,5 @@
 const { createClient } = require('@supabase/supabase-js');
-const { sendNewAccountNotification } = require('../emails');
+const { sendNewAccountNotification, sendWelcomeEmail } = require('../emails');
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -40,13 +40,21 @@ module.exports = async (req, res) => {
       throw error;
     }
 
-    // ── Notification interne — nouveau compte ───────────────
-    await sendNewAccountNotification({
-      firstName,
-      lastName: lastName || '',
-      email,
-      createdAt: new Date().toISOString(),
-    }).catch(err => console.error('Email notification error:', err));
+    // Envoi en parallèle :
+    // - notification interne à Simon
+    // - email de bienvenue au client
+    await Promise.allSettled([
+      sendNewAccountNotification({
+        firstName,
+        lastName: lastName || '',
+        email,
+        createdAt: new Date().toISOString(),
+      }),
+      sendWelcomeEmail({
+        firstName,
+        email,
+      }),
+    ]);
 
     res.status(201).json({
       success: true,
