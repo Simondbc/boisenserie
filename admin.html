@@ -522,7 +522,7 @@ async function doLogin() {
   const btn = document.getElementById('login-btn');
   const err = document.getElementById('login-err');
   btn.textContent = 'Vérification…'; btn.disabled = true;
-  err.classList.remove('show');
+  err.style.display = 'none';
   try {
     const res = await fetch('/api/admin/login', {
       method: 'POST',
@@ -531,7 +531,7 @@ async function doLogin() {
     });
     const data = await res.json();
     if (!res.ok) {
-      err.classList.add('show');
+      err.style.display = 'block';
       btn.textContent = 'Accéder →'; btn.disabled = false;
       return;
     }
@@ -542,7 +542,7 @@ async function doLogin() {
     document.getElementById('app').style.display = 'flex';
     boot();
   } catch(e) {
-    err.classList.add('show');
+    err.style.display = 'block';
     btn.textContent = 'Accéder →'; btn.disabled = false;
   }
 }
