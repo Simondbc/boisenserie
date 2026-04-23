@@ -1,4 +1,10 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const { createClient } = require('@supabase/supabase-js');
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_KEY
+);
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -6,13 +12,24 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { items } = req.body;
+    const { items, userToken } = req.body;
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       return res.status(400).json({ error: 'Le panier est vide.' });
     }
 
-    // Construction des lignes de commande depuis le panier
+    // Récupérer l'utilisateur si connecté
+    let userId = null;
+    let userEmail = null;
+    if (userToken) {
+      const { data: { user } } = await supabase.auth.getUser(userToken);
+      if (user) {
+        userId = user.id;
+        userEmail = user.email;
+      }
+    }
+
+    // Construire les lignes de commande Stripe
     const lineItems = items.map(item => ({
       price_data: {
         currency: 'eur',
@@ -22,7 +39,7 @@ module.exports = async (req, res) => {
             ? `Gravure : "${item.engravingText}" — ${item.wood} — ${item.format}`
             : `${item.wood} — ${item.format}`,
         },
-        unit_amount: item.price, // en centimes
+        unit_amount: item.price,
       },
       quantity: item.quantity || 1,
     }));
@@ -33,13 +50,23 @@ module.exports = async (req, res) => {
       lineItems.push({
         price_data: {
           currency: 'eur',
-          product_data: { name: 'Coffret cadeau premium', description: 'Boîte kraft, papier de soie, ruban, carte personnalisée' },
+          product_data: {
+            name: 'Coffret cadeau premium',
+            description: 'Boîte kraft, papier de soie, ruban, carte personnalisée',
+          },
           unit_amount: 490,
         },
         quantity: 1,
       });
     }
 
+    // Calcul du total
+    const totalCts = items.reduce((s, i) => s + i.price * i.quantity, 0) + (hasGiftBox ? 490 : 0);
+
+    // Numéro de commande lisible
+    const orderNumber = 'BOI-' + new Date().getFullYear() + '-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+
+    // Créer la session Stripe
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: lineItems,
@@ -47,9 +74,10 @@ module.exports = async (req, res) => {
       success_url: `${req.headers.origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin}/?cancelled=true`,
       locale: 'fr',
+      customer_email: userEmail || undefined,
       billing_address_collection: 'required',
       shipping_address_collection: {
-        allowed_countries: ['FR', 'DE', 'CH', 'BE', 'LU', 'NL', 'AT', 'IT', 'ES', 'PT', 'GB', 'US', 'CA'],
+        allowed_countries: ['FR', 'DE', 'CH', 'BE', 'LU', 'NL', 'AT', 'IT', 'ES', 'PT', 'GB'],
       },
       shipping_options: [
         {
@@ -75,15 +103,28 @@ module.exports = async (req, res) => {
           },
         },
       ],
-      custom_text: {
-        submit: { message: 'Votre planche sera gravée et expédiée sous 48h ouvrées.' },
+      metadata: {
+        order_number: orderNumber,
+        user_id: userId || 'guest',
       },
     });
+
+    // Sauvegarder la commande dans Supabase (si utilisateur connecté)
+    if (userId) {
+      await supabase.from('orders').insert({
+        user_id: userId,
+        stripe_session_id: session.id,
+        order_number: orderNumber,
+        status: 'pending',
+        items: items,
+        total_cts: totalCts,
+      });
+    }
 
     res.status(200).json({ url: session.url });
 
   } catch (error) {
-    console.error('Erreur Stripe:', error);
+    console.error('Erreur checkout:', error);
     res.status(500).json({ error: error.message });
   }
 };

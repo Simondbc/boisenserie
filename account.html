@@ -1,1 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon compte — Boisenserie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sapin:#225A3B;--sapin-l:#3A7A54;--sapin-50:#F0F6F2;--sapin-100:#D3E8D9;--sapin-200:#A1C9AE;--sapin-600:#164530;
+  --col-50:#FBF0EE;--col-200:#E5A49A;--col-500:#9A3527;--col-600:#74271B;
+  --ble-50:#FDF8EB;--ble-200:#ECC96E;--ble-300:#D4A738;--ble-600:#5F460B;
+  --gres-50:#FAFAF8;--gres-100:#F3EEE8;--gres-200:#E1D7CB;--gres-300:#C9BEAF;
+  --nuit:#1A1916;--nuit-4:#6E6C64;--nuit-5:#9C9A90;--nuit-7:#1A1916;--nuit-8:#0F0E0C;
+  --fd:'Fraunces',Georgia,serif;--fb:'Outfit',sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--fb);background:var(--gres-50);color:var(--nuit);line-height:1.65;min-height:100vh;display:flex;flex-direction:column}
 
+/* HEADER */
+.header{background:rgba(250,250,248,.95);backdrop-filter:blur(12px);border-bottom:.5px solid var(--gres-200);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:var(--fd);font-size:1.5rem;font-weight:400;color:var(--nuit);text-decoration:none}
+.logo span{color:var(--sapin)}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--nuit-4);text-decoration:none;transition:color .15s}
+.back-link:hover{color:var(--sapin)}
+
+/* VIEWS */
+.view{display:none}
+.view.active{display:block}
+
+/* ── AUTH (connexion / inscription) ── */
+.auth-wrap{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;padding:40px 16px}
+.auth-card{background:#fff;border-radius:20px;padding:40px 36px;max-width:440px;width:100%;border:.5px solid var(--gres-200);box-shadow:0 8px 32px rgba(15,14,12,.08)}
+.auth-logo{font-family:var(--fd);font-size:1.5rem;font-weight:400;text-align:center;margin-bottom:6px}
+.auth-logo span{color:var(--sapin)}
+.auth-tagline{text-align:center;font-size:.82rem;color:var(--nuit-5);margin-bottom:28px}
+.auth-tabs{display:flex;background:var(--gres-100);border-radius:10px;padding:4px;gap:4px;margin-bottom:24px}
+.auth-tab{flex:1;padding:9px;text-align:center;font-size:.85rem;font-weight:500;border-radius:7px;cursor:pointer;color:var(--nuit-4);transition:all .15s}
+.auth-tab.active{background:#fff;color:var(--nuit);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:.8rem;font-weight:500;color:var(--nuit-4);margin-bottom:6px}
+.form-input{width:100%;padding:12px 14px;border:1px solid var(--gres-300);border-radius:9px;font-family:var(--fb);font-size:.9rem;color:var(--nuit);background:var(--gres-50);outline:none;transition:border-color .15s}
+.form-input:focus{border-color:var(--sapin);background:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.auth-btn{width:100%;padding:14px;background:var(--sapin);color:white;border:none;border-radius:10px;font-family:var(--fb);font-size:.95rem;font-weight:500;cursor:pointer;transition:all .2s;margin-top:4px}
+.auth-btn:hover{background:var(--sapin-l);transform:translateY(-1px)}
+.auth-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.auth-error{background:var(--col-50);border:.5px solid var(--col-200);color:var(--col-600);border-radius:8px;padding:10px 14px;font-size:.82rem;margin-bottom:14px;display:none}
+.auth-error.show{display:block}
+.auth-success{background:var(--sapin-50);border:.5px solid var(--sapin-200);color:var(--sapin-600);border-radius:8px;padding:10px 14px;font-size:.82rem;margin-bottom:14px;display:none}
+.auth-success.show{display:block}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--nuit-5);font-size:.78rem}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:.5px;background:var(--gres-200)}
+.forgot-link{text-align:center;margin-top:14px;font-size:.78rem;color:var(--nuit-5)}
+.forgot-link a{color:var(--sapin);text-decoration:underline;cursor:pointer}
+
+/* ── DASHBOARD CLIENT ── */
+.dashboard{max-width:900px;margin:0 auto;padding:40px 24px;flex:1}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.dash-welcome{font-family:var(--fd);font-size:1.8rem;font-weight:300;color:var(--nuit)}
+.dash-welcome em{font-style:italic;color:var(--sapin)}
+.dash-meta{font-size:.8rem;color:var(--nuit-5);margin-top:4px}
+.logout-btn{padding:8px 18px;background:transparent;color:var(--nuit-4);border:.5px solid var(--gres-300);border-radius:9999px;font-size:.8rem;cursor:pointer;transition:all .15s}
+.logout-btn:hover{background:var(--col-50);color:var(--col-500);border-color:var(--col-200)}
+
+/* STATS */
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
+.stat-card{background:#fff;border-radius:14px;padding:18px 20px;border:.5px solid var(--gres-200)}
+.stat-num{font-family:var(--fd);font-size:2rem;font-weight:300;color:var(--sapin);line-height:1}
+.stat-label{font-size:.75rem;color:var(--nuit-5);margin-top:4px}
+
+/* ORDERS */
+.orders-section{background:#fff;border-radius:16px;border:.5px solid var(--gres-200);overflow:hidden}
+.orders-header{padding:18px 22px;border-bottom:.5px solid var(--gres-200);display:flex;align-items:center;justify-content:space-between}
+.orders-title{font-size:.95rem;font-weight:500;color:var(--nuit)}
+.orders-subtitle{font-size:.78rem;color:var(--nuit-5)}
+
+/* ORDER CARD */
+.order-card{padding:18px 22px;border-bottom:.5px solid var(--gres-100);transition:background .12s}
+.order-card:last-child{border-bottom:none}
+.order-card:hover{background:var(--gres-50)}
+.order-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.order-num{font-size:.8rem;font-weight:600;color:var(--nuit);font-family:var(--fb)}
+.order-date{font-size:.75rem;color:var(--nuit-5);margin-top:2px}
+.order-status{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:9999px;font-size:.72rem;font-weight:600;letter-spacing:.03em}
+.status-pending{background:var(--ble-50);color:var(--ble-600);border:.5px solid var(--ble-200)}
+.status-paid{background:var(--sapin-50);color:var(--sapin-600);border:.5px solid var(--sapin-200)}
+.status-engraving{background:#EEE8FF;color:#534AB7;border:.5px solid #AFA9EC}
+.status-shipped{background:#E6F1FB;color:#185FA5;border:.5px solid #85B7EB}
+.status-delivered{background:var(--sapin-50);color:var(--sapin-600);border:.5px solid var(--sapin-200)}
+.status-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.order-items{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.order-item-row{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--nuit-4)}
+.order-item-icon{width:32px;height:24px;border-radius:5px;background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0}
+.order-item-name{flex:1}
+.order-item-price{font-weight:500;color:var(--nuit)}
+.order-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.order-total{font-size:.82rem;color:var(--nuit-4)}
+.order-total strong{color:var(--nuit);font-weight:600}
+
+/* TRACKING BAR */
+.tracking-bar{margin:10px 0 6px}
+.tracking-steps{display:flex;align-items:center;gap:0;margin-bottom:6px}
+.tracking-step{display:flex;flex-direction:column;align-items:center;flex:1;position:relative}
+.tracking-step:not(:last-child)::after{content:'';position:absolute;top:10px;left:50%;width:100%;height:2px;background:var(--gres-200);z-index:0}
+.tracking-step.done:not(:last-child)::after{background:var(--sapin-200)}
+.step-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--gres-300);background:#fff;display:flex;align-items:center;justify-content:center;font-size:.6rem;z-index:1;transition:all .2s;flex-shrink:0}
+.tracking-step.done .step-dot{background:var(--sapin);border-color:var(--sapin);color:white}
+.tracking-step.current .step-dot{background:#fff;border-color:var(--sapin);color:var(--sapin);box-shadow:0 0 0 3px rgba(34,90,59,.15)}
+.step-label{font-size:.62rem;color:var(--nuit-5);margin-top:4px;text-align:center;line-height:1.3}
+.tracking-step.done .step-label,.tracking-step.current .step-label{color:var(--sapin-600);font-weight:500}
+
+/* EMPTY ORDERS */
+.orders-empty{padding:48px 24px;text-align:center}
+.orders-empty-icon{font-size:2.5rem;margin-bottom:12px}
+.orders-empty-title{font-family:var(--fd);font-size:1.2rem;font-weight:400;color:var(--nuit);margin-bottom:6px}
+.orders-empty-sub{font-size:.82rem;color:var(--nuit-5);margin-bottom:20px}
+.shop-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:var(--sapin);color:white;border-radius:9999px;font-size:.85rem;font-weight:500;text-decoration:none;transition:all .2s}
+.shop-btn:hover{background:var(--sapin-l)}
+
+/* LOADING */
+.loading-orders{padding:40px;text-align:center;color:var(--nuit-5);font-size:.85rem}
+.spinner{width:28px;height:28px;border:2.5px solid var(--gres-200);border-top-color:var(--sapin);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--gres-200);padding:20px 32px;text-align:center;font-size:.75rem;color:var(--nuit-5);margin-top:auto}
+
+@media(max-width:600px){.header{padding:0 16px}.auth-card{padding:28px 20px;border-radius:14px}.form-row{grid-template-columns:1fr}.dash-stats{grid-template-columns:1fr 1fr}.dashboard{padding:24px 16px}footer{padding:16px}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="/" class="logo">Bois<span>enserie</span></a>
+  <a href="/" class="back-link">← Retour à la boutique</a>
+</header>
+
+<!-- ══════════════════════════════════
+     VUE 1 : AUTHENTIFICATION
+═══════════════════════════════════ -->
+<div class="view active" id="view-auth">
+  <div class="auth-wrap">
+    <div class="auth-card">
+
+      <div class="auth-logo">Bois<span>enserie</span></div>
+      <div class="auth-tagline">Votre espace personnel · Commandes & suivi</div>
+
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Se connecter</div>
+        <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Créer un compte</div>
+      </div>
+
+      <!-- MESSAGES -->
+      <div class="auth-error" id="auth-error"></div>
+      <div class="auth-success" id="auth-success"></div>
+
+      <!-- FORMULAIRE CONNEXION -->
+      <div id="form-login">
+        <div class="form-group">
+          <label class="form-label">Adresse e-mail</label>
+          <input type="email" class="form-input" id="login-email" placeholder="vous@email.fr" onkeydown="if(event.key==='Enter')submitLogin()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mot de passe</label>
+          <input type="password" class="form-input" id="login-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')submitLogin()">
+        </div>
+        <button class="auth-btn" id="login-btn" onclick="submitLogin()">Se connecter →</button>
+        <div class="forgot-link"><a onclick="showForgot()">Mot de passe oublié ?</a></div>
+      </div>
+
+      <!-- FORMULAIRE INSCRIPTION -->
+      <div id="form-register" style="display:none">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Prénom *</label>
+            <input type="text" class="form-input" id="reg-firstname" placeholder="Laurent">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom</label>
+            <input type="text" class="form-input" id="reg-lastname" placeholder="Dupont">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Adresse e-mail *</label>
+          <input type="email" class="form-input" id="reg-email" placeholder="vous@email.fr">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mot de passe * (8 caractères min.)</label>
+          <input type="password" class="form-input" id="reg-password" placeholder="••••••••">
+        </div>
+        <button class="auth-btn" id="register-btn" onclick="submitRegister()">Créer mon compte →</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     VUE 2 : DASHBOARD CLIENT
+═══════════════════════════════════ -->
+<div class="view" id="view-dashboard">
+  <div class="dashboard">
+
+    <!-- Header dashboard -->
+    <div class="dash-header">
+      <div>
+        <div class="dash-welcome">Bonjour, <em id="dash-name">…</em></div>
+        <div class="dash-meta" id="dash-email">…</div>
+      </div>
+      <button class="logout-btn" onclick="logout()">Se déconnecter</button>
+    </div>
+
+    <!-- Statistiques -->
+    <div class="dash-stats">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-orders">—</div>
+        <div class="stat-label">Commande(s) passée(s)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-total">—</div>
+        <div class="stat-label">Total dépensé</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-last">—</div>
+        <div class="stat-label">Dernière commande</div>
+      </div>
+    </div>
+
+    <!-- Historique commandes -->
+    <div class="orders-section">
+      <div class="orders-header">
+        <div>
+          <div class="orders-title">Mes commandes</div>
+          <div class="orders-subtitle">Historique et suivi de vos planches gravées</div>
+        </div>
+      </div>
+      <div id="orders-list">
+        <div class="loading-orders">
+          <div class="spinner"></div>
+          Chargement de vos commandes…
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>© 2025 Boisenserie — Saint-Dié-des-Vosges, Alsace</footer>
+
+<script>
+// ══════════════════════════════════
+// ÉTAT DE SESSION
+// ══════════════════════════════════
+let session = JSON.parse(localStorage.getItem('boisenserie_session') || 'null');
+
+// Vérification au chargement
+window.addEventListener('load', () => {
+  if (session && session.access_token) {
+    showDashboard();
+  } else {
+    showView('view-auth');
+  }
+});
+
+// ── Changer de vue
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// ── Basculer entre connexion et inscription
+function switchTab(tab) {
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+  document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('form-register').style.display = tab === 'register' ? 'block' : 'none';
+  hideMessages();
+}
+
+function showError(msg) {
+  const el = document.getElementById('auth-error');
+  el.textContent = '⚠ ' + msg;
+  el.classList.add('show');
+  document.getElementById('auth-success').classList.remove('show');
+}
+function showSuccess(msg) {
+  const el = document.getElementById('auth-success');
+  el.textContent = '✓ ' + msg;
+  el.classList.add('show');
+  document.getElementById('auth-error').classList.remove('show');
+}
+function hideMessages() {
+  document.getElementById('auth-error').classList.remove('show');
+  document.getElementById('auth-success').classList.remove('show');
+}
+
+// ══════════════════════════════════
+// CONNEXION
+// ══════════════════════════════════
+async function submitLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  const btn = document.getElementById('login-btn');
+
+  if (!email || !password) { showError('Veuillez remplir tous les champs.'); return; }
+
+  btn.textContent = 'Connexion en cours…'; btn.disabled = true;
+  hideMessages();
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+
+    if (!res.ok) { showError(data.error); return; }
+
+    // Sauvegarder la session
+    session = { ...data.session, user: data.user };
+    localStorage.setItem('boisenserie_session', JSON.stringify(session));
+    showDashboard();
+
+  } catch (e) {
+    showError('Erreur de connexion. Vérifiez votre connexion internet.');
+  } finally {
+    btn.textContent = 'Se connecter →'; btn.disabled = false;
+  }
+}
+
+// ══════════════════════════════════
+// INSCRIPTION
+// ══════════════════════════════════
+async function submitRegister() {
+  const firstName = document.getElementById('reg-firstname').value.trim();
+  const lastName = document.getElementById('reg-lastname').value.trim();
+  const email = document.getElementById('reg-email').value.trim();
+  const password = document.getElementById('reg-password').value;
+  const btn = document.getElementById('register-btn');
+
+  if (!firstName || !email || !password) { showError('Veuillez remplir les champs obligatoires (*).'); return; }
+  if (password.length < 8) { showError('Le mot de passe doit contenir au moins 8 caractères.'); return; }
+
+  btn.textContent = 'Création en cours…'; btn.disabled = true;
+  hideMessages();
+
+  try {
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName, lastName, email, password })
+    });
+    const data = await res.json();
+
+    if (!res.ok) { showError(data.error); return; }
+
+    showSuccess('Compte créé ! Vous pouvez maintenant vous connecter.');
+    setTimeout(() => switchTab('login'), 1500);
+    document.getElementById('login-email').value = email;
+
+  } catch (e) {
+    showError('Erreur lors de la création du compte.');
+  } finally {
+    btn.textContent = 'Créer mon compte →'; btn.disabled = false;
+  }
+}
+
+// ══════════════════════════════════
+// DASHBOARD
+// ══════════════════════════════════
+function showDashboard() {
+  if (!session?.user) { showView('view-auth'); return; }
+  showView('view-dashboard');
+
+  const user = session.user;
+  document.getElementById('dash-name').textContent = user.firstName || user.email.split('@')[0];
+  document.getElementById('dash-email').textContent = user.email;
+
+  loadOrders();
+}
+
+// ══════════════════════════════════
+// CHARGEMENT DES COMMANDES
+// ══════════════════════════════════
+async function loadOrders() {
+  const list = document.getElementById('orders-list');
+  list.innerHTML = '<div class="loading-orders"><div class="spinner"></div>Chargement de vos commandes…</div>';
+
+  try {
+    const res = await fetch('/api/account/orders', {
+      headers: { 'Authorization': 'Bearer ' + session.access_token }
+    });
+
+    if (res.status === 401) { logout(); return; }
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error);
+
+    renderOrders(data.orders);
+
+  } catch (e) {
+    list.innerHTML = '<div class="loading-orders" style="color:#B84839">⚠ Impossible de charger vos commandes. Réessayez.</div>';
+  }
+}
+
+// ══════════════════════════════════
+// AFFICHAGE DES COMMANDES
+// ══════════════════════════════════
+function renderOrders(orders) {
+  const list = document.getElementById('orders-list');
+
+  // Stats
+  document.getElementById('stat-orders').textContent = orders.length;
+  const total = orders.reduce((s, o) => s + (o.total_cts || 0), 0);
+  document.getElementById('stat-total').textContent = total > 0 ? fmt(total) : '0,00 €';
+  document.getElementById('stat-last').textContent = orders.length > 0
+    ? new Date(orders[0].created_at).toLocaleDateString('fr-FR', { day:'numeric', month:'short' })
+    : '—';
+
+  if (orders.length === 0) {
+    list.innerHTML = `
+      <div class="orders-empty">
+        <div class="orders-empty-icon">🪵</div>
+        <div class="orders-empty-title">Aucune commande pour l'instant.</div>
+        <p class="orders-empty-sub">Votre première planche gravée vous attend dans notre boutique.</p>
+        <a href="/" class="shop-btn">Voir le catalogue →</a>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML = orders.map(order => renderOrderCard(order)).join('');
+}
+
+function renderOrderCard(order) {
+  const date = new Date(order.created_at).toLocaleDateString('fr-FR', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+
+  const statusLabels = {
+    pending:   { label: 'En attente', cls: 'status-pending' },
+    paid:      { label: 'Payée ✓',    cls: 'status-paid' },
+    engraving: { label: 'En gravure', cls: 'status-engraving' },
+    shipped:   { label: 'Expédiée',   cls: 'status-shipped' },
+    delivered: { label: 'Livrée ✓',   cls: 'status-delivered' },
+  };
+  const st = statusLabels[order.status] || statusLabels.paid;
+
+  // Etapes de suivi
+  const steps = ['paid', 'engraving', 'shipped', 'delivered'];
+  const currentIdx = steps.indexOf(order.status);
+  const stepLabels = ['Payée', 'En gravure', 'Expédiée', 'Livrée'];
+
+  const trackingHtml = `
+    <div class="tracking-bar">
+      <div class="tracking-steps">
+        ${steps.map((s, i) => {
+          const isDone = i < currentIdx;
+          const isCurrent = i === currentIdx;
+          return `<div class="tracking-step ${isDone ? 'done' : ''} ${isCurrent ? 'current' : ''}">
+            <div class="step-dot">${isDone ? '✓' : ''}</div>
+            <div class="step-label">${stepLabels[i]}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+
+  // Articles
+  const items = order.items || [];
+  const itemsHtml = items.slice(0, 2).map(item => `
+    <div class="order-item-row">
+      <div class="order-item-icon">${item.icon || '🦢'}</div>
+      <div class="order-item-name">${item.name}${item.engravingText ? ' · <em style="color:var(--sapin)">"' + item.engravingText + '"</em>' : ''}</div>
+      <div class="order-item-price">${fmt(item.price * item.quantity)}</div>
+    </div>`).join('');
+  const moreItems = items.length > 2 ? `<div style="font-size:.75rem;color:var(--nuit-5);padding-left:42px">+${items.length - 2} article(s) supplémentaire(s)</div>` : '';
+
+  return `
+    <div class="order-card">
+      <div class="order-top">
+        <div>
+          <div class="order-num">${order.order_number || 'Commande'}</div>
+          <div class="order-date">${date}</div>
+        </div>
+        <span class="order-status ${st.cls}"><span class="status-dot"></span>${st.label}</span>
+      </div>
+      ${trackingHtml}
+      <div class="order-items">${itemsHtml}${moreItems}</div>
+      <div class="order-bottom">
+        <div class="order-total">Total : <strong>${fmt(order.total_cts || 0)}</strong></div>
+        ${order.tracking_number ? `<a href="https://www.laposte.fr/outils/suivre-vos-envois?code=${order.tracking_number}" target="_blank" style="font-size:.78rem;color:var(--sapin);text-decoration:underline">Suivre le colis →</a>` : ''}
+      </div>
+    </div>`;
+}
+
+// ══════════════════════════════════
+// DÉCONNEXION
+// ══════════════════════════════════
+function logout() {
+  session = null;
+  localStorage.removeItem('boisenserie_session');
+  showView('view-auth');
+  switchTab('login');
+}
+
+// ══════════════════════════════════
+// MOT DE PASSE OUBLIÉ
+// ══════════════════════════════════
+function showForgot() {
+  const email = document.getElementById('login-email').value.trim();
+  if (!email) {
+    showError('Saisissez d\'abord votre adresse e-mail ci-dessus.');
+    document.getElementById('login-email').focus();
+    return;
+  }
+  showSuccess('Si un compte existe pour cet email, un lien de réinitialisation vous sera envoyé.');
+}
+
+// ══════════════════════════════════
+// UTILITAIRES
+// ══════════════════════════════════
+function fmt(cents) {
+  return (cents / 100).toFixed(2).replace('.', ',') + ' €';
+}
+</script>
+</body>
+</html>
