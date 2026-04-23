@@ -748,6 +748,9 @@ function buildLabel(o) {
     <div class="label-to">
       <div class="label-to-addr">${o.address}</div>
     </div>
+    <div class="label-order">Commande ${o.num} · ${fmtd(o.date)}${o.tracking?' · Suivi : '+o.tracking:''}</div>
+  </div>`;
+}
 
 function printOneLabel(id) {
   const o = orders.find(x=>x.id===id);
