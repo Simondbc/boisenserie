@@ -254,9 +254,6 @@ async function loadOrders() {
 function getDemoOrders() {
   return [
     { id: '1', order_number: 'BOI-2025-A7FKX', customer_name: 'Marie Dupont', customer_email: 'marie.dupont@email.fr', total_cts: 5480, status: 'paid', created_at: new Date().toISOString(), items: [{name:'Planche Cigogne — Chêne', engravingText:'Famille Dupont · Alsace 2025'}] },
-    { id: '2', order_number: 'BOI-2025-K3MNP', customer_name: 'Thomas Weber', customer_email: 'thomas.weber@gmail.com', total_cts: 4990, status: 'engraving', created_at: new Date(Date.now()-86400000).toISOString(), items: [{name:'Planche Bretzel — Hêtre', engravingText:'Weber'}] },
-    { id: '3', order_number: 'BOI-2025-R8QZL', customer_name: 'Isabelle Martin', customer_email: 'i.martin@outlook.fr', total_cts: 6990, status: 'shipped', tracking_number: '2C17834520912', created_at: new Date(Date.now()-172800000).toISOString(), items: [{name:'Planche Sapin — Noyer', engravingText:'Martin · Noël 2025'}] },
-    { id: '4', order_number: 'BOI-2025-X2VBT', customer_name: 'Pierre Schmitt', customer_email: 'pierre.schmitt@free.fr', total_cts: 8990, status: 'delivered', created_at: new Date(Date.now()-432000000).toISOString(), items: [{name:'Cigogne Grand Format — Chêne 60x40'}] },
   ];
 }
 
