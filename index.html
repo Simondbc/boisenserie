@@ -494,7 +494,28 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity var(--rev) var(--eo),transform var(--rev) var(--eo)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
-
+/* ── CARROUSEL EMBLÈMES ── */
+.emblemes-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:var(--s3);
+}
+@media(max-width:768px){
+  .emblemes-grid{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:var(--s3);
+    padding-bottom:var(--s3);
+    scrollbar-width:none;
+  }
+  .emblemes-grid::-webkit-scrollbar{display:none}
+  .emblemes-grid>div{
+    flex:0 0 68vw;
+    scroll-snap-align:start;
+  }
+}
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:var(--s6)}.hero-visual{display:none}.b2b-form-inner{grid-template-columns:1fr}.hist-inner{grid-template-columns:1fr}.forest-vis{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s6)}.perso-inner{grid-template-columns:1fr}.perso-preview{position:static}.prod-grid{grid-template-columns:repeat(2,1fr)}.b2b-indic-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){:root{--cpad:var(--s3)}.nav-links,.nav-cta{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.feat-grid,.testi-grid,.b2b-feat-grid,.vals-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.nl-form{flex-direction:column}.hero-ctas{flex-direction:column}.form-row{grid-template-columns:1fr}.motifs{grid-template-columns:repeat(3,1fr)}.prod-grid{grid-template-columns:1fr}.cart-drawer{width:100vw}}
@@ -676,8 +697,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
         <div class="sec-label">Les séries</div>
         <h2 class="sec-title">Les emblèmes <em>d'Alsace.</em></h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s3)">
-        <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+<div class="emblemes-grid">        <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
           <div style="font-size:2.4rem;margin-bottom:var(--s2)">🦢</div><div style="font-family:var(--fd);font-size:1.05rem">La Cigogne</div><div style="font-size:.72rem;color:var(--color-text3)">Emblème d'Alsace</div>
         </div>
         <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
