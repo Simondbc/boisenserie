@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Planche à découper bois gravée Alsace — Cadeau artisanal | Boisenserie</title>
 <meta name="description" content="Planches à découper artisanales en bois des Vosges, gravées d'emblèmes alsaciens. Cigogne, Bretzel, Sapin… Personnalisées à votre nom. Livraison France.">
+<link rel="canonical" href="https://boisenserie.fr/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Boisenserie","description":"Planches à découper artisanales en bois des Vosges, gravées d'emblèmes alsaciens.","url":"https://boisenserie.fr","email":"contact@boisenserie.fr","address":{"@type":"PostalAddress","addressLocality":"Saint-Dié-des-Vosges","addressRegion":"Grand Est","postalCode":"88100","addressCountry":"FR"},"areaServed":"France","priceRange":"€€"}</script>
+<meta property="og:title" content="Planche à découper bois gravée Alsace — Cadeau artisanal | Boisenserie">
+<meta property="og:description" content="Planches artisanales en bois des Vosges, gravées d'emblèmes alsaciens. Personnalisées à votre nom.">
+<meta property="og:url" content="https://boisenserie.fr">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -34,215 +41,87 @@ body{font-family:var(--fb);background:var(--color-bg);color:var(--color-text);li
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .c{width:100%;max-width:var(--cmax);margin-inline:auto;padding-inline:var(--cpad)}
-
-/* ── SPA PAGES ── */
-.page{display:none;animation:fu var(--rev) var(--eo) both}
-.page.active{display:block}
-@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* ── PROMO BANNER ── */
 .promo{background:var(--nuit-700);color:var(--nuit-100);text-align:center;padding:10px var(--cpad);font-size:var(--sm);font-weight:var(--fw5);display:flex;align-items:center;justify-content:center;gap:var(--s2)}
 .promo-badge{background:var(--sapin-500);color:white;padding:2px 10px;border-radius:var(--rf);font-size:var(--xs);font-weight:var(--fw6);letter-spacing:.06em;text-transform:uppercase}
-
-/* ── HEADER ── */
 .header{position:sticky;top:0;z-index:200;background:rgba(250,250,248,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:.5px solid var(--color-border);transition:box-shadow var(--norm) var(--eo)}
 .header.scrolled{box-shadow:var(--sh1)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:var(--s4)}
-.nav-logo{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw6);letter-spacing:.02em;color:var(--color-text);cursor:pointer;flex-shrink:0;transition:opacity var(--fast) var(--eo)}
+.nav-logo{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw6);letter-spacing:.02em;color:var(--color-text);flex-shrink:0;transition:opacity var(--fast) var(--eo)}
 .nav-logo:hover{opacity:.75}
 .nav-logo span{color:var(--color-brand)}
 .nav-links{display:flex;align-items:center;gap:var(--s1)}
-.nav-link{padding:6px 14px;font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--rf);transition:all var(--fast) var(--eo);cursor:pointer}
+.nav-link{padding:6px 14px;font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--rf);transition:all var(--fast) var(--eo)}
 .nav-link:hover{color:var(--color-text);background:var(--color-bg3)}
 .nav-link.active{color:var(--color-brand);background:var(--sapin-50)}
 .nav-right{display:flex;align-items:center;gap:var(--s2)}
-.nav-cta{padding:10px 22px;font-size:var(--sm);font-weight:var(--fw5);background:var(--sapin-500);color:white;border-radius:var(--rf);transition:all var(--norm) var(--eo);cursor:pointer}
-.nav-cta:hover{background:var(--sapin-400);transform:translateY(-1px);box-shadow:var(--shw)}
-
-/* ── CART ICON ── */
 .cart-icon-btn{position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--rf);background:var(--color-bg3);border:.5px solid var(--color-border);cursor:pointer;transition:all var(--fast) var(--eo);flex-shrink:0}
 .cart-icon-btn:hover{background:var(--sapin-50);border-color:var(--sapin-200)}
 .cart-icon-svg{width:20px;height:20px;stroke:var(--color-text2);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .cart-badge{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:var(--rf);background:var(--sapin-500);color:white;font-size:10px;font-weight:var(--fw6);display:flex;align-items:center;justify-content:center;padding:0 4px;border:1.5px solid var(--color-bg);transition:transform var(--esp) var(--fast);transform:scale(0)}
 .cart-badge.show{transform:scale(1)}
-
-/* ── MOBILE TOGGLE ── */
 .mob-toggle{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
 .mob-toggle span{display:block;width:22px;height:1.5px;background:var(--color-text);transition:all var(--norm) var(--eo);border-radius:2px}
 .mob-menu{display:none;flex-direction:column;gap:4px;padding:var(--s3) var(--cpad) var(--s4);border-top:.5px solid var(--color-border);background:var(--color-bg2)}
 .mob-menu.open{display:flex}
-.mob-link{padding:12px 16px;font-size:var(--md);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--r);cursor:pointer;transition:all var(--fast) var(--eo)}
+.mob-link{padding:12px 16px;font-size:var(--md);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--r);transition:all var(--fast) var(--eo);display:block}
 .mob-link:hover,.mob-link.active{background:var(--color-bg3);color:var(--color-text)}
-.mob-cta{margin-top:var(--s2);padding:14px 16px;text-align:center;font-size:var(--md);font-weight:var(--fw5);background:var(--sapin-500);color:white;border-radius:var(--rl);cursor:pointer}
-
-/* ══════════════════════════════════════
-   CART DRAWER — SNCF CONNECT STYLE
-═══════════════════════════════════════ */
-/* Overlay sombre derrière le drawer */
+.mob-cta{margin-top:var(--s2);padding:14px 16px;text-align:center;font-size:var(--md);font-weight:var(--fw5);background:var(--sapin-500);color:white;border-radius:var(--rl);cursor:pointer;display:block}
 .cart-overlay{position:fixed;inset:0;background:rgba(15,14,12,.45);z-index:400;opacity:0;pointer-events:none;transition:opacity var(--norm) var(--eo)}
 .cart-overlay.open{opacity:1;pointer-events:all}
-
-/* Le drawer lui-même */
-.cart-drawer{
-  position:fixed;top:0;right:0;height:100dvh;width:420px;max-width:100vw;
-  background:var(--color-bg2);z-index:401;
-  transform:translateX(100%);transition:transform var(--slow) var(--eo);
-  display:flex;flex-direction:column;
-  box-shadow:-8px 0 40px rgba(15,14,12,.12)
-}
+.cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:420px;max-width:100vw;background:var(--color-bg2);z-index:401;transform:translateX(100%);transition:transform var(--slow) var(--eo);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(15,14,12,.12)}
 .cart-drawer.open{transform:translateX(0)}
-
-/* Header du drawer */
-.cart-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 24px 16px;border-bottom:.5px solid var(--color-border);
-  flex-shrink:0;background:var(--color-bg2)
-}
-.cart-header-title{
-  display:flex;align-items:center;gap:10px;
-  font-size:var(--lg);font-weight:var(--fw5);color:var(--color-text)
-}
-.cart-header-count{
-  font-size:var(--xs);font-weight:var(--fw6);padding:2px 8px;
-  background:var(--sapin-50);color:var(--sapin-600);border:.5px solid var(--sapin-200);
-  border-radius:var(--rf)
-}
-.cart-close{
-  width:36px;height:36px;border-radius:var(--rf);
-  display:flex;align-items:center;justify-content:center;
-  border:.5px solid var(--color-border);background:var(--color-bg3);
-  cursor:pointer;font-size:1.1rem;color:var(--color-text2);
-  transition:all var(--fast) var(--eo)
-}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:.5px solid var(--color-border);flex-shrink:0;background:var(--color-bg2)}
+.cart-header-title{display:flex;align-items:center;gap:10px;font-size:var(--lg);font-weight:var(--fw5);color:var(--color-text)}
+.cart-header-count{font-size:var(--xs);font-weight:var(--fw6);padding:2px 8px;background:var(--sapin-50);color:var(--sapin-600);border:.5px solid var(--sapin-200);border-radius:var(--rf)}
+.cart-close{width:36px;height:36px;border-radius:var(--rf);display:flex;align-items:center;justify-content:center;border:.5px solid var(--color-border);background:var(--color-bg3);cursor:pointer;font-size:1.1rem;color:var(--color-text2);transition:all var(--fast) var(--eo)}
 .cart-close:hover{background:var(--col-50);border-color:var(--col-200);color:var(--col-500)}
-
-/* Contenu scrollable */
 .cart-body{flex:1;overflow-y:auto;padding:16px 24px;scrollbar-width:thin}
 .cart-body::-webkit-scrollbar{width:4px}
 .cart-body::-webkit-scrollbar-thumb{background:var(--color-border2);border-radius:2px}
-
-/* État vide */
-.cart-empty{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  height:100%;text-align:center;padding:40px 20px;gap:var(--s3)
-}
-.cart-empty-icon{
-  width:72px;height:72px;border-radius:var(--r2);background:var(--sapin-50);
-  display:flex;align-items:center;justify-content:center;
-  border:.5px solid var(--sapin-100)
-}
+.cart-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:40px 20px;gap:var(--s3)}
+.cart-empty-icon{width:72px;height:72px;border-radius:var(--r2);background:var(--sapin-50);display:flex;align-items:center;justify-content:center;border:.5px solid var(--sapin-100)}
 .cart-empty-title{font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw4);color:var(--color-text)}
 .cart-empty-sub{font-size:var(--sm);color:var(--color-text3);line-height:1.6}
-.cart-empty-btn{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:11px 22px;background:var(--sapin-500);color:white;
-  border-radius:var(--rf);font-size:var(--sm);font-weight:var(--fw5);
-  cursor:pointer;transition:all var(--norm) var(--eo)
-}
-.cart-empty-btn:hover{background:var(--sapin-400)}
-
-/* Items du panier */
-.cart-item{
-  display:flex;gap:14px;align-items:flex-start;
-  padding:16px 0;border-bottom:.5px solid var(--color-border)
-}
+.cart-empty-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:var(--sapin-500);color:white;border-radius:var(--rf);font-size:var(--sm);font-weight:var(--fw5);cursor:pointer;transition:all var(--norm) var(--eo)}
+.cart-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:.5px solid var(--color-border)}
 .cart-item:last-child{border-bottom:none}
-.cart-item-img{
-  width:64px;height:48px;border-radius:var(--r);flex-shrink:0;
-  background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.2rem;position:relative;overflow:hidden
-}
-.cart-item-img::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.03) 3px,rgba(255,255,255,.03) 4px)
-}
+.cart-item-img{width:64px;height:48px;border-radius:var(--r);flex-shrink:0;background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535);display:flex;align-items:center;justify-content:center;font-size:1.2rem;position:relative;overflow:hidden}
+.cart-item-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.03) 3px,rgba(255,255,255,.03) 4px)}
 .cart-item-img-text{font-family:var(--fd);font-size:.75rem;font-style:italic;color:rgba(255,255,255,.65);z-index:1;text-align:center;letter-spacing:.06em;line-height:1.2}
 .cart-item-info{flex:1;min-width:0}
 .cart-item-name{font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text);margin-bottom:3px;line-height:1.3}
 .cart-item-detail{font-size:var(--xs);color:var(--color-text3);margin-bottom:8px;line-height:1.5}
-.cart-item-detail span{display:inline-block}
 .cart-item-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
-/* Stepper de quantité */
-.qty-stepper{display:flex;align-items:center;gap:0;border:.5px solid var(--color-border2);border-radius:var(--r)}
-.qty-btn{
-  width:30px;height:30px;display:flex;align-items:center;justify-content:center;
-  font-size:1rem;color:var(--color-text2);cursor:pointer;
-  transition:all var(--fast) var(--eo);background:transparent;flex-shrink:0
-}
+.qty-stepper{display:flex;align-items:center;border:.5px solid var(--color-border2);border-radius:var(--r)}
+.qty-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--color-text2);cursor:pointer;transition:all var(--fast) var(--eo);background:transparent;flex-shrink:0}
 .qty-btn:hover{background:var(--color-bg3);color:var(--color-text)}
 .qty-btn:first-child{border-radius:var(--r) 0 0 var(--r)}
 .qty-btn:last-child{border-radius:0 var(--r) var(--r) 0}
-.qty-num{
-  min-width:32px;height:30px;display:flex;align-items:center;justify-content:center;
-  font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text);
-  border-left:.5px solid var(--color-border2);border-right:.5px solid var(--color-border2)
-}
+.qty-num{min-width:32px;height:30px;display:flex;align-items:center;justify-content:center;font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text);border-left:.5px solid var(--color-border2);border-right:.5px solid var(--color-border2)}
 .cart-item-price{font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw4);color:var(--color-text)}
-.cart-item-remove{
-  padding:4px 8px;font-size:var(--xs);color:var(--color-text3);
-  background:transparent;cursor:pointer;transition:color var(--fast) var(--eo);
-  text-decoration:underline;text-underline-offset:2px
-}
+.cart-item-remove{padding:4px 8px;font-size:var(--xs);color:var(--color-text3);background:transparent;cursor:pointer;transition:color var(--fast) var(--eo);text-decoration:underline;text-underline-offset:2px}
 .cart-item-remove:hover{color:var(--col-500)}
-
-/* Footer du drawer */
-.cart-footer{
-  border-top:.5px solid var(--color-border);padding:16px 24px 24px;
-  flex-shrink:0;background:var(--color-bg2)
-}
-.cart-subtotal-row{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:8px;font-size:var(--sm)
-}
+.cart-footer{border-top:.5px solid var(--color-border);padding:16px 24px 24px;flex-shrink:0;background:var(--color-bg2)}
+.cart-subtotal-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:var(--sm)}
 .cart-subtotal-label{color:var(--color-text2)}
 .cart-subtotal-val{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw4);color:var(--color-text)}
-.cart-shipping-note{
-  font-size:var(--xs);color:var(--sapin-500);
-  background:var(--sapin-50);border:.5px solid var(--sapin-200);
-  border-radius:var(--r);padding:8px 12px;margin-bottom:14px;line-height:1.5
-}
-.cart-checkout-btn{
-  width:100%;padding:16px;background:var(--sapin-500);color:white;
-  border-radius:var(--rl);font-size:var(--md);font-weight:var(--fw5);
-  cursor:pointer;transition:all var(--norm) var(--eo);
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  border:none;letter-spacing:.01em
-}
+.cart-shipping-note{font-size:var(--xs);color:var(--sapin-500);background:var(--sapin-50);border:.5px solid var(--sapin-200);border-radius:var(--r);padding:8px 12px;margin-bottom:14px;line-height:1.5}
+.cart-checkout-btn{width:100%;padding:16px;background:var(--sapin-500);color:white;border-radius:var(--rl);font-size:var(--md);font-weight:var(--fw5);cursor:pointer;transition:all var(--norm) var(--eo);display:flex;align-items:center;justify-content:center;gap:8px;border:none;letter-spacing:.01em}
 .cart-checkout-btn:hover{background:var(--sapin-400);transform:translateY(-1px);box-shadow:var(--shw)}
 .cart-checkout-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .cart-checkout-btn.loading::after{content:'';width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.cart-continue{
-  width:100%;padding:10px;text-align:center;font-size:var(--sm);color:var(--color-text3);
-  cursor:pointer;margin-top:8px;transition:color var(--fast) var(--eo);background:none;border:none
-}
-.cart-continue:hover{color:var(--color-text)}
-.cart-gift-row{
-  display:flex;align-items:center;gap:10px;padding:10px 12px;
-  background:var(--color-bg3);border-radius:var(--r);border:.5px solid var(--color-border);
-  margin-bottom:12px;cursor:pointer
-}
+.cart-continue{width:100%;padding:10px;text-align:center;font-size:var(--sm);color:var(--color-text3);cursor:pointer;margin-top:8px;transition:color var(--fast) var(--eo);background:none;border:none}
+.cart-gift-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--color-bg3);border-radius:var(--r);border:.5px solid var(--color-border);margin-bottom:12px;cursor:pointer}
 .cart-gift-row label{font-size:var(--sm);color:var(--color-text2);cursor:pointer}
 .cart-gift-row input{cursor:pointer;accent-color:var(--sapin-500)}
-
-/* ── TOAST ── */
-.toast{
-  position:fixed;bottom:var(--s4);left:50%;transform:translateX(-50%) translateY(80px);
-  z-index:500;padding:13px 22px;border-radius:var(--rx);
-  font-size:var(--sm);font-weight:var(--fw5);
-  box-shadow:var(--sh4);opacity:0;
-  transition:all var(--norm) var(--esp);
-  display:flex;align-items:center;gap:10px;white-space:nowrap;max-width:90vw
-}
+.toast{position:fixed;bottom:var(--s4);left:50%;transform:translateX(-50%) translateY(80px);z-index:500;padding:13px 22px;border-radius:var(--rx);font-size:var(--sm);font-weight:var(--fw5);box-shadow:var(--sh4);opacity:0;transition:all var(--norm) var(--esp);display:flex;align-items:center;gap:10px;white-space:nowrap;max-width:90vw}
 .toast.success{background:var(--nuit-700);color:white}
 .toast.error{background:var(--col-500);color:white}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:var(--md);font-weight:var(--fw5);border-radius:var(--rf);cursor:pointer;transition:all var(--norm) var(--eo);white-space:nowrap}
 .btn:active{transform:scale(.98)}
-.btn-brand{background:var(--sapin-500);color:white}
+.btn-brand{background:var(--sapin-500);color:white;border:none}
 .btn-brand:hover{background:var(--sapin-400);transform:translateY(-2px);box-shadow:var(--shw)}
 .btn-outline{background:transparent;color:var(--color-text);border:1.5px solid var(--color-border2)}
 .btn-outline:hover{border-color:var(--color-text);background:var(--color-bg3)}
@@ -251,14 +130,9 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .btn-lg{padding:18px 36px;font-size:var(--lg)}
 .btn-arrow::after{content:'→';transition:transform var(--fast) var(--eo)}
 .btn-arrow:hover::after{transform:translateX(4px)}
-
-/* ── SECTION UTILS ── */
 .sec-label{font-size:var(--xs);font-weight:var(--fw5);letter-spacing:.14em;text-transform:uppercase;color:var(--color-brand);margin-bottom:var(--s2)}
 .sec-title{font-family:var(--fd);font-size:clamp(var(--x3),4vw,var(--x4));font-weight:var(--fw3);color:var(--color-text);line-height:1.1;letter-spacing:-.025em;margin-bottom:var(--s3)}
 .sec-title em{font-style:italic;color:var(--color-brand)}
-.sec-desc{font-size:var(--lg);color:var(--color-text2);max-width:600px;line-height:1.65}
-
-/* ── HERO ── */
 .hero{position:relative;overflow:hidden;padding:var(--s16) 0 var(--s12);background:linear-gradient(160deg,var(--gres-50) 0%,var(--sapin-50) 55%,var(--gres-100) 100%)}
 .hero::before{content:'';position:absolute;top:-15%;right:-8%;width:560px;height:560px;background:radial-gradient(circle,var(--sapin-100) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-12%;left:-6%;width:380px;height:380px;background:radial-gradient(circle,var(--ble-50) 0%,transparent 70%);pointer-events:none}
@@ -273,6 +147,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .hero-trust-item{display:flex;align-items:center;gap:6px;font-size:var(--xs);color:var(--color-text3)}
 .hero-trust-dot{width:4px;height:4px;border-radius:50%;background:var(--color-border2)}
 .hero-visual{display:flex;flex-direction:column;gap:var(--s3);animation:fu var(--rev) .25s var(--eo) both}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero-card-main{background:var(--color-bg2);border-radius:var(--r2);box-shadow:var(--sh4);overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
 .hero-pv{width:100%;height:100%;background:linear-gradient(135deg,var(--gres-200),var(--gres-300),var(--nuit-100));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .hero-pv::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(2deg,transparent,transparent 3px,rgba(34,90,59,.04) 3px,rgba(34,90,59,.04) 4px)}
@@ -284,8 +159,6 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .hero-mini{flex:1;background:var(--color-bg2);border-radius:var(--rx);padding:var(--s3);box-shadow:var(--sh2);border:.5px solid var(--color-border)}
 .hero-mini-num{font-family:var(--fd);font-size:var(--x3);font-weight:var(--fw3);color:var(--color-brand);line-height:1}
 .hero-mini-label{font-size:var(--xs);color:var(--color-text3);margin-top:4px}
-
-/* ── FEATURES ── */
 .features{padding:var(--s12) 0;background:var(--color-bg2)}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s8)}
 .feat-card{padding:var(--s6);border-radius:var(--rx);border:.5px solid var(--color-border);background:var(--color-bg);transition:all var(--norm) var(--eo)}
@@ -293,19 +166,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .feat-num{font-family:var(--fd);font-size:var(--x4);font-weight:var(--fw3);color:var(--color-border);line-height:1;margin-bottom:var(--s3)}
 .feat-title{font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s2)}
 .feat-desc{font-size:var(--sm);color:var(--color-text2);line-height:1.7}
-
-/* ── TRUST BAR ── */
 .trust{padding:var(--s10) 0;background:var(--sapin-50);border-top:.5px solid var(--sapin-100);border-bottom:.5px solid var(--sapin-100)}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);text-align:center}
 .trust-num{font-family:var(--fd);font-size:var(--x4);font-weight:var(--fw3);color:var(--sapin-500);line-height:1}
 .trust-label{font-size:var(--sm);color:var(--color-text2);margin-top:var(--s1)}
-
-/* ── BADGES ── */
 .badges{display:flex;flex-wrap:wrap;gap:var(--s2)}
 .badge{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:var(--rf);border:.5px solid var(--color-border);font-size:var(--xs);font-weight:var(--fw5);color:var(--color-text2);background:var(--color-bg2)}
 .badge::before{content:'✓';color:var(--sapin-500)}
-
-/* ── TESTIMONIALS ── */
 .testimonials{padding:var(--s12) 0}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
 .testi-card{background:var(--color-bg2);border-radius:var(--rx);padding:var(--s5);border:.5px solid var(--color-border);transition:all var(--norm) var(--eo)}
@@ -318,8 +185,6 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .testi-name{font-size:var(--sm);font-weight:var(--fw5)}
 .testi-origin{font-size:var(--xs);color:var(--color-text3)}
 .testi-bdg{margin-left:auto;font-size:10px;padding:2px 8px;border-radius:3px;background:var(--gres-100);color:var(--nuit-400);font-weight:500}
-
-/* ── FAQ ── */
 .faq{padding:var(--s12) 0;background:var(--color-bg2)}
 .faq-list{margin-top:var(--s8);max-width:760px;margin-inline:auto}
 .faq-item{border-bottom:.5px solid var(--color-border)}
@@ -328,12 +193,10 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .faq-q:hover{color:var(--color-brand)}
 .faq-chev{width:20px;height:20px;flex-shrink:0;border-radius:50%;border:.5px solid var(--color-border2);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--color-text3);transition:all var(--norm) var(--eo)}
 .faq-item.open .faq-chev{background:var(--sapin-500);border-color:var(--sapin-500);color:white;transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height var(--slow) var(--eo),padding var(--slow) var(--eo)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height var(--slow) var(--eo)}
 .faq-item.open .faq-a{max-height:300px;padding-bottom:var(--s4)}
 .faq-a-inner{font-size:var(--sm);color:var(--color-text2);line-height:1.75}
 .faq-a-inner strong{color:var(--sapin-600);font-weight:var(--fw6)}
-
-/* ── CTA BAND ── */
 .cta-band{padding:var(--s12) 0;background:var(--nuit-700);position:relative;overflow:hidden}
 .cta-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(5deg,transparent,transparent 44px,rgba(163,140,107,.04) 44px,rgba(163,140,107,.04) 45px)}
 .nl-inner{position:relative;z-index:1;text-align:center}
@@ -345,136 +208,6 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .nl-input{flex:1;padding:13px 18px;border-radius:var(--rf);border:1px solid var(--nuit-500);background:rgba(255,255,255,.06);color:white;font-family:var(--fb);font-size:var(--sm);outline:none;transition:border-color var(--fast) var(--eo)}
 .nl-input:focus{border-color:var(--sapin-400)}
 .nl-input::placeholder{color:var(--nuit-400)}
-
-/* ── CATALOGUE ── */
-.shop-hero{padding:var(--s10) 0 var(--s6);background:var(--color-bg2)}
-.shop-filters{padding:var(--s4) 0;background:var(--color-bg2);border-bottom:.5px solid var(--color-border);position:sticky;top:68px;z-index:100}
-.filters-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--s3)}
-.filter-pills{display:flex;gap:var(--s1);flex-wrap:wrap}
-.flt{padding:7px 16px;border-radius:var(--rf);font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);border:.5px solid var(--color-border2);background:transparent;cursor:pointer;transition:all var(--fast) var(--eo)}
-.flt:hover{color:var(--color-text);border-color:var(--color-text)}
-.flt.active{background:var(--nuit-700);color:white;border-color:var(--nuit-700)}
-.prods{padding:var(--s8) 0 var(--s12)}
-.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
-.prod-card{background:var(--color-bg2);border-radius:var(--rx);overflow:hidden;border:.5px solid var(--color-border);transition:all var(--norm) var(--eo);cursor:pointer}
-.prod-card:hover{transform:translateY(-4px);box-shadow:var(--shw);border-color:var(--sapin-200)}
-.prod-img{aspect-ratio:4/3;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--gres-200),var(--gres-300),var(--nuit-100))}
-.prod-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.prod-img-inner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(255,255,255,.04) 4px,rgba(255,255,255,.04) 5px)}
-.prod-bdg{position:absolute;top:12px;left:12px;z-index:1;background:var(--col-500);color:white;padding:3px 10px;border-radius:var(--rf);font-size:var(--xs);font-weight:var(--fw6)}
-.prod-bdg.new{background:var(--sapin-500)}
-.prod-bdg.lim{background:var(--ble-400);color:#2a1a02}
-.planche{width:68%;aspect-ratio:2/1;border-radius:8px;box-shadow:0 12px 32px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.planche::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.03) 3px,rgba(255,255,255,.03) 4px)}
-.planche-engr{font-family:var(--fd);font-size:1.25rem;font-weight:var(--fw3);color:rgba(255,255,255,.55);letter-spacing:.12em;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.3);z-index:1;font-style:italic}
-.planche-engr .e-sub{font-size:.55rem;letter-spacing:.2em;display:block;margin-top:3px;font-style:normal;opacity:.8}
-.prod-info{padding:var(--s4)}
-.prod-cat{font-size:var(--xs);text-transform:uppercase;letter-spacing:.1em;color:var(--color-text3);margin-bottom:4px}
-.prod-name{font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw4);margin-bottom:var(--s1)}
-.prod-desc{font-size:var(--sm);color:var(--color-text2);line-height:1.55;margin-bottom:var(--s3)}
-.prod-footer{display:flex;align-items:center;justify-content:space-between}
-.prod-price{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw3);color:var(--color-text)}
-.prod-price span{font-size:var(--sm);color:var(--color-text3);font-family:var(--fb)}
-/* Bouton "Ajouter au panier" amélioré */
-.prod-add{
-  display:flex;align-items:center;gap:6px;
-  padding:8px 14px;border-radius:var(--rf);
-  background:var(--nuit-700);color:white;
-  font-size:var(--xs);font-weight:var(--fw5);
-  transition:all var(--fast) var(--esp);white-space:nowrap
-}
-.prod-card:hover .prod-add{background:var(--sapin-500)}
-.prod-add:active{transform:scale(.95)}
-
-/* ── PERSONNALISATION ── */
-.perso-hero{padding:var(--s10) 0 var(--s8)}
-.perso-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--s10);align-items:start}
-.step-items{margin-top:var(--s6)}
-.step-item{display:flex;gap:var(--s4);padding:var(--s4) 0;border-bottom:.5px solid var(--color-border);transition:all var(--norm) var(--eo)}
-.step-item:last-child{border-bottom:none}
-.step-num{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:var(--color-bg2);border:1.5px solid var(--color-border2);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw3);color:var(--color-text3);transition:all var(--norm) var(--eo)}
-.step-item.active .step-num{background:var(--nuit-700);border-color:var(--nuit-700);color:white}
-.step-ct-title{font-size:var(--md);font-weight:var(--fw5);margin-bottom:4px}
-.step-ct-desc{font-size:var(--sm);color:var(--color-text2);line-height:1.6}
-.perso-preview{position:sticky;top:100px;background:var(--color-bg2);border-radius:var(--r2);padding:var(--s5);box-shadow:var(--sh4);border:.5px solid var(--color-border)}
-.preview-title{font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);margin-bottom:var(--s3);letter-spacing:.06em;text-transform:uppercase}
-.preview-prod{aspect-ratio:3/2;border-radius:var(--rx);overflow:hidden;background:linear-gradient(135deg,#C9A37A,#A67C52,#6B4428);display:flex;align-items:center;justify-content:center;margin-bottom:var(--s4);position:relative}
-.preview-prod::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 5px,rgba(255,255,255,.025) 5px,rgba(255,255,255,.025) 6px)}
-.preview-engr{font-family:var(--fd);font-size:2.2rem;font-weight:var(--fw3);font-style:italic;color:rgba(255,255,255,.6);letter-spacing:.14em;text-align:center;text-shadow:0 2px 8px rgba(0,0,0,.3);transition:all var(--slow) var(--eo);z-index:1}
-.preview-warn{background:var(--ble-50);border:.5px solid var(--ble-100);border-radius:var(--r);padding:10px 14px;font-size:var(--xs);color:var(--ble-600);line-height:1.5;margin-bottom:var(--s3)}
-.motifs{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2);margin-bottom:var(--s4)}
-.motif-btn{padding:var(--s2);border-radius:var(--rl);border:1.5px solid var(--color-border);background:var(--color-bg);cursor:pointer;font-size:var(--xs);text-align:center;font-weight:var(--fw5);color:var(--color-text2);transition:all var(--fast) var(--eo);display:flex;flex-direction:column;align-items:center;gap:4px}
-.motif-btn:hover{border-color:var(--sapin-300);color:var(--color-brand)}
-.motif-btn.selected{border-color:var(--sapin-500);background:var(--sapin-50);color:var(--color-brand)}
-.motif-icon{font-size:1.4rem}
-.perso-input{width:100%;padding:12px 16px;border-radius:var(--r);border:1px solid var(--color-border2);background:var(--color-bg);font-family:var(--fb);font-size:var(--md);color:var(--color-text);outline:none;transition:border-color var(--fast) var(--eo);margin-bottom:var(--s1)}
-.perso-input:focus{border-color:var(--sapin-500)}
-.perso-input::placeholder{color:var(--color-text3)}
-.char-c{font-size:var(--xs);color:var(--color-text3);text-align:right;margin-bottom:var(--s3)}
-.font-pick{display:flex;flex-direction:column;gap:var(--s2);margin-bottom:var(--s4)}
-.font-opt{padding:12px 16px;border-radius:var(--r);border:1px solid var(--color-border);background:var(--color-bg);cursor:pointer;transition:all var(--fast) var(--eo)}
-.font-opt.selected{border-color:var(--sapin-500);background:var(--sapin-50)}
-.font-opt-name{font-family:var(--fd);font-size:1.1rem;font-weight:var(--fw3);font-style:italic;color:var(--nuit-700);margin-bottom:2px}
-.font-opt-desc{font-size:.7rem;color:var(--color-text3);font-family:var(--fb)}
-.price-row{display:flex;align-items:center;justify-content:space-between;padding-top:var(--s3);border-top:.5px solid var(--color-border)}
-.price-label{font-size:var(--sm);color:var(--color-text2)}
-.price-amt{font-family:var(--fd);font-size:var(--x3);font-weight:var(--fw3)}
-
-/* ── B2B ── */
-.b2b-hero{padding:var(--s12) 0;background:linear-gradient(155deg,var(--nuit-700) 0%,var(--nuit-600) 100%);position:relative;overflow:hidden}
-.b2b-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,var(--sapin-700) 0%,transparent 65%);pointer-events:none;opacity:.4}
-.b2b-hero-inner{position:relative;z-index:1;max-width:720px}
-.b2b-hero .hero-eyebrow{color:var(--sapin-300)}
-.b2b-hero .hero-eyebrow::before{background:var(--sapin-400)}
-.b2b-hero .hero-h1{color:white}
-.b2b-hero .hero-h1 em{color:var(--ble-200)}
-.b2b-hero .hero-sub{color:var(--nuit-400)}
-.b2b-feat{padding:var(--s12) 0;background:var(--color-bg2)}
-.b2b-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s8)}
-.b2b-card{padding:var(--s6);border-radius:var(--rx);border:.5px solid var(--color-border);background:var(--color-bg);transition:all var(--norm) var(--eo)}
-.b2b-card:hover{transform:translateY(-4px);box-shadow:var(--sh3);border-color:var(--sapin-200)}
-.b2b-card-icon{font-size:2rem;margin-bottom:var(--s3)}
-.b2b-card-title{font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s2)}
-.b2b-card-desc{font-size:var(--sm);color:var(--color-text2);line-height:1.65}
-.b2b-indic{padding:var(--s10) 0;background:var(--sapin-50);border-top:.5px solid var(--sapin-100);border-bottom:.5px solid var(--sapin-100)}
-.b2b-indic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
-.b2b-ind{text-align:center}
-.b2b-ind-num{font-family:var(--fd);font-size:var(--x5);font-weight:var(--fw3);color:var(--sapin-500);line-height:1}
-.b2b-ind-label{font-size:var(--sm);color:var(--color-text2);margin-top:var(--s1)}
-.b2b-form-sec{padding:var(--s12) 0}
-.b2b-form-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--s10);align-items:start}
-.b2b-form-info p{font-size:var(--md);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s3)}
-.b2b-check{list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
-.b2b-check li{display:flex;gap:var(--s2);font-size:var(--md);color:var(--color-text2);align-items:flex-start}
-.b2b-check li::before{content:'✓';color:var(--sapin-500);font-weight:var(--fw6);flex-shrink:0}
-.b2b-form{background:var(--color-bg2);border-radius:var(--r2);padding:var(--s6);box-shadow:var(--sh3);border:.5px solid var(--color-border)}
-.form-title{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw3);margin-bottom:var(--s5)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
-.form-group{margin-bottom:var(--s4)}
-.form-label{font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);margin-bottom:var(--s1);display:block}
-.form-input,.form-select,.form-textarea{width:100%;padding:12px 16px;border-radius:var(--r);border:1px solid var(--color-border2);background:var(--color-bg);font-family:var(--fb);font-size:var(--md);color:var(--color-text);outline:none;transition:border-color var(--fast) var(--eo)}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--sapin-500)}
-.form-textarea{resize:vertical;min-height:100px}
-
-/* ── HISTOIRE ── */
-.hist-hero{padding:var(--s12) 0;background:linear-gradient(155deg,var(--gres-50) 0%,var(--sapin-50) 100%)}
-.hist-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--s10);align-items:center}
-.forest-vis{aspect-ratio:1;border-radius:var(--r2);overflow:hidden;background:linear-gradient(135deg,var(--sapin-700),var(--sapin-500),var(--sapin-400));display:flex;align-items:center;justify-content:center;box-shadow:var(--sh4);position:relative}
-.forest-vis::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(5deg,transparent,transparent 38px,rgba(255,255,255,.02) 38px,rgba(255,255,255,.02) 39px)}
-.forest-text{position:relative;z-index:1;text-align:center;font-family:var(--fd);color:white}
-.forest-main{font-size:4rem;font-weight:var(--fw3);letter-spacing:.05em;font-style:italic}
-.forest-sub{font-size:.8rem;letter-spacing:.2em;opacity:.7;text-transform:uppercase;margin-top:var(--s2)}
-.vals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s8)}
-.val-card{padding:var(--s5);border-radius:var(--rx);border:.5px solid var(--color-border);transition:all var(--norm) var(--eo)}
-.val-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
-.val-num{font-family:var(--fd);font-size:var(--x5);font-weight:var(--fw3);color:var(--color-border);line-height:1;margin-bottom:var(--s2)}
-.val-title{font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s2)}
-.val-desc{font-size:var(--sm);color:var(--color-text2);line-height:1.65}
-.hist-q{padding:var(--s12) 0;background:var(--nuit-700)}
-.big-q{font-family:var(--fd);font-size:clamp(var(--x2),3vw,var(--x3));font-weight:var(--fw3);font-style:italic;color:white;text-align:center;max-width:820px;margin-inline:auto;line-height:1.4;letter-spacing:-.01em}
-.big-q-auth{text-align:center;margin-top:var(--s4);font-size:var(--sm);color:var(--nuit-400)}
-
-/* ── FOOTER ── */
 .footer{background:var(--nuit-800);color:var(--gres-300);padding:var(--s10) 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s8);margin-bottom:var(--s8)}
 .footer-tagline{font-size:var(--sm);color:var(--nuit-400);line-height:1.7;max-width:280px}
@@ -483,157 +216,96 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .social:hover{border-color:var(--sapin-400);color:var(--sapin-300)}
 .footer-col-title{font-size:var(--xs);font-weight:var(--fw6);letter-spacing:.1em;text-transform:uppercase;color:var(--gres-200);margin-bottom:var(--s3)}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
-.footer-links li a,.footer-links li span{font-size:var(--sm);color:var(--nuit-400);cursor:pointer;transition:color var(--fast) var(--eo)}
-.footer-links li a:hover,.footer-links li span:hover{color:var(--gres-200)}
+.footer-links li a{font-size:var(--sm);color:var(--nuit-400);transition:color var(--fast) var(--eo)}
+.footer-links li a:hover{color:var(--gres-200)}
 .footer-bottom{border-top:.5px solid var(--nuit-600);padding:var(--s4) 0;display:flex;align-items:center;justify-content:space-between;font-size:var(--xs);color:var(--nuit-500);flex-wrap:wrap;gap:var(--s2)}
 .footer-legal{display:flex;gap:var(--s3)}
 .footer-legal a{color:var(--nuit-500);text-decoration:none;transition:color var(--fast) var(--eo)}
 .footer-legal a:hover{color:var(--gres-400)}
-
-/* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity var(--rev) var(--eo),transform var(--rev) var(--eo)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
-/* ── CARROUSEL EMBLÈMES ── */
-.emblemes-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:var(--s3);
-}
+.emblemes-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s3)}
 @media(max-width:768px){
-  .emblemes-grid{
-    display:flex;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    gap:var(--s3);
-    padding-bottom:var(--s3);
-    scrollbar-width:none;
-  }
+  .emblemes-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:var(--s3);padding-bottom:var(--s3);scrollbar-width:none}
   .emblemes-grid::-webkit-scrollbar{display:none}
-  .emblemes-grid>div{
-    flex:0 0 68vw;
-    scroll-snap-align:start;
-  }
+  .emblemes-grid>a{flex:0 0 68vw;scroll-snap-align:start}
 }
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:var(--s6)}.hero-visual{display:none}.b2b-form-inner{grid-template-columns:1fr}.hist-inner{grid-template-columns:1fr}.forest-vis{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s6)}.perso-inner{grid-template-columns:1fr}.perso-preview{position:static}.prod-grid{grid-template-columns:repeat(2,1fr)}.b2b-indic-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links,.nav-cta{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.feat-grid,.testi-grid,.b2b-feat-grid,.vals-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.nl-form{flex-direction:column}.hero-ctas{flex-direction:column}.form-row{grid-template-columns:1fr}.motifs{grid-template-columns:repeat(3,1fr)}.prod-grid{grid-template-columns:1fr}.cart-drawer{width:100vw}}
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:var(--s6)}.hero-visual{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s6)}}
+@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.feat-grid,.testi-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.nl-form{flex-direction:column}.hero-ctas{flex-direction:column}.cart-drawer{width:100vw}}
 @media(max-width:480px){.hero-h1{font-size:2.25rem}.trust-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
-<!-- PROMO BANNER -->
 <div class="promo">
   <span class="promo-badge">Nouveau</span>
   🌲 Livraison offerte dès 60 € &nbsp;·&nbsp; 🎁 Emballage cadeau inclus &nbsp;·&nbsp; Expédition sous 48h
 </div>
 
-<!-- HEADER -->
 <header class="header" id="header">
   <div class="c">
     <nav class="nav">
-      <div class="nav-logo" onclick="navigate('accueil')">Bois<span>enserie</span></div>
+      <a href="/" class="nav-logo">Bois<span>enserie</span></a>
       <div class="nav-links">
-        <span class="nav-link active" id="nav-accueil" onclick="navigate('accueil')">Accueil</span>
-        <span class="nav-link" id="nav-catalogue" onclick="navigate('catalogue')">Catalogue</span>
-        <span class="nav-link" id="nav-personnalisation" onclick="navigate('personnalisation')">Personnaliser</span>
-        <span class="nav-link" id="nav-b2b" onclick="navigate('b2b')">Professionnels</span>
-        <span class="nav-link" id="nav-histoire" onclick="navigate('histoire')">Notre histoire</span>
+        <a href="/" class="nav-link active">Accueil</a>
+        <a href="/catalogue" class="nav-link">Catalogue</a>
+        <a href="/personnalisation" class="nav-link">Personnaliser</a>
+        <a href="/professionnels" class="nav-link">Professionnels</a>
+        <a href="/notre-histoire" class="nav-link">Notre histoire</a>
       </div>
       <div class="nav-right">
-        <div class="nav-right">
-  <!-- ICÔNE COMPTE CLIENT -->
-  <a href="/account.html" title="Mon compte" style="position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:9999px;background:var(--color-bg3);border:.5px solid var(--color-border);cursor:pointer;transition:all 140ms;text-decoration:none" onmouseover="this.style.background='var(--sapin-50)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.background='var(--color-bg3)';this.style.borderColor='var(--color-border)'">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--nuit-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-      <circle cx="12" cy="7" r="4"/>
-    </svg>
-  </a>
-        <!-- ICÔNE PANIER -->
+        <a href="/account.html" title="Mon compte" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:9999px;background:var(--color-bg3);border:.5px solid var(--color-border);transition:all 140ms" onmouseover="this.style.background='var(--sapin-50)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.background='var(--color-bg3)';this.style.borderColor='var(--color-border)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--nuit-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
         <button class="cart-icon-btn" onclick="openCart()" aria-label="Ouvrir le panier">
-          <svg class="cart-icon-svg" viewBox="0 0 24 24">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
+          <svg class="cart-icon-svg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
           <span class="cart-badge" id="cart-badge">0</span>
         </button>
-       
+        <div class="mob-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
       </div>
-      <div class="mob-toggle" id="mob-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
     </nav>
   </div>
   <div class="mob-menu" id="mob-menu">
-    <span class="mob-link" onclick="navigate('accueil');toggleMobile()">Accueil</span>
-    <span class="mob-link" onclick="navigate('catalogue');toggleMobile()">Catalogue</span>
-    <span class="mob-link" onclick="navigate('personnalisation');toggleMobile()">Personnaliser</span>
-    <span class="mob-link" onclick="navigate('b2b');toggleMobile()">Professionnels</span>
-    <span class="mob-link" onclick="navigate('histoire');toggleMobile()">Notre histoire</span>
-    <button class="mob-cta" onclick="openCart();toggleMobile()">Mon panier 🛒</button>
+    <a href="/" class="mob-link active">Accueil</a>
+    <a href="/catalogue" class="mob-link">Catalogue</a>
+    <a href="/personnalisation" class="mob-link">Personnaliser</a>
+    <a href="/professionnels" class="mob-link">Professionnels</a>
+    <a href="/notre-histoire" class="mob-link">Notre histoire</a>
+    <button class="mob-cta" onclick="openCart()">Mon panier 🛒</button>
   </div>
 </header>
 
-<!-- ══════════════════════════════════
-     CART DRAWER
-═══════════════════════════════════ -->
 <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
-
 <div class="cart-drawer" id="cart-drawer">
-
-  <!-- Header -->
   <div class="cart-header">
     <div class="cart-header-title">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-      </svg>
-      Mon panier
-      <span class="cart-header-count" id="cart-header-count">0 article</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Mon panier <span class="cart-header-count" id="cart-header-count">0 article</span>
     </div>
     <button class="cart-close" onclick="closeCart()">✕</button>
   </div>
-
-  <!-- Body -->
-  <div class="cart-body" id="cart-body">
-    <!-- Contenu généré par JS -->
-  </div>
-
-  <!-- Footer -->
+  <div class="cart-body" id="cart-body"></div>
   <div class="cart-footer" id="cart-footer" style="display:none">
-    <div class="cart-gift-row">
-      <input type="checkbox" id="gift-box-cart" onchange="toggleGiftCart(this)">
-      <label for="gift-box-cart">Ajouter un coffret cadeau premium (+4,90 €)</label>
-    </div>
-    <div class="cart-subtotal-row">
-      <span class="cart-subtotal-label">Sous-total</span>
-      <span class="cart-subtotal-val" id="cart-total">0,00 €</span>
-    </div>
-    <div class="cart-shipping-note" id="cart-shipping-note">
-      🚚 Livraison offerte dès 60 € — vous y êtes presque !
-    </div>
-    <button class="cart-checkout-btn" id="cart-checkout-btn" onclick="proceedToCheckout()">
-      Payer en sécurité →
-    </button>
+    <div class="cart-gift-row"><input type="checkbox" id="gift-box-cart" onchange="toggleGiftCart(this)"><label for="gift-box-cart">Ajouter un coffret cadeau premium (+4,90 €)</label></div>
+    <div class="cart-subtotal-row"><span class="cart-subtotal-label">Sous-total</span><span class="cart-subtotal-val" id="cart-total">0,00 €</span></div>
+    <div class="cart-shipping-note" id="cart-shipping-note">🚚 Livraison offerte dès 60 €</div>
+    <button class="cart-checkout-btn" id="cart-checkout-btn" onclick="proceedToCheckout()">Payer en sécurité →</button>
     <button class="cart-continue" onclick="closeCart()">Continuer mes achats</button>
   </div>
-
 </div>
 
-<!-- ══════════════════════════════════
-     PAGE: ACCUEIL
-═══════════════════════════════════ -->
-<main id="page-accueil" class="page active">
+<main>
 
   <section class="hero">
     <div class="hero-inner">
       <div>
         <div class="hero-eyebrow">Artisan · Alsace · Vosges</div>
-        <h1 class="hero-h1">L'Alsace gravée<br>dans <em>le bois.</em></h1>
-        <p class="hero-sub">Planches à découper en bois massif des Vosges, gravées d'emblèmes alsaciens. Un souvenir authentique à glisser dans vos bagages.</p>
+        <h1 class="hero-h1">Planches à découper<br>en bois gravées — <em>Emblèmes d'Alsace.</em></h1>
+        <p class="hero-sub">Planches à découper en bois massif des Vosges, gravées d'emblèmes alsaciens. Un souvenir authentique, personnalisé à votre nom.</p>
         <div class="hero-ctas">
-          <button class="btn btn-brand btn-arrow" onclick="navigate('personnalisation')">Personnaliser ma planche</button>
-          <button class="btn btn-outline" onclick="navigate('catalogue')">Voir les emblèmes</button>
+          <a href="/personnalisation" class="btn btn-brand btn-arrow">Personnaliser ma planche</a>
+          <a href="/catalogue" class="btn btn-outline">Voir les emblèmes</a>
         </div>
         <div class="hero-trust">
           <span class="hero-trust-item">🌲 Bois des Vosges PEFC</span>
@@ -644,13 +316,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-card-main">
-          <div class="hero-pv">
-            <div class="hero-planche">
-              <div class="hero-engr">🦢<div class="e-sub">Famille Weber · Alsace</div></div>
-            </div>
-          </div>
-        </div>
+        <div class="hero-card-main"><div class="hero-pv"><div class="hero-planche"><div class="hero-engr">🦢<div class="e-sub">Famille Weber · Alsace</div></div></div></div></div>
         <div class="hero-cards-row">
           <div class="hero-mini"><div class="hero-mini-num">2 400+</div><div class="hero-mini-label">Planches gravées</div></div>
           <div class="hero-mini"><div class="hero-mini-num">4,9★</div><div class="hero-mini-label">Note moyenne</div></div>
@@ -697,23 +363,24 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
         <div class="sec-label">Les séries</div>
         <h2 class="sec-title">Les emblèmes <em>d'Alsace.</em></h2>
       </div>
-<div class="emblemes-grid">        <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+      <div class="emblemes-grid">
+        <a href="/personnalisation" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;display:block;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
           <div style="font-size:2.4rem;margin-bottom:var(--s2)">🦢</div><div style="font-family:var(--fd);font-size:1.05rem">La Cigogne</div><div style="font-size:.72rem;color:var(--color-text3)">Emblème d'Alsace</div>
-        </div>
-        <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+        </a>
+        <a href="/personnalisation" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;display:block;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
           <div style="font-size:2.4rem;margin-bottom:var(--s2)">🥨</div><div style="font-family:var(--fd);font-size:1.05rem">Le Bretzel</div><div style="font-size:.72rem;color:var(--color-text3)">XIIe siècle · Strasbourg</div>
-        </div>
-        <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+        </a>
+        <a href="/personnalisation" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;display:block;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
           <div style="font-size:2.4rem;margin-bottom:var(--s2)">🌲</div><div style="font-family:var(--fd);font-size:1.05rem">Le Sapin</div><div style="font-size:.72rem;color:var(--color-text3)">Forêts des Vosges</div>
-        </div>
-        <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+        </a>
+        <a href="/personnalisation" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;display:block;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
           <div style="font-size:2.4rem;margin-bottom:var(--s2)">🏠</div><div style="font-family:var(--fd);font-size:1.05rem">Colombage</div><div style="font-size:.72rem;color:var(--color-text3)">Architecture alsacienne</div>
-        </div>
-        <div onclick="navigate('personnalisation')" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;cursor:pointer;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
+        </a>
+        <a href="/personnalisation" style="padding:var(--s4);background:var(--gres-50);border-radius:var(--rx);border:.5px solid var(--color-border);text-align:center;display:block;transition:all var(--norm) var(--eo)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shw)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--color-border)'">
           <div style="font-size:2.4rem;margin-bottom:var(--s2)">🍇</div><div style="font-family:var(--fd);font-size:1.05rem">La Vigne</div><div style="font-size:.72rem;color:var(--color-text3)">Route des vins</div>
-        </div>
+        </a>
       </div>
-      <div style="text-align:center;margin-top:var(--s5)"><button class="btn btn-ghost" onclick="navigate('catalogue')">Voir tous les emblèmes →</button></div>
+      <div style="text-align:center;margin-top:var(--s5)"><a href="/catalogue" class="btn btn-ghost">Voir tous les emblèmes →</a></div>
     </div>
   </section>
 
@@ -736,231 +403,70 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
       <div style="text-align:center;margin-bottom:0"><div class="sec-label">FAQ</div><h2 class="sec-title">Vos questions.<br>Nos réponses <em>franches.</em></h2></div>
       <div class="faq-list">
         <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Combien de temps dure la livraison ?<div class="faq-chev">+</div></div><div class="faq-a"><div class="faq-a-inner">Nos planches sont expédiées sous <strong>48h ouvrées</strong>. Livraison standard 2-3 jours. Option Express J+2 disponible au moment du paiement Stripe.</div></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment fonctionne le panier ?<div class="faq-chev">+</div></div><div class="faq-a"><div class="faq-a-inner">Ajoutez vos planches au panier via le bouton "+ Ajouter au panier". Votre panier apparaît dans le tiroir à droite. Vous pouvez modifier les quantités, supprimer des articles, puis cliquer sur <strong>"Payer en sécurité"</strong> pour être redirigé vers Stripe.</div></div></div>
         <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Est-ce que la gravure s'efface avec le temps ?<div class="faq-chev">+</div></div><div class="faq-a"><div class="faq-a-inner"><strong>Non.</strong> La gravure laser brûle le bois en profondeur — elle est <strong>permanente</strong>. Le bois se patine avec l'usage, ce qui accentue le contraste.</div></div></div>
-        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Puis-je personnaliser le texte de ma gravure ?<div class="faq-chev">+</div></div><div class="faq-a"><div class="faq-a-inner">Oui — indiquez votre texte dans le <strong>champ "Notes" de la page de paiement Stripe</strong>, ou contactez-nous par e-mail après commande. Nous vous confirmons le texte avant gravure.</div></div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Puis-je personnaliser le texte de ma gravure ?<div class="faq-chev">+</div></div><div class="faq-a"><div class="faq-a-inner">Oui — indiquez votre texte dans le <strong>champ "Notes" de la page de paiement Stripe</strong>, ou contactez-nous par e-mail. Nous vous confirmons le texte avant gravure.</div></div></div>
         <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Le bois vient-il vraiment des Vosges ?<div class="faq-chev">+</div></div><div class="faq-a"><div class="faq-a-inner"><strong>Oui.</strong> Nos grumes proviennent de scieries partenaires certifiées PEFC. Chaque planche est livrée avec une carte d'origine mentionnant la forêt de provenance.</div></div></div>
       </div>
     </div>
   </section>
 
   <section class="cta-band reveal">
-    <div class="c">
-      <div class="nl-inner">
-        <div class="nl-label">Restez informé</div>
-        <h2 class="nl-title">Nouveautés alsaciennes<br>dans votre <em>boîte.</em></h2>
-        <p class="nl-sub">Nouvelles séries, offres exclusives, conseils d'entretien du bois. Sans spam.</p>
-        <div class="nl-form">
-          <input type="email" class="nl-input" placeholder="Votre adresse e-mail">
-          <button class="btn btn-brand" style="border-radius:var(--rf)">S'inscrire</button>
-        </div>
-        <div style="display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-top:var(--s6)">
-          <button class="btn btn-brand btn-arrow btn-lg" onclick="navigate('personnalisation')">Personnaliser ma planche</button>
-          <button class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.3)" onclick="navigate('catalogue')">Voir le catalogue</button>
-        </div>
+    <div class="c"><div class="nl-inner">
+      <div class="nl-label">Restez informé</div>
+      <h2 class="nl-title">Nouveautés alsaciennes<br>dans votre <em>boîte.</em></h2>
+      <p class="nl-sub">Nouvelles séries, offres exclusives, conseils d'entretien du bois. Sans spam.</p>
+      <div class="nl-form">
+        <input type="email" class="nl-input" placeholder="Votre adresse e-mail">
+        <button class="btn btn-brand" style="border-radius:var(--rf)">S'inscrire</button>
       </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ══════════════════════════════════
-     PAGE: CATALOGUE
-═══════════════════════════════════ -->
-<main id="page-catalogue" class="page">
-  <section class="shop-hero"><div class="c"><div class="sec-label">Collection complète</div><h1 class="sec-title">Les séries <em>Emblèmes d'Alsace.</em></h1><p class="sec-desc">Choisissez votre emblème, personnalisez, ajoutez au panier.</p></div></section>
-  <div class="shop-filters"><div class="c"><div class="filters-row"><div class="filter-pills"><button class="flt active" onclick="filterP(this,'all')">Tout</button><button class="flt" onclick="filterP(this,'cigogne')">Cigogne</button><button class="flt" onclick="filterP(this,'bretzel')">Bretzel</button><button class="flt" onclick="filterP(this,'sapin')">Sapin</button><button class="flt" onclick="filterP(this,'colombage')">Colombage</button><button class="flt" onclick="filterP(this,'vigne')">Vigne</button></div><div style="font-size:var(--sm);color:var(--color-text3)">9 produits</div></div></div></div>
-
-  <section class="prods"><div class="c"><div class="prod-grid">
-
-    <div class="prod-card reveal" data-cat="cigogne">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr">🦢<span class="e-sub">Cigogne</span></div></div></div><span class="prod-bdg new">Best-seller</span></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Chêne</div><div class="prod-name">Cigogne des Vosges</div><p class="prod-desc">Chêne massif 40×25 cm, 20 mm. Gravure + personnalisation incluses.</p>
-      <div class="prod-footer"><div class="prod-price">49,90 €<span>&nbsp;· gravure incluse</span></div>
-      <button class="prod-add" onclick="addToCart({id:'cigogne-chene',name:'Planche Cigogne — Chêne des Vosges',price:4990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal rd1" data-cat="bretzel">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#D4B896,#BAA077,#9B8055)"><div class="planche-engr">🥨<span class="e-sub">Bretzel</span></div></div></div></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Hêtre</div><div class="prod-name">Bretzel d'Alsace</div><p class="prod-desc">Hêtre clair 40×25 cm. Finesse de gravure optimale sur bois clair.</p>
-      <div class="prod-footer"><div class="prod-price">49,90 €<span>&nbsp;· gravure incluse</span></div>
-      <button class="prod-add" onclick="addToCart({id:'bretzel-hetre',name:'Planche Bretzel — Hêtre clair',price:4990,emblem:'🥨 Bretzel',wood:'Hêtre clair',format:'40×25 cm',icon:'🥨',bg:'linear-gradient(135deg,#D4B896,#BAA077,#9B8055)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal rd2" data-cat="sapin">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)"><div class="planche-engr" style="color:rgba(255,255,255,.5)">🌲<span class="e-sub">Sapin</span></div></div></div><span class="prod-bdg lim">Édition limitée</span></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Noyer</div><div class="prod-name">Sapin des Vosges</div><p class="prod-desc">Noyer noir 45×30 cm. Notre essence la plus luxueuse.</p>
-      <div class="prod-footer"><div class="prod-price">69,90 €<span>&nbsp;· gravure incluse</span></div>
-      <button class="prod-add" onclick="addToCart({id:'sapin-noyer',name:'Planche Sapin — Noyer noir',price:6990,emblem:'🌲 Sapin',wood:'Noyer noir',format:'45×30 cm',icon:'🌲',bg:'linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal" data-cat="colombage">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr">🏠<span class="e-sub">Colombage</span></div></div></div></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Chêne</div><div class="prod-name">Maison alsacienne</div><p class="prod-desc">Chêne massif 35×22 cm. Format compact pour les bagages.</p>
-      <div class="prod-footer"><div class="prod-price">42,90 €<span>&nbsp;· gravure incluse</span></div>
-      <button class="prod-add" onclick="addToCart({id:'colombage-chene',name:'Planche Colombage — Chêne',price:4290,emblem:'🏠 Colombage',wood:'Chêne des Vosges',format:'35×22 cm',icon:'🏠',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal rd1" data-cat="vigne">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)"><div class="planche-engr" style="color:rgba(255,255,255,.5)">🍇<span class="e-sub">Vigne</span></div></div></div><span class="prod-bdg lim">Édition limitée</span></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Merisier</div><div class="prod-name">La Vigne d'Alsace</div><p class="prod-desc">Merisier 40×25 cm. Essence rare, patine rosée unique.</p>
-      <div class="prod-footer"><div class="prod-price">64,90 €<span>&nbsp;· gravure incluse</span></div>
-      <button class="prod-add" onclick="addToCart({id:'vigne-merisier',name:'Planche Vigne — Merisier',price:6490,emblem:'🍇 Vigne',wood:'Merisier',format:'40×25 cm',icon:'🍇',bg:'linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal rd2" data-cat="cigogne">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535);width:80%"><div class="planche-engr">🦢🦢<span class="e-sub">Grand Format</span></div></div></div></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Chêne · Grand format</div><div class="prod-name">Cigogne — Grand format</div><p class="prod-desc">Chêne massif 60×40 cm. Pour les grandes tablées et cadeaux pro.</p>
-      <div class="prod-footer"><div class="prod-price">89,90 €<span>&nbsp;· gravure incluse</span></div>
-      <button class="prod-add" onclick="addToCart({id:'cigogne-grand',name:'Planche Cigogne Grand Format — Chêne 60×40',price:8990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'60×40 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal" data-cat="cigogne">
-      <div class="prod-img"><div class="prod-img-inner" style="background:linear-gradient(135deg,var(--sapin-700),var(--sapin-500))"><div style="text-align:center;position:relative;z-index:1"><div style="font-size:2.4rem;margin-bottom:8px">🎁</div><div style="font-family:var(--fd);font-size:1rem;font-style:italic;color:rgba(255,255,255,.7)">Coffret Cigogne</div></div></div><span class="prod-bdg new">Nouveau</span></div>
-      <div class="prod-info"><div class="prod-cat">Set cadeau · Coffret premium</div><div class="prod-name">Coffret Cigogne &amp; Soin</div><p class="prod-desc">Planche Cigogne + huile de soin + guide d'entretien + coffret kraft.</p>
-      <div class="prod-footer"><div class="prod-price">62,90 €</div>
-      <button class="prod-add" onclick="addToCart({id:'coffret-cigogne',name:'Coffret Cigogne & Soin Premium',price:6290,emblem:'🎁 Coffret',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🎁',bg:'linear-gradient(135deg,#225A3B,#3A7A54)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal rd1" data-cat="bretzel">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#D4B896,#BAA077,#9B8055);width:55%"><div class="planche-engr">🥨<span class="e-sub">Format bagage</span></div></div></div></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Hêtre · Compact</div><div class="prod-name">Bretzel — Format bagage</div><p class="prod-desc">Hêtre 30×20 cm, 15 mm. Conçu pour tenir dans un bagage cabine.</p>
-      <div class="prod-footer"><div class="prod-price">36,90 €<span>&nbsp;· gravure incluse</span></div>
-      <button class="prod-add" onclick="addToCart({id:'bretzel-mini',name:'Planche Bretzel Format Bagage — Hêtre',price:3690,emblem:'🥨 Bretzel',wood:'Hêtre clair',format:'30×20 cm',icon:'🥨',bg:'linear-gradient(135deg,#D4B896,#BAA077,#9B8055)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-    <div class="prod-card reveal rd2" data-cat="cigogne">
-      <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr" style="font-size:2rem;letter-spacing:.05em">M·W<span class="e-sub">Monogramme</span></div></div></div></div>
-      <div class="prod-info"><div class="prod-cat">Planche · Chêne · Monogramme</div><div class="prod-name">Monogramme &amp; Cigogne</div><p class="prod-desc">Chêne 40×25 cm. Initiales entrelacées + cigogne. Mariage, naissance.</p>
-      <div class="prod-footer"><div class="prod-price">54,90 €</div>
-      <button class="prod-add" onclick="addToCart({id:'monogramme-chene',name:'Planche Monogramme & Cigogne — Chêne',price:5490,emblem:'✦ Monogramme',wood:'Chêne des Vosges',format:'40×25 cm',icon:'✦',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button></div></div>
-    </div>
-
-  </div>
-
-  <div style="margin-top:var(--s10);padding:var(--s8);background:var(--nuit-700);border-radius:var(--r2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--s4)" class="reveal">
-    <div><div style="font-size:var(--xs);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sapin-300);margin-bottom:var(--s1)">Commande professionnelle</div><div style="font-family:var(--fd);font-size:var(--x2);font-weight:300;color:white;margin-bottom:var(--s1)">Dès 10 pièces — tarification dégressive</div><div style="font-size:var(--sm);color:var(--nuit-400)">BAT offert · Facture TVA · Délai 15 jours</div></div>
-    <button class="btn btn-brand btn-arrow" onclick="navigate('b2b')">Espace Professionnels</button>
-  </div>
-  </div></div></section>
-</main>
-
-<!-- ══════════════════════════════════
-     PAGE: PERSONNALISATION
-═══════════════════════════════════ -->
-<main id="page-personnalisation" class="page">
-  <section class="perso-hero">
-    <div class="c"><div class="perso-inner">
-      <div>
-        <div class="sec-label">Configurateur</div>
-        <h1 class="sec-title">Votre histoire,<br>gravée <em>pour toujours.</em></h1>
-        <p class="sec-desc">Configurez votre planche, ajoutez au panier, payez en sécurité.</p>
-        <div class="step-items">
-          <div class="step-item active" id="step1"><div class="step-num">1</div><div style="flex:1"><div class="step-ct-title">Choisissez votre emblème</div><div class="step-ct-desc">L'emblème alsacien qui vous correspond.</div>
-          <div class="motifs" style="margin-top:var(--s3)">
-            <div class="motif-btn selected" onclick="selectMotif(this,'🦢','Cigogne')"><div class="motif-icon">🦢</div>Cigogne</div>
-            <div class="motif-btn" onclick="selectMotif(this,'🥨','Bretzel')"><div class="motif-icon">🥨</div>Bretzel</div>
-            <div class="motif-btn" onclick="selectMotif(this,'🌲','Sapin')"><div class="motif-icon">🌲</div>Sapin</div>
-            <div class="motif-btn" onclick="selectMotif(this,'🏠','Colombage')"><div class="motif-icon">🏠</div>Colombage</div>
-            <div class="motif-btn" onclick="selectMotif(this,'🍇','Vigne')"><div class="motif-icon">🍇</div>Vigne</div>
-            <div class="motif-btn" onclick="selectMotif(this,'🦌','Cerf')"><div class="motif-icon">🦌</div>Cerf</div>
-            <div class="motif-btn" onclick="selectMotif(this,'⛪','Cathédrale')"><div class="motif-icon">⛪</div>Cathédrale</div>
-            <div class="motif-btn" onclick="selectMotif(this,'✦','Initiales')"><div class="motif-icon">✦</div>Initiales</div>
-          </div></div></div>
-
-          <div class="step-item" id="step2"><div class="step-num">2</div><div style="flex:1"><div class="step-ct-title">Votre texte à graver</div><div class="step-ct-desc">Prénom, message, date — 40 caractères max.</div>
-          <div style="margin-top:var(--s3)">
-            <input type="text" class="perso-input" id="engrave-text" maxlength="40" placeholder="ex : Famille Weber · Alsace 2025" oninput="updatePreview(this.value);updateCharCount(this.value)" onfocus="activateStep('step2')">
-            <div class="char-c"><span id="char-num">0</span> / 40 caractères</div>
-            <div class="preview-warn">⚠ La gravure est <strong>permanente et irréversible</strong>. Vérifiez l'orthographe avant de confirmer.</div>
-          </div></div></div>
-
-          <div class="step-item" id="step3"><div class="step-num">3</div><div style="flex:1"><div class="step-ct-title">Police de gravure</div><div class="step-ct-desc">Trois styles.</div>
-          <div class="font-pick" style="margin-top:var(--s3)">
-            <div class="font-opt selected" onclick="selectFont(this,'italic')"><div class="font-opt-name">Fraunces Italic</div><div class="font-opt-desc">Recommandée · Élégante & artisanale</div></div>
-            <div class="font-opt" onclick="selectFont(this,'bold')"><div class="font-opt-name" style="font-weight:600">Fraunces Bold</div><div class="font-opt-desc">Impact · Cadeau d'entreprise</div></div>
-            <div class="font-opt" onclick="selectFont(this,'modern')"><div class="font-opt-name" style="font-family:var(--fb);font-style:normal">Outfit Light</div><div class="font-opt-desc">Moderne · Épuré</div></div>
-          </div></div></div>
-
-          <div class="step-item" id="step4"><div class="step-num">4</div><div style="flex:1"><div class="step-ct-title">Essence de bois</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s3)">
-            <div class="flt active" onclick="selectWood(this,'Chêne des Vosges',4990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Chêne des Vosges</div><div style="font-size:.65rem;color:var(--color-text3)">Dense · Bestseller</div></div>
-            <div class="flt" onclick="selectWood(this,'Hêtre clair',4990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Hêtre clair</div><div style="font-size:.65rem;color:var(--color-text3)">Gravure fine</div></div>
-            <div class="flt" onclick="selectWood(this,'Noyer noir',6990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Noyer noir</div><div style="font-size:.65rem;color:var(--color-text3)">Luxueux</div></div>
-            <div class="flt" onclick="selectWood(this,'Merisier',6490)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Merisier · Éd. limitée</div><div style="font-size:.65rem;color:var(--color-text3)">Patine rosée</div></div>
-          </div></div></div>
-        </div>
-      </div>
-
-      <!-- PREVIEW -->
-      <div class="perso-preview">
-        <div class="preview-title">Aperçu de votre gravure</div>
-        <div class="preview-prod">
-          <div style="text-align:center;position:relative;z-index:1">
-            <div class="preview-engr" id="preview-motif" style="font-size:3rem">🦢</div>
-            <div class="preview-engr" id="preview-name" style="font-size:1.6rem;margin-top:4px">VOTRE TEXTE</div>
-          </div>
-        </div>
-        <div style="margin-bottom:var(--s4)">
-          <div style="font-size:var(--xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text3);margin-bottom:var(--s2)">Format & taille</div>
-          <div style="display:flex;gap:var(--s2)">
-            <button class="flt active" style="flex:1;border-radius:var(--r)" onclick="selectFormat(this,'40×25 cm',4990)">40×25 cm</button>
-            <button class="flt" style="flex:1;border-radius:var(--r)" onclick="selectFormat(this,'30×20 cm',3690)">30×20 cm</button>
-            <button class="flt" style="flex:1;border-radius:var(--r)" onclick="selectFormat(this,'60×40 cm',8990)">60×40 cm</button>
-          </div>
-        </div>
-        <div class="price-row">
-          <div class="price-label">Total gravure incluse</div>
-          <div class="price-amt" id="preview-price">49,90 €</div>
-        </div>
-        <!-- BOUTON AJOUTER AU PANIER dans le configurateur -->
-        <button id="perso-add-btn" style="width:100%;padding:16px;background:var(--sapin-500);color:white;border-radius:var(--rl);font-size:var(--md);font-weight:var(--fw5);cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:var(--s4);transition:all var(--norm) var(--eo)" onclick="addPersoToCart()">
-          🛒 Ajouter au panier
-        </button>
-        <div style="text-align:center;margin-top:var(--s2);font-size:var(--xs);color:var(--color-text3)">🔒 Paiement sécurisé · Stripe · CB, Apple Pay, Google Pay</div>
+      <div style="display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-top:var(--s6)">
+        <a href="/personnalisation" class="btn btn-brand btn-arrow btn-lg">Personnaliser ma planche</a>
+        <a href="/catalogue" class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.3)">Voir le catalogue</a>
       </div>
     </div></div>
   </section>
+
 </main>
 
-<!-- ══════════════════════════════════
-     PAGE: B2B
-═══════════════════════════════════ -->
-<main id="page-b2b" class="page">
-  <section class="b2b-hero"><div class="c"><div class="b2b-hero-inner"><div class="hero-eyebrow">Espace Professionnels</div><h1 class="hero-h1">Votre identité,<br>gravée dans <em>le bois.</em></h1><p class="hero-sub">Solutions sur mesure pour restaurants, hôtels, entreprises et offices de tourisme alsaciens.</p><div class="hero-ctas" style="margin-top:var(--s5)"><button class="btn btn-brand btn-arrow" onclick="document.getElementById('b2b-form').scrollIntoView({behavior:'smooth'})">Demander un devis gratuit</button><button class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.3)">Voir les réalisations</button></div></div></div></section>
-  <section class="b2b-feat"><div class="c"><div style="text-align:center;margin-bottom:var(--s8)"><div class="sec-label">Solutions B2B</div><h2 class="sec-title">Trois pôles<br>de <em>personnalisation.</em></h2></div><div class="b2b-feat-grid"><div class="b2b-card reveal rd1"><div class="b2b-card-icon">🍽️</div><div class="b2b-card-title">Restaurateurs & hôtels</div><p class="b2b-card-desc">Planches gravées à votre logo. Vos clients partent avec votre adresse dans les mains — et reviennent.</p></div><div class="b2b-card reveal rd2"><div class="b2b-card-icon">🎁</div><div class="b2b-card-title">Cadeaux d'entreprise</div><p class="b2b-card-desc">Votre logo gravé sur bois massif des Vosges : utile, élégant, local. Livraison dans toute l'Europe.</p></div><div class="b2b-card reveal rd3"><div class="b2b-card-icon">⚙️</div><div class="b2b-card-title">Process sans friction</div><p class="b2b-card-desc">Devis 48h. BAT offert. Facture TVA. Commandes récurrentes en 1 clic depuis votre espace Pro.</p></div></div></div></section>
-  <section class="b2b-indic reveal"><div class="c"><div class="b2b-indic-grid"><div class="b2b-ind"><div class="b2b-ind-num">120+</div><div class="b2b-ind-label">Clients B2B actifs</div></div><div class="b2b-ind"><div class="b2b-ind-num">4 800</div><div class="b2b-ind-label">Pièces B2B en 2025</div></div><div class="b2b-ind"><div class="b2b-ind-num">15 j.</div><div class="b2b-ind-label">Délai moyen production</div></div><div class="b2b-ind"><div class="b2b-ind-num">3★+</div><div class="b2b-ind-label">Restaurants étoilés partenaires</div></div></div></div></section>
-  <section class="b2b-form-sec" id="b2b-form"><div class="c"><div class="b2b-form-inner"><div class="b2b-form-info reveal"><div class="sec-label">Demande de devis</div><h2 class="sec-title">Discutons de<br>votre <em>projet.</em></h2><p>Notre équipe vous répond sous 48h avec un devis personnalisé. BAT numérique offert.</p><ul class="b2b-check" style="margin-top:var(--s4)"><li>Gravure logo vectoriel (SVG, AI, EPS, PDF)</li><li>BAT numérique offert</li><li>Tarification dégressive dès 10 pièces</li><li>Livraison France, Allemagne, Suisse, Europe</li><li>Facture TVA · Virement accepté</li></ul></div><div class="b2b-form reveal rd2"><div class="form-title">Demander un devis</div><div class="form-row"><div class="form-group"><label class="form-label">Prénom *</label><input type="text" class="form-input" placeholder="Laurent"></div><div class="form-group"><label class="form-label">Nom *</label><input type="text" class="form-input" placeholder="Dupont"></div></div><div class="form-group"><label class="form-label">Société / Restaurant *</label><input type="text" class="form-input" placeholder="L'Alsacien — Restaurant gastronomique"></div><div class="form-row"><div class="form-group"><label class="form-label">E-mail *</label><input type="email" class="form-input" placeholder="contact@restaurant.fr"></div><div class="form-group"><label class="form-label">Téléphone</label><input type="tel" class="form-input" placeholder="+33 6 00 00 00 00"></div></div><div class="form-row"><div class="form-group"><label class="form-label">Type de projet *</label><select class="form-select"><option>Restaurant / Hôtel</option><option>Cadeaux d'entreprise</option><option>Office de tourisme</option><option>Autre</option></select></div><div class="form-group"><label class="form-label">Quantité souhaitée *</label><select class="form-select"><option>10 à 29 pièces</option><option>30 à 49 pièces</option><option>50 à 99 pièces</option><option>100 pièces et +</option></select></div></div><div class="form-group"><label class="form-label">Votre message</label><textarea class="form-textarea" placeholder="Décrivez votre projet..."></textarea></div><button class="btn btn-brand btn-arrow" style="width:100%;justify-content:center;border-radius:var(--rl)" onclick="submitB2B(this)">Envoyer ma demande de devis</button><div style="text-align:center;margin-top:var(--s3);font-size:var(--xs);color:var(--color-text3)">Réponse garantie sous 48h · Devis gratuit</div></div></div></div></section>
-</main>
-
-<!-- ══════════════════════════════════
-     PAGE: NOTRE HISTOIRE
-═══════════════════════════════════ -->
-<main id="page-histoire" class="page">
-  <section class="hist-hero"><div class="c"><div class="hist-inner"><div class="reveal"><div class="sec-label">Notre histoire</div><h1 class="sec-title">Nés des forêts<br>des <em>Vosges.</em></h1><p style="font-size:var(--lg);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s4)">Boisenserie est né d'une conviction simple : l'Alsace mérite un souvenir à la hauteur de son histoire. Pas un objet importé — une planche vivante, taillée dans la forêt qui entoure nos villages.</p><p style="font-size:var(--md);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s5)">Depuis 2020, nous sélectionnons nos grumes chez des scieries partenaires des Vosges, laissons sécher le bois 18 mois, puis gravons chaque emblème avec une précision laser millimétrée.</p><div style="display:flex;gap:var(--s2);flex-wrap:wrap"><span style="padding:8px 18px;background:var(--sapin-50);border-radius:var(--rf);border:.5px solid var(--sapin-200);font-size:.78rem;font-weight:500;color:var(--sapin-600)">🌲 PEFC certifié depuis 2020</span><span style="padding:8px 18px;background:var(--sapin-50);border-radius:var(--rf);border:.5px solid var(--sapin-200);font-size:.78rem;font-weight:500;color:var(--sapin-600)">🏅 Artisan d'Art reconnu</span></div></div><div class="forest-vis reveal rd2"><div class="forest-text"><div class="forest-main">Vosges</div><div class="forest-sub">Forêts certifiées PEFC</div></div></div></div></div></section>
-  <section style="padding:var(--s12) 0;background:var(--color-bg2)" class="reveal"><div class="c"><div class="sec-label">Nos convictions</div><h2 class="sec-title">Ce qui nous guide<br>chaque <em>jour.</em></h2><div class="vals-grid"><div class="val-card reveal rd1"><div class="val-num">01</div><div class="val-title">Le vrai bois, pas du contreplaqué</div><p class="val-desc">Nous travaillons exclusivement du bois massif. Chaque planche est une pièce unique avec son propre grain, ses nœuds, sa signature naturelle.</p></div><div class="val-card reveal rd2"><div class="val-num">02</div><div class="val-title">La traçabilité comme promesse</div><p class="val-desc">Chaque planche est livrée avec une carte d'origine mentionnant la forêt vosgienne. Certification PEFC vérifiable.</p></div><div class="val-card reveal rd3"><div class="val-num">03</div><div class="val-title">L'Alsace comme inspiration permanente</div><p class="val-desc">Chaque emblème est choisi pour sa profondeur historique. Des siècles d'histoire gravés dans le bois.</p></div></div></div></section>
-  <section class="hist-q reveal"><div class="c"><div class="big-q">"Chaque planche naît d'un arbre qui a poussé dans nos forêts. La gravure fixe l'histoire de l'Alsace dans son grain — pour que vous la portiez avec vous."</div><div class="big-q-auth">L'équipe Boisenserie · Saint-Dié-des-Vosges</div></div></section>
-  <section style="padding:var(--s10) 0;background:var(--sapin-50);border-top:.5px solid var(--sapin-100)" class="reveal"><div class="c" style="text-align:center"><div class="sec-label">Rejoignez l'aventure</div><h2 class="sec-title">Votre nom mérite<br>de rester gravé <em>quelque part.</em></h2><div style="display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-top:var(--s5)"><button class="btn btn-brand btn-arrow btn-lg" onclick="navigate('personnalisation')">Personnaliser ma planche</button><button class="btn btn-outline btn-lg" onclick="navigate('catalogue')">Voir le catalogue</button></div></div></section>
-</main>
-
-<!-- FOOTER -->
 <footer class="footer">
   <div class="c">
     <div class="footer-grid">
       <div>
-        <div class="nav-logo" style="color:white;margin-bottom:var(--s3);display:block;cursor:pointer" onclick="navigate('accueil')">Bois<span style="color:var(--sapin-300)">enserie</span></div>
+        <a href="/" class="nav-logo" style="color:white;margin-bottom:var(--s3);display:block">Bois<span style="color:var(--sapin-300)">enserie</span></a>
         <p class="footer-tagline">Planches à découper en bois massif des Vosges, gravées d'emblèmes alsaciens. Artisanat de précision, Alsace.</p>
         <div style="margin-top:var(--s3);display:flex;gap:var(--s2)">
           <span style="padding:4px 12px;background:rgba(34,90,59,.2);border-radius:var(--rf);font-size:.7rem;font-weight:500;color:var(--sapin-300)">🌲 PEFC</span>
           <span style="padding:4px 12px;background:rgba(255,255,255,.06);border-radius:var(--rf);font-size:.7rem;font-weight:500;color:var(--nuit-400)">🇫🇷 Artisan d'Art</span>
         </div>
-        <div class="footer-socials">
-          <div class="social">📸</div><div class="social">👍</div><div class="social">💼</div><div class="social">▶️</div>
-        </div>
+        <div class="footer-socials"><div class="social">📸</div><div class="social">👍</div><div class="social">💼</div><div class="social">▶️</div></div>
       </div>
-      <div><div class="footer-col-title">Nos planches</div><ul class="footer-links"><li><span onclick="navigate('catalogue')">Catalogue complet</span></li><li><span onclick="navigate('catalogue')">Emblèmes d'Alsace</span></li><li><span onclick="navigate('catalogue')">Choisir son bois</span></li><li><span onclick="navigate('catalogue')">Sets cadeaux</span></li></ul></div>
-      <div><div class="footer-col-title">Personnalisation</div><ul class="footer-links"><li><span onclick="navigate('personnalisation')">Configurateur</span></li><li><span onclick="navigate('b2b')">Offre Professionnels</span></li><li><span onclick="navigate('b2b')">Cadeaux d'entreprise</span></li><li><span onclick="navigate('b2b')">Demander un devis</span></li></ul></div>
-      <div><div class="footer-col-title">Service client</div><ul class="footer-links"><li><span>Livraison & délais</span></li><li><span>Retours & échanges</span></li><li><span>FAQ</span></li><li><a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></li></ul></div>
+      <div>
+        <div class="footer-col-title">Nos planches</div>
+        <ul class="footer-links">
+          <li><a href="/catalogue">Catalogue complet</a></li>
+          <li><a href="/catalogue">Emblèmes d'Alsace</a></li>
+          <li><a href="/catalogue">Choisir son bois</a></li>
+          <li><a href="/catalogue">Sets cadeaux</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Personnalisation</div>
+        <ul class="footer-links">
+          <li><a href="/personnalisation">Configurateur</a></li>
+          <li><a href="/professionnels">Offre Professionnels</a></li>
+          <li><a href="/professionnels">Cadeaux d'entreprise</a></li>
+          <li><a href="/professionnels">Demander un devis</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Service client</div>
+        <ul class="footer-links">
+          <li><a href="/">Livraison &amp; délais</a></li>
+          <li><a href="/">Retours &amp; échanges</a></li>
+          <li><a href="/">FAQ</a></li>
+          <li><a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       <span>© 2025 Boisenserie — Saint-Dié-des-Vosges (88), Alsace, France.</span>
@@ -974,381 +480,70 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
   </div>
 </footer>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ═══════════════════════════════════════
-// 🛒 SYSTÈME DE PANIER COMPLET
-// ═══════════════════════════════════════
-
 let cart = JSON.parse(localStorage.getItem('boisenserie_cart') || '[]');
 let giftBox = false;
-
-// ── Sauvegarder le panier dans localStorage
-function saveCart() {
-  localStorage.setItem('boisenserie_cart', JSON.stringify(cart));
-}
-
-// ── Ajouter un article au panier
-function addToCart(product) {
-  const existing = cart.find(i => i.id === product.id);
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-  saveCart();
-  renderCart();
-  updateCartBadge();
-  openCart();
-  showToast('✓ ' + product.name + ' ajouté au panier !', 'success');
-}
-
-// ── Ajouter depuis le configurateur de personnalisation
-function addPersoToCart() {
-  const emblem = document.getElementById('preview-motif').textContent;
-  const text = document.getElementById('engrave-text').value.trim();
-  const price = parseInt(currentConfig.price);
-  const product = {
-    id: 'perso-' + Date.now(),
-    name: 'Planche personnalisée — ' + currentConfig.wood,
-    price: price,
-    emblem: emblem,
-    wood: currentConfig.wood,
-    format: currentConfig.format,
-    engravingText: text,
-    icon: emblem,
-    bg: 'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)',
-    quantity: 1
-  };
-  cart.push(product);
-  saveCart();
-  renderCart();
-  updateCartBadge();
-  openCart();
-  showToast('✓ Planche ajoutée au panier !', 'success');
-}
-
-// ── Supprimer un article
-function removeFromCart(id) {
-  cart = cart.filter(i => i.id !== id);
-  saveCart();
-  renderCart();
-  updateCartBadge();
-}
-
-// ── Modifier la quantité
-function updateQty(id, delta) {
-  const item = cart.find(i => i.id === id);
-  if (!item) return;
-  item.quantity += delta;
-  if (item.quantity <= 0) {
-    removeFromCart(id);
+function saveCart(){localStorage.setItem('boisenserie_cart',JSON.stringify(cart));}
+function addToCart(p){const e=cart.find(i=>i.id===p.id);if(e){e.quantity++;}else{cart.push({...p,quantity:1});}saveCart();renderCart();updateCartBadge();openCart();showToast('✓ '+p.name+' ajouté au panier !','success');}
+function removeFromCart(id){cart=cart.filter(i=>i.id!==id);saveCart();renderCart();updateCartBadge();}
+function updateQty(id,delta){const item=cart.find(i=>i.id===id);if(!item)return;item.quantity+=delta;if(item.quantity<=0){removeFromCart(id);return;}saveCart();renderCart();updateCartBadge();}
+function getCartTotal(){return cart.reduce((s,i)=>s+i.price*i.quantity,0)+(giftBox?490:0);}
+function getCartCount(){return cart.reduce((s,i)=>s+i.quantity,0);}
+function updateCartBadge(){const count=getCartCount();const badge=document.getElementById('cart-badge');badge.textContent=count;badge.classList.toggle('show',count>0);}
+function fmt(cents){return(cents/100).toFixed(2).replace('.',',')+' €';}
+function renderCart(){
+  const body=document.getElementById('cart-body');
+  const footer=document.getElementById('cart-footer');
+  const headerCount=document.getElementById('cart-header-count');
+  const count=getCartCount();
+  headerCount.textContent=count===0?'0 article':count+' article'+(count>1?'s':'');
+  if(cart.length===0){
+    footer.style.display='none';
+    body.innerHTML=`<div class="cart-empty"><div class="cart-empty-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#225A3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><div class="cart-empty-title">Votre panier est vide.</div><p class="cart-empty-sub">Aucune planche n'a encore reçu votre nom.</p><a href="/catalogue" class="cart-empty-btn">Voir le catalogue →</a></div>`;
     return;
   }
-  saveCart();
-  renderCart();
-  updateCartBadge();
-}
-
-// ── Calcul du total
-function getCartTotal() {
-  const sub = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-  return sub + (giftBox ? 490 : 0);
-}
-
-// ── Nombre d'articles
-function getCartCount() {
-  return cart.reduce((s, i) => s + i.quantity, 0);
-}
-
-// ── Mettre à jour le badge de l'icône panier
-function updateCartBadge() {
-  const count = getCartCount();
-  const badge = document.getElementById('cart-badge');
-  badge.textContent = count;
-  badge.classList.toggle('show', count > 0);
-}
-
-// ── Formater le prix
-function fmt(cents) {
-  return (cents / 100).toFixed(2).replace('.', ',') + ' €';
-}
-
-// ── Afficher le panier dans le drawer
-function renderCart() {
-  const body = document.getElementById('cart-body');
-  const footer = document.getElementById('cart-footer');
-  const headerCount = document.getElementById('cart-header-count');
-  const count = getCartCount();
-
-  // Mettre à jour le compteur dans le header
-  headerCount.textContent = count === 0 ? '0 article' : count + ' article' + (count > 1 ? 's' : '');
-
-  if (cart.length === 0) {
-    // État vide
-    footer.style.display = 'none';
-    body.innerHTML = `
-      <div class="cart-empty">
-        <div class="cart-empty-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#225A3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-        </div>
-        <div class="cart-empty-title">Votre panier est vide.</div>
-        <p class="cart-empty-sub">Aucune planche n'a encore reçu votre nom.<br>Parcourez notre catalogue pour trouver la vôtre.</p>
-        <button class="cart-empty-btn" onclick="closeCart();navigate('catalogue')">Voir le catalogue →</button>
-      </div>`;
-    return;
+  let html='';
+  for(const item of cart){
+    html+=`<div class="cart-item"><div class="cart-item-img" style="background:${item.bg||'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'}"><div class="cart-item-img-text">${item.icon||'🦢'}</div></div><div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-detail"><span>${item.wood}</span> · <span>${item.format}</span>${item.engravingText?'<br><span style="color:var(--sapin-500);font-style:italic">✦ "'+item.engravingText+'"</span>':''}</div><div class="cart-item-row"><div class="qty-stepper"><button class="qty-btn" onclick="updateQty('${item.id}',-1)">−</button><div class="qty-num">${item.quantity}</div><button class="qty-btn" onclick="updateQty('${item.id}',1)">+</button></div><div class="cart-item-price">${fmt(item.price*item.quantity)}</div></div><button class="cart-item-remove" onclick="removeFromCart('${item.id}')">Supprimer</button></div></div>`;
   }
-
-  // Articles
-  let itemsHtml = '';
-  for (const item of cart) {
-    const safeId = CSS.escape(item.id);
-    itemsHtml += `
-      <div class="cart-item" id="item-${safeId}">
-        <div class="cart-item-img" style="background:${item.bg || 'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'}">
-          <div class="cart-item-img-text">${item.icon || '🦢'}</div>
-        </div>
-        <div class="cart-item-info">
-          <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-detail">
-            <span>${item.wood}</span> · <span>${item.format}</span>
-            ${item.engravingText ? '<br><span style="color:var(--sapin-500);font-style:italic">✦ "' + item.engravingText + '"</span>' : ''}
-          </div>
-          <div class="cart-item-row">
-            <div class="qty-stepper">
-              <button class="qty-btn" onclick="updateQty('${item.id}', -1)">−</button>
-              <div class="qty-num">${item.quantity}</div>
-              <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
-            </div>
-            <div class="cart-item-price">${fmt(item.price * item.quantity)}</div>
-          </div>
-          <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">Supprimer</button>
-        </div>
-      </div>`;
-  }
-  body.innerHTML = itemsHtml;
-
-  // Footer
-  footer.style.display = 'block';
-  const total = getCartTotal();
-  document.getElementById('cart-total').textContent = fmt(total);
-
-  // Message livraison
-  const shippingNote = document.getElementById('cart-shipping-note');
-  if (total >= 6000) {
-    shippingNote.innerHTML = '✅ Livraison offerte ! Vous avez dépassé 60 €.';
-    shippingNote.style.background = 'var(--sapin-50)';
-    shippingNote.style.borderColor = 'var(--sapin-200)';
-    shippingNote.style.color = 'var(--sapin-600)';
-  } else {
-    const remaining = fmt(6000 - total);
-    shippingNote.innerHTML = `🚚 Plus que <strong>${remaining}</strong> pour la livraison offerte !`;
-    shippingNote.style.background = 'var(--ble-50)';
-    shippingNote.style.borderColor = 'var(--ble-100)';
-    shippingNote.style.color = 'var(--ble-600)';
-  }
+  body.innerHTML=html;
+  footer.style.display='block';
+  document.getElementById('cart-total').textContent=fmt(getCartTotal());
+  const note=document.getElementById('cart-shipping-note');
+  const total=getCartTotal();
+  if(total>=6000){note.innerHTML='✅ Livraison offerte !';note.style.background='var(--sapin-50)';note.style.borderColor='var(--sapin-200)';note.style.color='var(--sapin-600)';}
+  else{note.innerHTML=`🚚 Plus que <strong>${fmt(6000-total)}</strong> pour la livraison offerte !`;note.style.background='var(--ble-50)';note.style.borderColor='var(--ble-100)';note.style.color='var(--ble-600)';}
 }
-
-// ── Option coffret cadeau
-function toggleGiftCart(checkbox) {
-  giftBox = checkbox.checked;
-  renderCart();
+function toggleGiftCart(checkbox){giftBox=checkbox.checked;renderCart();}
+async function proceedToCheckout(){
+  if(cart.length===0)return;
+  const btn=document.getElementById('cart-checkout-btn');
+  const orig=btn.innerHTML;
+  btn.innerHTML='Redirection en cours…';btn.classList.add('loading');btn.disabled=true;
+  try{
+    const payload=cart.map(i=>({name:i.name,price:i.price,quantity:i.quantity,emblem:i.emblem||'',wood:i.wood||'',format:i.format||'',engravingText:i.engravingText||'',giftBox:false}));
+    if(giftBox)payload[0].giftBox=true;
+    const res=await fetch('/api/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:payload})});
+    const data=await res.json();
+    if(!res.ok)throw new Error(data.error||'Erreur serveur');
+    if(data.url){cart=[];saveCart();window.location.href=data.url;}
+    else throw new Error("Pas d'URL de paiement reçue.");
+  }catch(err){btn.innerHTML=orig;btn.classList.remove('loading');btn.disabled=false;showToast('⚠ '+err.message,'error');}
 }
-
-// ══════════════════════════════════
-// 💳 PAIEMENT STRIPE
-// ══════════════════════════════════
-async function proceedToCheckout() {
-  if (cart.length === 0) return;
-  const btn = document.getElementById('cart-checkout-btn');
-  const originalText = btn.innerHTML;
-  btn.innerHTML = 'Redirection en cours…';
-  btn.classList.add('loading');
-  btn.disabled = true;
-
-  try {
-    const itemsPayload = cart.map(item => ({
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity,
-      emblem: item.emblem || '',
-      wood: item.wood || '',
-      format: item.format || '',
-      engravingText: item.engravingText || '',
-      giftBox: false,
-    }));
-    if (giftBox) itemsPayload[0].giftBox = true;
-
-    const response = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: itemsPayload })
-    });
-
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Erreur serveur');
-
-    if (data.url) {
-      // Vide le panier après redirection réussie
-      cart = [];
-      saveCart();
-      window.location.href = data.url;
-    } else {
-      throw new Error('Pas d\'URL de paiement reçue.');
-    }
-  } catch (error) {
-    btn.innerHTML = originalText;
-    btn.classList.remove('loading');
-    btn.disabled = false;
-    showToast('⚠ ' + error.message, 'error');
-  }
+function openCart(){document.getElementById('cart-overlay').classList.add('open');document.getElementById('cart-drawer').classList.add('open');document.body.style.overflow='hidden';renderCart();}
+function closeCart(){document.getElementById('cart-overlay').classList.remove('open');document.getElementById('cart-drawer').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart();});
+function showToast(msg,type='success'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type+' show';setTimeout(()=>{t.classList.remove('show');},3000);}
+function toggleMobile(){document.getElementById('mob-menu').classList.toggle('open');}
+function toggleFaq(el){const item=el.parentElement;const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
+function observeReveals(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>{if(!el.classList.contains('visible'))obs.observe(el);});
 }
-
-// ══════════════════════════════════
-// DRAWER — OUVERTURE / FERMETURE
-// ══════════════════════════════════
-function openCart() {
-  document.getElementById('cart-overlay').classList.add('open');
-  document.getElementById('cart-drawer').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  renderCart();
-}
-function closeCart() {
-  document.getElementById('cart-overlay').classList.remove('open');
-  document.getElementById('cart-drawer').classList.remove('open');
-  document.body.style.overflow = '';
-}
-// Fermer avec la touche Escape
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
-
-// ══════════════════════════════════
-// TOAST
-// ══════════════════════════════════
-function showToast(msg, type = 'success') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast ' + type + ' show';
-  setTimeout(() => { t.classList.remove('show'); }, 3000);
-}
-
-// ══════════════════════════════════
-// NAVIGATION SPA
-// ══════════════════════════════════
-function navigate(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  document.querySelectorAll('.mob-link').forEach(l => l.classList.remove('active'));
-  const target = document.getElementById('page-' + page);
-  if (target) { target.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const navEl = document.getElementById('nav-' + page);
-  if (navEl) navEl.classList.add('active');
-  document.getElementById('mob-menu').classList.remove('open');
-  setTimeout(observeReveals, 60);
-}
-function toggleMobile() { document.getElementById('mob-menu').classList.toggle('open'); }
-window.addEventListener('scroll', () => {
-  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-});
-
-// ══════════════════════════════════
-// FAQ
-// ══════════════════════════════════
-function toggleFaq(el) {
-  const item = el.parentElement;
-  const was = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!was) item.classList.add('open');
-}
-
-// ══════════════════════════════════
-// PERSONNALISATION — CONFIGURATEUR
-// ══════════════════════════════════
-let currentConfig = { price: 4990, wood: 'Chêne des Vosges', format: '40×25 cm', emblem: '🦢 Cigogne' };
-
-function selectMotif(btn, motif, name) {
-  document.querySelectorAll('.motif-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  document.getElementById('preview-motif').textContent = motif;
-  currentConfig.emblem = motif + ' ' + name;
-  activateStep('step1');
-}
-function updatePreview(val) {
-  document.getElementById('preview-name').textContent = val.toUpperCase() || 'VOTRE TEXTE';
-}
-function updateCharCount(val) { document.getElementById('char-num').textContent = val.length; }
-function selectFont(el, style) {
-  document.querySelectorAll('.font-opt').forEach(f => f.classList.remove('selected'));
-  el.classList.add('selected');
-  const n = document.getElementById('preview-name');
-  if (style === 'italic') { n.style.fontStyle='italic'; n.style.fontFamily='var(--fd)'; n.style.fontWeight='300'; }
-  else if (style === 'bold') { n.style.fontStyle='normal'; n.style.fontFamily='var(--fd)'; n.style.fontWeight='600'; }
-  else { n.style.fontStyle='normal'; n.style.fontFamily='var(--fb)'; n.style.fontWeight='300'; }
-  activateStep('step3');
-}
-function selectWood(btn, woodName, price) {
-  btn.closest('div').querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentConfig.wood = woodName; currentConfig.price = price;
-  updatePD(); activateStep('step4');
-}
-function selectFormat(btn, fmt, price) {
-  btn.closest('div').querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentConfig.format = fmt; currentConfig.price = price;
-  updatePD();
-}
-function updatePD() {
-  document.getElementById('preview-price').textContent = (currentConfig.price/100).toFixed(2).replace('.',',')+' €';
-}
-function activateStep(id) {
-  document.querySelectorAll('.step-item').forEach(s => s.classList.remove('active'));
-  document.getElementById(id)?.classList.add('active');
-}
-
-// CATALOGUE — filtres
-function filterP(btn, cat) {
-  document.querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.prod-card').forEach(c => {
-    c.style.display = (cat==='all'||c.dataset.cat===cat)?'':'none';
-  });
-}
-
-// B2B Form
-function submitB2B(btn) {
-  const orig = btn.textContent;
-  btn.textContent='✓ Demande envoyée — Réponse sous 48h';
-  btn.style.background='var(--sapin-700)'; btn.disabled=true;
-  setTimeout(()=>{btn.textContent=orig;btn.style.background='';btn.disabled=false;},4000);
-}
-
-// ══════════════════════════════════
-// SCROLL REVEAL
-// ══════════════════════════════════
-function observeReveals() {
-  const p = document.querySelector('.page.active');
-  if (!p) return;
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
-  }, { threshold:.08, rootMargin:'0px 0px -32px 0px' });
-  p.querySelectorAll('.reveal').forEach(el => { if(!el.classList.contains('visible')) obs.observe(el); });
-}
-
-// ══════════════════════════════════
-// INITIALISATION
-// ══════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-  updateCartBadge();
-  renderCart();
-  observeReveals();
-});
-window.addEventListener('scroll', () => observeReveals(), { passive: true });
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);});
+document.addEventListener('DOMContentLoaded',()=>{updateCartBadge();renderCart();observeReveals();});
 </script>
 </body>
 </html>
