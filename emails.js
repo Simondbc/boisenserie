@@ -426,3 +426,34 @@ module.exports = {
   sendOrderConfirmation,
   sendShippingNotification,
 };
+
+// ════════════════════════════════════════════════════════════
+// EMAIL 6 — CLIENT : RÉINITIALISATION MOT DE PASSE
+// ════════════════════════════════════════════════════════════
+function buildPasswordResetEmail(user) {
+  const { firstName, resetLink } = user;
+  return `${base}
+  <div class="wrap">
+    <div class="header"><div class="logo">Bois<span>enserie</span></div></div>
+    <div class="body">
+      <span class="badge">🔐 Sécurité du compte</span>
+      <h1 class="title" style="margin-top:16px">Réinitialisez votre <em>mot de passe.</em></h1>
+      <p class="subtitle">Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur le bouton ci-dessous — ce lien est valable <strong>1 heure</strong>.</p>
+
+      <a href="${resetLink}" class="btn">Réinitialiser mon mot de passe →</a>
+
+      <hr class="divider">
+      <div class="action-box">⚠️ <strong>Ce n'est pas vous ?</strong> Ignorez simplement cet email. Votre mot de passe actuel reste inchangé et votre compte est en sécurité.</div>
+
+      <div style="text-align:center;margin-top:24px;font-size:12px;color:#9C9A90;line-height:1.7">
+        Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :<br>
+        <span style="color:${BRAND.color};word-break:break-all">${resetLink}</span>
+      </div>
+
+      <hr class="divider">
+      <div style="text-align:center;font-size:13px;color:#9C9A90">
+        Une question ? <a href="mailto:${BRAND.email}" style="color:${BRAND.color}">${BRAND.email}</a>
+      </div>
+    </div>
+    ${footer}`;
+}
