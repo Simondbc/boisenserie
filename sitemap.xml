@@ -41,19 +41,9 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://boisenserie.fr/blog/cigogne-alsace-histoire</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://boisenserie.fr/blog/cadeau-mariage-original</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://boisenserie.fr/blog/bretzel-alsace-histoire</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
   <loc>https://boisenserie.fr/blog/souvenir-strasbourg-alsace</loc>
