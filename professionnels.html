@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planches gravées pour professionnels — Restaurants, Hôtels, Entreprises | Boisenserie</title>
+<meta name="description" content="Commandes B2B de planches à découper gravées logo ou message. Idéal pour cadeaux clients, restaurants gastronomiques et hôtels alsaciens. Devis gratuit sous 48h.">
+<link rel="canonical" href="https://boisenserie.fr/professionnels.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sapin-50:#F0F6F2;--sapin-100:#D3E8D9;--sapin-200:#A1C9AE;--sapin-300:#66A47B;--sapin-400:#3A7A54;--sapin-500:#225A3B;--sapin-600:#164530;--sapin-700:#0E2F20;
+  --col-50:#FBF0EE;--col-200:#E5A49A;--col-400:#B84839;--col-500:#9A3527;--col-600:#74271B;
+  --gres-50:#FAFAF8;--gres-100:#F3EEE8;--gres-200:#E1D7CB;--gres-300:#C9BEAF;--gres-400:#ADA28F;
+  --ble-50:#FDF8EB;--ble-100:#F8E8BA;--ble-200:#ECC96E;--ble-300:#D4A738;--ble-400:#B3861E;--ble-600:#5F460B;
+  --nuit-50:#F3F2F0;--nuit-100:#E4E3DE;--nuit-200:#C5C3BB;--nuit-400:#6E6C64;--nuit-500:#464440;--nuit-600:#2C2B27;--nuit-700:#1A1916;--nuit-800:#0F0E0C;
+  --color-bg:#FAFAF8;--color-bg2:#FFFFFF;--color-bg3:var(--gres-100);
+  --color-text:var(--nuit-700);--color-text2:var(--nuit-500);--color-text3:var(--nuit-400);
+  --color-brand:var(--sapin-500);--color-border:var(--gres-200);--color-border2:var(--gres-300);
+  --fd:'Fraunces',Georgia,serif;--fb:'Outfit',sans-serif;
+  --fw3:300;--fw4:400;--fw5:500;--fw6:600;
+  --xs:.75rem;--sm:.875rem;--md:1rem;--lg:1.125rem;--xl:1.375rem;--x2:1.75rem;--x3:2.25rem;--x4:3rem;--x5:4rem;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s8:64px;--s10:80px;--s12:96px;--s16:128px;
+  --r:8px;--rl:12px;--rx:16px;--r2:24px;--rf:9999px;
+  --sh1:0 2px 8px rgba(15,14,12,.06);--sh2:0 4px 16px rgba(15,14,12,.08);--sh3:0 8px 32px rgba(15,14,12,.10);--sh4:0 16px 48px rgba(15,14,12,.12);--shw:0 8px 32px rgba(34,90,59,.12);
+  --fast:140ms;--norm:220ms;--slow:360ms;--rev:700ms;
+  --eo:cubic-bezier(0,0,.2,1);--esp:cubic-bezier(.34,1.56,.64,1);
+  --cmax:1200px;--cpad:var(--s4);
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--color-bg);color:var(--color-text);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--fb);border:none;background:none}
+.c{width:100%;max-width:var(--cmax);margin-inline:auto;padding-inline:var(--cpad)}
+
+/* ── PROMO BANNER ── */
+.promo{background:var(--nuit-700);color:var(--nuit-100);text-align:center;padding:10px var(--cpad);font-size:var(--sm);font-weight:var(--fw5);display:flex;align-items:center;justify-content:center;gap:var(--s2)}
+.promo-badge{background:var(--sapin-500);color:white;padding:2px 10px;border-radius:var(--rf);font-size:var(--xs);font-weight:var(--fw6);letter-spacing:.06em;text-transform:uppercase}
+
+/* ── HEADER ── */
+.header{position:sticky;top:0;z-index:200;background:rgba(250,250,248,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:.5px solid var(--color-border);transition:box-shadow var(--norm) var(--eo)}
+.header.scrolled{box-shadow:var(--sh1)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:var(--s4)}
+.nav-logo{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw6);letter-spacing:.02em;color:var(--color-text);flex-shrink:0;transition:opacity var(--fast) var(--eo)}
+.nav-logo:hover{opacity:.75}
+.nav-logo span{color:var(--color-brand)}
+.nav-links{display:flex;align-items:center;gap:var(--s1)}
+.nav-link{padding:6px 14px;font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--rf);transition:all var(--fast) var(--eo)}
+.nav-link:hover{color:var(--color-text);background:var(--color-bg3)}
+.nav-link.active{color:var(--color-brand);background:var(--sapin-50)}
+.nav-right{display:flex;align-items:center;gap:var(--s2)}
+.cart-icon-btn{position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--rf);background:var(--color-bg3);border:.5px solid var(--color-border);cursor:pointer;transition:all var(--fast) var(--eo);flex-shrink:0}
+.cart-icon-btn:hover{background:var(--sapin-50);border-color:var(--sapin-200)}
+.cart-icon-svg{width:20px;height:20px;stroke:var(--color-text2);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cart-badge{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:var(--rf);background:var(--sapin-500);color:white;font-size:10px;font-weight:var(--fw6);display:flex;align-items:center;justify-content:center;padding:0 4px;border:1.5px solid var(--color-bg);transition:transform var(--esp) var(--fast);transform:scale(0)}
+.cart-badge.show{transform:scale(1)}
+.mob-toggle{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.mob-toggle span{display:block;width:22px;height:1.5px;background:var(--color-text);transition:all var(--norm) var(--eo);border-radius:2px}
+.mob-menu{display:none;flex-direction:column;gap:4px;padding:var(--s3) var(--cpad) var(--s4);border-top:.5px solid var(--color-border);background:var(--color-bg2)}
+.mob-menu.open{display:flex}
+.mob-link{padding:12px 16px;font-size:var(--md);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--r);transition:all var(--fast) var(--eo);display:block}
+.mob-link:hover,.mob-link.active{background:var(--color-bg3);color:var(--color-text)}
+.mob-cta{margin-top:var(--s2);padding:14px 16px;text-align:center;font-size:var(--md);font-weight:var(--fw5);background:var(--sapin-500);color:white;border-radius:var(--rl);cursor:pointer;display:block}
+
+/* ── CART DRAWER ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(15,14,12,.45);z-index:400;opacity:0;pointer-events:none;transition:opacity var(--norm) var(--eo)}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:420px;max-width:100vw;background:var(--color-bg2);z-index:401;transform:translateX(100%);transition:transform var(--slow) var(--eo);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(15,14,12,.12)}
+.cart-drawer.open{transform:translateX(0)}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:.5px solid var(--color-border);flex-shrink:0;background:var(--color-bg2)}
+.cart-header-title{display:flex;align-items:center;gap:10px;font-size:var(--lg);font-weight:var(--fw5);color:var(--color-text)}
+.cart-header-count{font-size:var(--xs);font-weight:var(--fw6);padding:2px 8px;background:var(--sapin-50);color:var(--sapin-600);border:.5px solid var(--sapin-200);border-radius:var(--rf)}
+.cart-close{width:36px;height:36px;border-radius:var(--rf);display:flex;align-items:center;justify-content:center;border:.5px solid var(--color-border);background:var(--color-bg3);cursor:pointer;font-size:1.1rem;color:var(--color-text2);transition:all var(--fast) var(--eo)}
+.cart-close:hover{background:var(--col-50);border-color:var(--col-200);color:var(--col-500)}
+.cart-body{flex:1;overflow-y:auto;padding:16px 24px;scrollbar-width:thin}
+.cart-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:40px 20px;gap:var(--s3)}
+.cart-empty-icon{width:72px;height:72px;border-radius:var(--r2);background:var(--sapin-50);display:flex;align-items:center;justify-content:center;border:.5px solid var(--sapin-100)}
+.cart-empty-title{font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw4);color:var(--color-text)}
+.cart-empty-sub{font-size:var(--sm);color:var(--color-text3);line-height:1.6}
+.cart-empty-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:var(--sapin-500);color:white;border-radius:var(--rf);font-size:var(--sm);font-weight:var(--fw5);cursor:pointer;transition:all var(--norm) var(--eo)}
+.cart-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:.5px solid var(--color-border)}
+.cart-item:last-child{border-bottom:none}
+.cart-item-img{width:64px;height:48px;border-radius:var(--r);flex-shrink:0;background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535);display:flex;align-items:center;justify-content:center;font-size:1.2rem;position:relative;overflow:hidden}
+.cart-item-img-text{font-family:var(--fd);font-size:.75rem;font-style:italic;color:rgba(255,255,255,.65);z-index:1;text-align:center}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text);margin-bottom:3px;line-height:1.3}
+.cart-item-detail{font-size:var(--xs);color:var(--color-text3);margin-bottom:8px;line-height:1.5}
+.cart-item-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.qty-stepper{display:flex;align-items:center;border:.5px solid var(--color-border2);border-radius:var(--r)}
+.qty-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--color-text2);cursor:pointer;transition:all var(--fast) var(--eo);background:transparent;flex-shrink:0}
+.qty-btn:first-child{border-radius:var(--r) 0 0 var(--r)}
+.qty-btn:last-child{border-radius:0 var(--r) var(--r) 0}
+.qty-num{min-width:32px;height:30px;display:flex;align-items:center;justify-content:center;font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text);border-left:.5px solid var(--color-border2);border-right:.5px solid var(--color-border2)}
+.cart-item-price{font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw4);color:var(--color-text)}
+.cart-item-remove{padding:4px 8px;font-size:var(--xs);color:var(--color-text3);background:transparent;cursor:pointer;transition:color var(--fast) var(--eo);text-decoration:underline;text-underline-offset:2px}
+.cart-footer{border-top:.5px solid var(--color-border);padding:16px 24px 24px;flex-shrink:0;background:var(--color-bg2)}
+.cart-subtotal-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:var(--sm)}
+.cart-subtotal-label{color:var(--color-text2)}
+.cart-subtotal-val{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw4);color:var(--color-text)}
+.cart-shipping-note{font-size:var(--xs);color:var(--sapin-500);background:var(--sapin-50);border:.5px solid var(--sapin-200);border-radius:var(--r);padding:8px 12px;margin-bottom:14px;line-height:1.5}
+.cart-checkout-btn{width:100%;padding:16px;background:var(--sapin-500);color:white;border-radius:var(--rl);font-size:var(--md);font-weight:var(--fw5);cursor:pointer;transition:all var(--norm) var(--eo);display:flex;align-items:center;justify-content:center;gap:8px;border:none}
+.cart-checkout-btn:hover{background:var(--sapin-400);transform:translateY(-1px);box-shadow:var(--shw)}
+.cart-checkout-btn.loading::after{content:'';width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cart-continue{width:100%;padding:10px;text-align:center;font-size:var(--sm);color:var(--color-text3);cursor:pointer;margin-top:8px;transition:color var(--fast) var(--eo);background:none;border:none}
+.cart-gift-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--color-bg3);border-radius:var(--r);border:.5px solid var(--color-border);margin-bottom:12px;cursor:pointer}
+.cart-gift-row label{font-size:var(--sm);color:var(--color-text2);cursor:pointer}
+.cart-gift-row input{cursor:pointer;accent-color:var(--sapin-500)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:var(--s4);left:50%;transform:translateX(-50%) translateY(80px);z-index:500;padding:13px 22px;border-radius:var(--rx);font-size:var(--sm);font-weight:var(--fw5);box-shadow:var(--sh4);opacity:0;transition:all var(--norm) var(--esp);display:flex;align-items:center;gap:10px;white-space:nowrap;max-width:90vw}
+.toast.success{background:var(--nuit-700);color:white}
+.toast.error{background:var(--col-500);color:white}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:var(--md);font-weight:var(--fw5);border-radius:var(--rf);cursor:pointer;transition:all var(--norm) var(--eo);white-space:nowrap}
+.btn-brand{background:var(--sapin-500);color:white;border:none}
+.btn-brand:hover{background:var(--sapin-400);transform:translateY(-2px);box-shadow:var(--shw)}
+.btn-outline{background:transparent;color:var(--color-text);border:1.5px solid var(--color-border2)}
+.btn-outline:hover{border-color:var(--color-text);background:var(--color-bg3)}
+.btn-lg{padding:18px 36px;font-size:var(--lg)}
+.btn-arrow::after{content:'→';transition:transform var(--fast) var(--eo)}
+.btn-arrow:hover::after{transform:translateX(4px)}
+
+/* ── SECTION UTILS ── */
+.sec-label{font-size:var(--xs);font-weight:var(--fw5);letter-spacing:.14em;text-transform:uppercase;color:var(--color-brand);margin-bottom:var(--s2)}
+.sec-title{font-family:var(--fd);font-size:clamp(var(--x3),4vw,var(--x4));font-weight:var(--fw3);color:var(--color-text);line-height:1.1;letter-spacing:-.025em;margin-bottom:var(--s3)}
+.sec-title em{font-style:italic;color:var(--color-brand)}
+
+/* ── B2B ── */
+.b2b-hero{padding:var(--s12) 0;background:linear-gradient(155deg,var(--nuit-700) 0%,var(--nuit-600) 100%);position:relative;overflow:hidden}
+.b2b-hero::before{content:'';position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,var(--sapin-700) 0%,transparent 65%);pointer-events:none;opacity:.4}
+.b2b-hero-inner{position:relative;z-index:1;max-width:720px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--xs);font-weight:var(--fw5);letter-spacing:.14em;text-transform:uppercase;color:var(--sapin-300);margin-bottom:var(--s3)}
+.hero-h1{font-family:var(--fd);font-size:clamp(3rem,5vw,4.5rem);font-weight:var(--fw3);line-height:1.05;color:white;margin-bottom:var(--s3);letter-spacing:-.03em}
+.hero-h1 em{font-style:italic;color:var(--ble-200)}
+.hero-sub{font-size:var(--lg);color:var(--nuit-400);max-width:480px;margin-bottom:var(--s5);line-height:1.6}
+.hero-ctas{display:flex;gap:var(--s2);flex-wrap:wrap}
+.b2b-feat{padding:var(--s12) 0;background:var(--color-bg2)}
+.b2b-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s8)}
+.b2b-card{padding:var(--s6);border-radius:var(--rx);border:.5px solid var(--color-border);background:var(--color-bg);transition:all var(--norm) var(--eo)}
+.b2b-card:hover{transform:translateY(-4px);box-shadow:var(--sh3);border-color:var(--sapin-200)}
+.b2b-card-icon{font-size:2rem;margin-bottom:var(--s3)}
+.b2b-card-title{font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s2)}
+.b2b-card-desc{font-size:var(--sm);color:var(--color-text2);line-height:1.65}
+.b2b-indic{padding:var(--s10) 0;background:var(--sapin-50);border-top:.5px solid var(--sapin-100);border-bottom:.5px solid var(--sapin-100)}
+.b2b-indic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.b2b-ind{text-align:center}
+.b2b-ind-num{font-family:var(--fd);font-size:var(--x5);font-weight:var(--fw3);color:var(--sapin-500);line-height:1}
+.b2b-ind-label{font-size:var(--sm);color:var(--color-text2);margin-top:var(--s1)}
+.b2b-form-sec{padding:var(--s12) 0}
+.b2b-form-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--s10);align-items:start}
+.b2b-form-info p{font-size:var(--md);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s3)}
+.b2b-check{list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
+.b2b-check li{display:flex;gap:var(--s2);font-size:var(--md);color:var(--color-text2);align-items:flex-start}
+.b2b-check li::before{content:'✓';color:var(--sapin-500);font-weight:var(--fw6);flex-shrink:0}
+.b2b-form{background:var(--color-bg2);border-radius:var(--r2);padding:var(--s6);box-shadow:var(--sh3);border:.5px solid var(--color-border)}
+.form-title{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw3);margin-bottom:var(--s5)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.form-group{margin-bottom:var(--s4)}
+.form-label{font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);margin-bottom:var(--s1);display:block}
+.form-input,.form-select,.form-textarea{width:100%;padding:12px 16px;border-radius:var(--r);border:1px solid var(--color-border2);background:var(--color-bg);font-family:var(--fb);font-size:var(--md);color:var(--color-text);outline:none;transition:border-color var(--fast) var(--eo)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--sapin-500)}
+.form-textarea{resize:vertical;min-height:100px}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity var(--rev) var(--eo),transform var(--rev) var(--eo)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+
+/* ── FOOTER ── */
+.footer{background:var(--nuit-800);color:var(--gres-300);padding:var(--s10) 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s8);margin-bottom:var(--s8)}
+.footer-tagline{font-size:var(--sm);color:var(--nuit-400);line-height:1.7;max-width:280px}
+.footer-socials{display:flex;gap:var(--s2);margin-top:var(--s3)}
+.social{width:36px;height:36px;border-radius:50%;border:1px solid var(--nuit-600);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--nuit-400);cursor:pointer}
+.footer-col-title{font-size:var(--xs);font-weight:var(--fw6);letter-spacing:.1em;text-transform:uppercase;color:var(--gres-200);margin-bottom:var(--s3)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
+.footer-links li a{font-size:var(--sm);color:var(--nuit-400);transition:color var(--fast) var(--eo)}
+.footer-links li a:hover{color:var(--gres-200)}
+.footer-bottom{border-top:.5px solid var(--nuit-600);padding:var(--s4) 0;display:flex;align-items:center;justify-content:space-between;font-size:var(--xs);color:var(--nuit-500);flex-wrap:wrap;gap:var(--s2)}
+.footer-legal{display:flex;gap:var(--s3)}
+.footer-legal a{color:var(--nuit-500);text-decoration:none;transition:color var(--fast) var(--eo)}
+.footer-legal a:hover{color:var(--gres-400)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.b2b-feat-grid{grid-template-columns:1fr}.b2b-form-inner{grid-template-columns:1fr}.b2b-indic-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s6)}}
+@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.cart-drawer{width:100vw}}
+</style>
+</head>
+<body>
+
+<!-- PROMO BANNER -->
+<div class="promo">
+  <span class="promo-badge">B2B</span>
+  🌲 Dès 10 pièces — tarification dégressive &nbsp;·&nbsp; BAT offert &nbsp;·&nbsp; Facture TVA
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="c">
+    <nav class="nav">
+      <a href="/" class="nav-logo">Bois<span>enserie</span></a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Accueil</a>
+        <a href="/catalogue.html" class="nav-link">Catalogue</a>
+        <a href="/personnalisation.html" class="nav-link">Personnaliser</a>
+        <a href="/professionnels.html" class="nav-link active">Professionnels</a>
+        <a href="/notre-histoire.html" class="nav-link">Notre histoire</a>
+      </div>
+      <div class="nav-right">
+        <a href="/account.html" title="Mon compte" style="position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:9999px;background:var(--color-bg3);border:.5px solid var(--color-border);transition:all 140ms;text-decoration:none" onmouseover="this.style.background='var(--sapin-50)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.background='var(--color-bg3)';this.style.borderColor='var(--color-border)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--nuit-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+        <button class="cart-icon-btn" onclick="openCart()" aria-label="Ouvrir le panier">
+          <svg class="cart-icon-svg" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+        <div class="mob-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+  <div class="mob-menu" id="mob-menu">
+    <a href="/" class="mob-link">Accueil</a>
+    <a href="/catalogue.html" class="mob-link">Catalogue</a>
+    <a href="/personnalisation.html" class="mob-link">Personnaliser</a>
+    <a href="/professionnels.html" class="mob-link active">Professionnels</a>
+    <a href="/notre-histoire.html" class="mob-link">Notre histoire</a>
+    <button class="mob-cta" onclick="openCart()">Mon panier 🛒</button>
+  </div>
+</header>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <div class="cart-header-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      Mon panier
+      <span class="cart-header-count" id="cart-header-count">0 article</span>
+    </div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-gift-row">
+      <input type="checkbox" id="gift-box-cart" onchange="toggleGiftCart(this)">
+      <label for="gift-box-cart">Ajouter un coffret cadeau premium (+4,90 €)</label>
+    </div>
+    <div class="cart-subtotal-row">
+      <span class="cart-subtotal-label">Sous-total</span>
+      <span class="cart-subtotal-val" id="cart-total">0,00 €</span>
+    </div>
+    <div class="cart-shipping-note" id="cart-shipping-note">🚚 Livraison offerte dès 60 €</div>
+    <button class="cart-checkout-btn" id="cart-checkout-btn" onclick="proceedToCheckout()">Payer en sécurité →</button>
+    <button class="cart-continue" onclick="closeCart()">Continuer mes achats</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CONTENU PROFESSIONNELS
+═══════════════════════════════════ -->
+<main>
+
+  <section class="b2b-hero">
+    <div class="c">
+      <div class="b2b-hero-inner">
+        <div class="hero-eyebrow">Espace Professionnels</div>
+        <h1 class="hero-h1">Planches gravées<br>pour <em>professionnels.</em></h1>
+        <p class="hero-sub">Solutions sur mesure pour restaurants, hôtels, entreprises et offices de tourisme alsaciens. Votre logo gravé sur bois massif des Vosges.</p>
+        <div class="hero-ctas" style="margin-top:var(--s5)">
+          <a href="#b2b-form" class="btn btn-brand btn-arrow">Demander un devis gratuit</a>
+          <a href="/catalogue.html" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,.3)">Voir le catalogue</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b2b-feat">
+    <div class="c">
+      <div style="text-align:center;margin-bottom:var(--s8)">
+        <div class="sec-label">Solutions B2B</div>
+        <h2 class="sec-title">Trois pôles<br>de <em>personnalisation.</em></h2>
+      </div>
+      <div class="b2b-feat-grid">
+        <div class="b2b-card reveal rd1">
+          <div class="b2b-card-icon">🍽️</div>
+          <div class="b2b-card-title">Restaurateurs &amp; hôtels</div>
+          <p class="b2b-card-desc">Planches gravées à votre logo pour le service en salle ou la vente boutique. Vos clients partent avec votre adresse dans les mains — et reviennent. Idéal pour les restaurants gastronomiques alsaciens.</p>
+        </div>
+        <div class="b2b-card reveal rd2">
+          <div class="b2b-card-icon">🎁</div>
+          <div class="b2b-card-title">Cadeaux d'entreprise</div>
+          <p class="b2b-card-desc">Votre logo gravé sur bois massif des Vosges : utile, élégant, local. Un cadeau client ou collaborateur qui marque les esprits. Livraison dans toute la France et en Europe.</p>
+        </div>
+        <div class="b2b-card reveal rd3">
+          <div class="b2b-card-icon">⚙️</div>
+          <div class="b2b-card-title">Process sans friction</div>
+          <p class="b2b-card-desc">Devis sous 48h. BAT numérique offert. Facture TVA. Commandes récurrentes simplifiées. Tarification dégressive dès 10 pièces. Paiement par virement accepté.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b2b-indic reveal">
+    <div class="c">
+      <div class="b2b-indic-grid">
+        <div class="b2b-ind"><div class="b2b-ind-num">120+</div><div class="b2b-ind-label">Clients B2B actifs</div></div>
+        <div class="b2b-ind"><div class="b2b-ind-num">4 800</div><div class="b2b-ind-label">Pièces B2B en 2025</div></div>
+        <div class="b2b-ind"><div class="b2b-ind-num">15 j.</div><div class="b2b-ind-label">Délai moyen production</div></div>
+        <div class="b2b-ind"><div class="b2b-ind-num">3★+</div><div class="b2b-ind-label">Restaurants étoilés partenaires</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b2b-form-sec" id="b2b-form">
+    <div class="c">
+      <div class="b2b-form-inner">
+        <div class="b2b-form-info reveal">
+          <div class="sec-label">Demande de devis</div>
+          <h2 class="sec-title">Discutons de<br>votre <em>projet.</em></h2>
+          <p>Notre équipe vous répond sous 48h avec un devis personnalisé. BAT numérique offert sur chaque commande.</p>
+          <ul class="b2b-check" style="margin-top:var(--s4)">
+            <li>Gravure logo vectoriel (SVG, AI, EPS, PDF)</li>
+            <li>BAT numérique offert</li>
+            <li>Tarification dégressive dès 10 pièces</li>
+            <li>Livraison France, Allemagne, Suisse, Europe</li>
+            <li>Facture TVA · Virement accepté</li>
+          </ul>
+        </div>
+        <div class="b2b-form reveal rd2">
+          <div class="form-title">Demander un devis</div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Prénom *</label><input type="text" class="form-input" placeholder="Laurent"></div>
+            <div class="form-group"><label class="form-label">Nom *</label><input type="text" class="form-input" placeholder="Dupont"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Société / Restaurant *</label><input type="text" class="form-input" placeholder="L'Alsacien — Restaurant gastronomique"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">E-mail *</label><input type="email" class="form-input" placeholder="contact@restaurant.fr"></div>
+            <div class="form-group"><label class="form-label">Téléphone</label><input type="tel" class="form-input" placeholder="+33 6 00 00 00 00"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Type de projet *</label>
+              <select class="form-select">
+                <option>Restaurant / Hôtel</option>
+                <option>Cadeaux d'entreprise</option>
+                <option>Office de tourisme</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Quantité souhaitée *</label>
+              <select class="form-select">
+                <option>10 à 29 pièces</option>
+                <option>30 à 49 pièces</option>
+                <option>50 à 99 pièces</option>
+                <option>100 pièces et +</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Votre message</label><textarea class="form-textarea" placeholder="Décrivez votre projet : essence souhaitée, emblème, délai..."></textarea></div>
+          <button class="btn btn-brand btn-arrow" style="width:100%;justify-content:center;border-radius:var(--rl)" onclick="submitB2B(this)">Envoyer ma demande de devis</button>
+          <div style="text-align:center;margin-top:var(--s3);font-size:var(--xs);color:var(--color-text3)">Réponse garantie sous 48h · Devis gratuit · Sans engagement</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="c">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="nav-logo" style="color:white;margin-bottom:var(--s3);display:block">Bois<span style="color:var(--sapin-300)">enserie</span></a>
+        <p class="footer-tagline">Planches à découper en bois massif des Vosges, gravées d'emblèmes alsaciens. Artisanat de précision, Alsace.</p>
+        <div style="margin-top:var(--s3);display:flex;gap:var(--s2)">
+          <span style="padding:4px 12px;background:rgba(34,90,59,.2);border-radius:var(--rf);font-size:.7rem;font-weight:500;color:var(--sapin-300)">🌲 PEFC</span>
+          <span style="padding:4px 12px;background:rgba(255,255,255,.06);border-radius:var(--rf);font-size:.7rem;font-weight:500;color:var(--nuit-400)">🇫🇷 Artisan d'Art</span>
+        </div>
+        <div class="footer-socials">
+          <div class="social">📸</div><div class="social">👍</div><div class="social">💼</div><div class="social">▶️</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Nos planches</div>
+        <ul class="footer-links">
+          <li><a href="/catalogue.html">Catalogue complet</a></li>
+          <li><a href="/catalogue.html">Emblèmes d'Alsace</a></li>
+          <li><a href="/catalogue.html">Choisir son bois</a></li>
+          <li><a href="/catalogue.html">Sets cadeaux</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Personnalisation</div>
+        <ul class="footer-links">
+          <li><a href="/personnalisation.html">Configurateur</a></li>
+          <li><a href="/professionnels.html">Offre Professionnels</a></li>
+          <li><a href="/professionnels.html">Cadeaux d'entreprise</a></li>
+          <li><a href="#b2b-form">Demander un devis</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Service client</div>
+        <ul class="footer-links">
+          <li><a href="/">Livraison &amp; délais</a></li>
+          <li><a href="/">Retours &amp; échanges</a></li>
+          <li><a href="/">FAQ</a></li>
+          <li><a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Boisenserie — Saint-Dié-des-Vosges (88), Alsace, France.</span>
+      <div class="footer-legal">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="/cgv.html">CGV</a>
+        <a href="/cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════
+// PANIER
+// ══════════════════════════════════
+let cart = JSON.parse(localStorage.getItem('boisenserie_cart') || '[]');
+let giftBox = false;
+
+function saveCart() { localStorage.setItem('boisenserie_cart', JSON.stringify(cart)); }
+function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); renderCart(); updateCartBadge(); }
+function updateQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.quantity += delta;
+  if (item.quantity <= 0) { removeFromCart(id); return; }
+  saveCart(); renderCart(); updateCartBadge();
+}
+function getCartTotal() { return cart.reduce((s, i) => s + i.price * i.quantity, 0) + (giftBox ? 490 : 0); }
+function getCartCount() { return cart.reduce((s, i) => s + i.quantity, 0); }
+function updateCartBadge() {
+  const count = getCartCount();
+  const badge = document.getElementById('cart-badge');
+  badge.textContent = count;
+  badge.classList.toggle('show', count > 0);
+}
+function fmt(cents) { return (cents / 100).toFixed(2).replace('.', ',') + ' €'; }
+function renderCart() {
+  const body = document.getElementById('cart-body');
+  const footer = document.getElementById('cart-footer');
+  const headerCount = document.getElementById('cart-header-count');
+  const count = getCartCount();
+  headerCount.textContent = count === 0 ? '0 article' : count + ' article' + (count > 1 ? 's' : '');
+  if (cart.length === 0) {
+    footer.style.display = 'none';
+    body.innerHTML = `<div class="cart-empty">
+      <div class="cart-empty-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#225A3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+      <div class="cart-empty-title">Votre panier est vide.</div>
+      <p class="cart-empty-sub">Parcourez notre catalogue pour trouver votre planche.</p>
+      <a href="/catalogue.html" class="cart-empty-btn">Voir le catalogue →</a>
+    </div>`;
+    return;
+  }
+  let html = '';
+  for (const item of cart) {
+    html += `<div class="cart-item">
+      <div class="cart-item-img" style="background:${item.bg || 'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'}"><div class="cart-item-img-text">${item.icon || '🦢'}</div></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-detail"><span>${item.wood}</span> · <span>${item.format}</span></div>
+        <div class="cart-item-row">
+          <div class="qty-stepper">
+            <button class="qty-btn" onclick="updateQty('${item.id}', -1)">−</button>
+            <div class="qty-num">${item.quantity}</div>
+            <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+          </div>
+          <div class="cart-item-price">${fmt(item.price * item.quantity)}</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">Supprimer</button>
+      </div>
+    </div>`;
+  }
+  body.innerHTML = html;
+  footer.style.display = 'block';
+  document.getElementById('cart-total').textContent = fmt(getCartTotal());
+  const note = document.getElementById('cart-shipping-note');
+  const total = getCartTotal();
+  if (total >= 6000) {
+    note.innerHTML = '✅ Livraison offerte !';
+    note.style.background = 'var(--sapin-50)'; note.style.borderColor = 'var(--sapin-200)'; note.style.color = 'var(--sapin-600)';
+  } else {
+    note.innerHTML = `🚚 Plus que <strong>${fmt(6000 - total)}</strong> pour la livraison offerte !`;
+    note.style.background = 'var(--ble-50)'; note.style.borderColor = 'var(--ble-100)'; note.style.color = 'var(--ble-600)';
+  }
+}
+function toggleGiftCart(checkbox) { giftBox = checkbox.checked; renderCart(); }
+async function proceedToCheckout() {
+  if (cart.length === 0) return;
+  const btn = document.getElementById('cart-checkout-btn');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = 'Redirection en cours…'; btn.classList.add('loading'); btn.disabled = true;
+  try {
+    const itemsPayload = cart.map(item => ({ name: item.name, price: item.price, quantity: item.quantity, emblem: item.emblem || '', wood: item.wood || '', format: item.format || '', engravingText: item.engravingText || '', giftBox: false }));
+    if (giftBox) itemsPayload[0].giftBox = true;
+    const response = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: itemsPayload }) });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Erreur serveur');
+    if (data.url) { cart = []; saveCart(); window.location.href = data.url; }
+    else throw new Error('Pas d\'URL de paiement reçue.');
+  } catch (error) {
+    btn.innerHTML = originalText; btn.classList.remove('loading'); btn.disabled = false;
+    showToast('⚠ ' + error.message, 'error');
+  }
+}
+
+// ══════════════════════════════════
+// DRAWER
+// ══════════════════════════════════
+function openCart() { document.getElementById('cart-overlay').classList.add('open'); document.getElementById('cart-drawer').classList.add('open'); document.body.style.overflow = 'hidden'; renderCart(); }
+function closeCart() { document.getElementById('cart-overlay').classList.remove('open'); document.getElementById('cart-drawer').classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+// ══════════════════════════════════
+// TOAST
+// ══════════════════════════════════
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast ' + type + ' show';
+  setTimeout(() => { t.classList.remove('show'); }, 3000);
+}
+
+// ══════════════════════════════════
+// MOBILE MENU
+// ══════════════════════════════════
+function toggleMobile() { document.getElementById('mob-menu').classList.toggle('open'); }
+
+// ══════════════════════════════════
+// FORMULAIRE B2B
+// ══════════════════════════════════
+function submitB2B(btn) {
+  const orig = btn.textContent;
+  btn.textContent = '✓ Demande envoyée — Réponse sous 48h';
+  btn.style.background = 'var(--sapin-700)'; btn.disabled = true;
+  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+}
+
+// ══════════════════════════════════
+// SCROLL REVEAL
+// ══════════════════════════════════
+function observeReveals() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: .08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => { if (!el.classList.contains('visible')) obs.observe(el); });
+}
+
+// ══════════════════════════════════
+// HEADER SCROLL
+// ══════════════════════════════════
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// ══════════════════════════════════
+// INIT
+// ══════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartBadge();
+  renderCart();
+  observeReveals();
+});
+</script>
+</body>
+</html>
