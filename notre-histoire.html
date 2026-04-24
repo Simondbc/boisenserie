@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notre histoire — Artisans du bois des Vosges | Boisenserie</title>
+<meta name="description" content="Découvrez l'histoire de Boisenserie, artisans alsaciens. Bois massif des Vosges sélectionné à la source, gravure laser artisanale, passion du travail bien fait depuis Strasbourg.">
+<link rel="canonical" href="https://boisenserie.fr/notre-histoire.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sapin-50:#F0F6F2;--sapin-100:#D3E8D9;--sapin-200:#A1C9AE;--sapin-300:#66A47B;--sapin-400:#3A7A54;--sapin-500:#225A3B;--sapin-600:#164530;--sapin-700:#0E2F20;
+  --col-50:#FBF0EE;--col-200:#E5A49A;--col-400:#B84839;--col-500:#9A3527;--col-600:#74271B;
+  --gres-50:#FAFAF8;--gres-100:#F3EEE8;--gres-200:#E1D7CB;--gres-300:#C9BEAF;--gres-400:#ADA28F;
+  --ble-50:#FDF8EB;--ble-100:#F8E8BA;--ble-200:#ECC96E;--ble-300:#D4A738;--ble-400:#B3861E;--ble-600:#5F460B;
+  --nuit-50:#F3F2F0;--nuit-100:#E4E3DE;--nuit-200:#C5C3BB;--nuit-400:#6E6C64;--nuit-500:#464440;--nuit-600:#2C2B27;--nuit-700:#1A1916;--nuit-800:#0F0E0C;
+  --color-bg:#FAFAF8;--color-bg2:#FFFFFF;--color-bg3:var(--gres-100);
+  --color-text:var(--nuit-700);--color-text2:var(--nuit-500);--color-text3:var(--nuit-400);
+  --color-brand:var(--sapin-500);--color-border:var(--gres-200);--color-border2:var(--gres-300);
+  --fd:'Fraunces',Georgia,serif;--fb:'Outfit',sans-serif;
+  --fw3:300;--fw4:400;--fw5:500;--fw6:600;
+  --xs:.75rem;--sm:.875rem;--md:1rem;--lg:1.125rem;--xl:1.375rem;--x2:1.75rem;--x3:2.25rem;--x4:3rem;--x5:4rem;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s8:64px;--s10:80px;--s12:96px;--s16:128px;
+  --r:8px;--rl:12px;--rx:16px;--r2:24px;--rf:9999px;
+  --sh1:0 2px 8px rgba(15,14,12,.06);--sh2:0 4px 16px rgba(15,14,12,.08);--sh3:0 8px 32px rgba(15,14,12,.10);--sh4:0 16px 48px rgba(15,14,12,.12);--shw:0 8px 32px rgba(34,90,59,.12);
+  --fast:140ms;--norm:220ms;--slow:360ms;--rev:700ms;
+  --eo:cubic-bezier(0,0,.2,1);--esp:cubic-bezier(.34,1.56,.64,1);
+  --cmax:1200px;--cpad:var(--s4);
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--color-bg);color:var(--color-text);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--fb);border:none;background:none}
+.c{width:100%;max-width:var(--cmax);margin-inline:auto;padding-inline:var(--cpad)}
+
+/* ── PROMO BANNER ── */
+.promo{background:var(--nuit-700);color:var(--nuit-100);text-align:center;padding:10px var(--cpad);font-size:var(--sm);font-weight:var(--fw5);display:flex;align-items:center;justify-content:center;gap:var(--s2)}
+.promo-badge{background:var(--sapin-500);color:white;padding:2px 10px;border-radius:var(--rf);font-size:var(--xs);font-weight:var(--fw6);letter-spacing:.06em;text-transform:uppercase}
+
+/* ── HEADER ── */
+.header{position:sticky;top:0;z-index:200;background:rgba(250,250,248,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:.5px solid var(--color-border);transition:box-shadow var(--norm) var(--eo)}
+.header.scrolled{box-shadow:var(--sh1)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:var(--s4)}
+.nav-logo{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw6);letter-spacing:.02em;color:var(--color-text);flex-shrink:0;transition:opacity var(--fast) var(--eo)}
+.nav-logo:hover{opacity:.75}
+.nav-logo span{color:var(--color-brand)}
+.nav-links{display:flex;align-items:center;gap:var(--s1)}
+.nav-link{padding:6px 14px;font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--rf);transition:all var(--fast) var(--eo)}
+.nav-link:hover{color:var(--color-text);background:var(--color-bg3)}
+.nav-link.active{color:var(--color-brand);background:var(--sapin-50)}
+.nav-right{display:flex;align-items:center;gap:var(--s2)}
+.cart-icon-btn{position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--rf);background:var(--color-bg3);border:.5px solid var(--color-border);cursor:pointer;transition:all var(--fast) var(--eo);flex-shrink:0}
+.cart-icon-btn:hover{background:var(--sapin-50);border-color:var(--sapin-200)}
+.cart-icon-svg{width:20px;height:20px;stroke:var(--color-text2);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cart-badge{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;border-radius:var(--rf);background:var(--sapin-500);color:white;font-size:10px;font-weight:var(--fw6);display:flex;align-items:center;justify-content:center;padding:0 4px;border:1.5px solid var(--color-bg);transition:transform var(--esp) var(--fast);transform:scale(0)}
+.cart-badge.show{transform:scale(1)}
+.mob-toggle{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.mob-toggle span{display:block;width:22px;height:1.5px;background:var(--color-text);transition:all var(--norm) var(--eo);border-radius:2px}
+.mob-menu{display:none;flex-direction:column;gap:4px;padding:var(--s3) var(--cpad) var(--s4);border-top:.5px solid var(--color-border);background:var(--color-bg2)}
+.mob-menu.open{display:flex}
+.mob-link{padding:12px 16px;font-size:var(--md);font-weight:var(--fw5);color:var(--color-text2);border-radius:var(--r);transition:all var(--fast) var(--eo);display:block}
+.mob-link:hover,.mob-link.active{background:var(--color-bg3);color:var(--color-text)}
+.mob-cta{margin-top:var(--s2);padding:14px 16px;text-align:center;font-size:var(--md);font-weight:var(--fw5);background:var(--sapin-500);color:white;border-radius:var(--rl);cursor:pointer;display:block}
+
+/* ── CART DRAWER ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(15,14,12,.45);z-index:400;opacity:0;pointer-events:none;transition:opacity var(--norm) var(--eo)}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:420px;max-width:100vw;background:var(--color-bg2);z-index:401;transform:translateX(100%);transition:transform var(--slow) var(--eo);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(15,14,12,.12)}
+.cart-drawer.open{transform:translateX(0)}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:.5px solid var(--color-border);flex-shrink:0;background:var(--color-bg2)}
+.cart-header-title{display:flex;align-items:center;gap:10px;font-size:var(--lg);font-weight:var(--fw5);color:var(--color-text)}
+.cart-header-count{font-size:var(--xs);font-weight:var(--fw6);padding:2px 8px;background:var(--sapin-50);color:var(--sapin-600);border:.5px solid var(--sapin-200);border-radius:var(--rf)}
+.cart-close{width:36px;height:36px;border-radius:var(--rf);display:flex;align-items:center;justify-content:center;border:.5px solid var(--color-border);background:var(--color-bg3);cursor:pointer;font-size:1.1rem;color:var(--color-text2);transition:all var(--fast) var(--eo)}
+.cart-close:hover{background:var(--col-50);border-color:var(--col-200);color:var(--col-500)}
+.cart-body{flex:1;overflow-y:auto;padding:16px 24px;scrollbar-width:thin}
+.cart-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:40px 20px;gap:var(--s3)}
+.cart-empty-icon{width:72px;height:72px;border-radius:var(--r2);background:var(--sapin-50);display:flex;align-items:center;justify-content:center;border:.5px solid var(--sapin-100)}
+.cart-empty-title{font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw4);color:var(--color-text)}
+.cart-empty-sub{font-size:var(--sm);color:var(--color-text3);line-height:1.6}
+.cart-empty-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;background:var(--sapin-500);color:white;border-radius:var(--rf);font-size:var(--sm);font-weight:var(--fw5);cursor:pointer}
+.cart-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:.5px solid var(--color-border)}
+.cart-item:last-child{border-bottom:none}
+.cart-item-img{width:64px;height:48px;border-radius:var(--r);flex-shrink:0;background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535);display:flex;align-items:center;justify-content:center;font-size:1.2rem;position:relative;overflow:hidden}
+.cart-item-img-text{font-family:var(--fd);font-size:.75rem;font-style:italic;color:rgba(255,255,255,.65);z-index:1;text-align:center}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text);margin-bottom:3px;line-height:1.3}
+.cart-item-detail{font-size:var(--xs);color:var(--color-text3);margin-bottom:8px;line-height:1.5}
+.cart-item-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.qty-stepper{display:flex;align-items:center;border:.5px solid var(--color-border2);border-radius:var(--r)}
+.qty-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--color-text2);cursor:pointer;background:transparent;flex-shrink:0}
+.qty-btn:first-child{border-radius:var(--r) 0 0 var(--r)}
+.qty-btn:last-child{border-radius:0 var(--r) var(--r) 0}
+.qty-num{min-width:32px;height:30px;display:flex;align-items:center;justify-content:center;font-size:var(--sm);font-weight:var(--fw5);color:var(--color-text);border-left:.5px solid var(--color-border2);border-right:.5px solid var(--color-border2)}
+.cart-item-price{font-family:var(--fd);font-size:var(--xl);font-weight:var(--fw4);color:var(--color-text)}
+.cart-item-remove{padding:4px 8px;font-size:var(--xs);color:var(--color-text3);background:transparent;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.cart-footer{border-top:.5px solid var(--color-border);padding:16px 24px 24px;flex-shrink:0;background:var(--color-bg2)}
+.cart-subtotal-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:var(--sm)}
+.cart-subtotal-label{color:var(--color-text2)}
+.cart-subtotal-val{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw4);color:var(--color-text)}
+.cart-shipping-note{font-size:var(--xs);color:var(--sapin-500);background:var(--sapin-50);border:.5px solid var(--sapin-200);border-radius:var(--r);padding:8px 12px;margin-bottom:14px;line-height:1.5}
+.cart-checkout-btn{width:100%;padding:16px;background:var(--sapin-500);color:white;border-radius:var(--rl);font-size:var(--md);font-weight:var(--fw5);cursor:pointer;transition:all var(--norm) var(--eo);display:flex;align-items:center;justify-content:center;gap:8px;border:none}
+.cart-checkout-btn:hover{background:var(--sapin-400);transform:translateY(-1px);box-shadow:var(--shw)}
+.cart-checkout-btn.loading::after{content:'';width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cart-continue{width:100%;padding:10px;text-align:center;font-size:var(--sm);color:var(--color-text3);cursor:pointer;margin-top:8px;background:none;border:none}
+.cart-gift-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--color-bg3);border-radius:var(--r);border:.5px solid var(--color-border);margin-bottom:12px;cursor:pointer}
+.cart-gift-row label{font-size:var(--sm);color:var(--color-text2);cursor:pointer}
+.cart-gift-row input{cursor:pointer;accent-color:var(--sapin-500)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:var(--s4);left:50%;transform:translateX(-50%) translateY(80px);z-index:500;padding:13px 22px;border-radius:var(--rx);font-size:var(--sm);font-weight:var(--fw5);box-shadow:var(--sh4);opacity:0;transition:all var(--norm) var(--esp);display:flex;align-items:center;gap:10px;white-space:nowrap;max-width:90vw}
+.toast.success{background:var(--nuit-700);color:white}
+.toast.error{background:var(--col-500);color:white}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-size:var(--md);font-weight:var(--fw5);border-radius:var(--rf);cursor:pointer;transition:all var(--norm) var(--eo);white-space:nowrap}
+.btn-brand{background:var(--sapin-500);color:white;border:none}
+.btn-brand:hover{background:var(--sapin-400);transform:translateY(-2px);box-shadow:var(--shw)}
+.btn-outline{background:transparent;color:var(--color-text);border:1.5px solid var(--color-border2)}
+.btn-outline:hover{border-color:var(--color-text);background:var(--color-bg3)}
+.btn-lg{padding:18px 36px;font-size:var(--lg)}
+.btn-arrow::after{content:'→';transition:transform var(--fast) var(--eo)}
+.btn-arrow:hover::after{transform:translateX(4px)}
+
+/* ── SECTION UTILS ── */
+.sec-label{font-size:var(--xs);font-weight:var(--fw5);letter-spacing:.14em;text-transform:uppercase;color:var(--color-brand);margin-bottom:var(--s2)}
+.sec-title{font-family:var(--fd);font-size:clamp(var(--x3),4vw,var(--x4));font-weight:var(--fw3);color:var(--color-text);line-height:1.1;letter-spacing:-.025em;margin-bottom:var(--s3)}
+.sec-title em{font-style:italic;color:var(--color-brand)}
+
+/* ── HISTOIRE ── */
+.hist-hero{padding:var(--s12) 0;background:linear-gradient(155deg,var(--gres-50) 0%,var(--sapin-50) 100%)}
+.hist-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--s10);align-items:center}
+.forest-vis{aspect-ratio:1;border-radius:var(--r2);overflow:hidden;background:linear-gradient(135deg,var(--sapin-700),var(--sapin-500),var(--sapin-400));display:flex;align-items:center;justify-content:center;box-shadow:var(--sh4);position:relative}
+.forest-vis::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(5deg,transparent,transparent 38px,rgba(255,255,255,.02) 38px,rgba(255,255,255,.02) 39px)}
+.forest-text{position:relative;z-index:1;text-align:center;font-family:var(--fd);color:white}
+.forest-main{font-size:4rem;font-weight:var(--fw3);letter-spacing:.05em;font-style:italic}
+.forest-sub{font-size:.8rem;letter-spacing:.2em;opacity:.7;text-transform:uppercase;margin-top:var(--s2)}
+.vals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s8)}
+.val-card{padding:var(--s5);border-radius:var(--rx);border:.5px solid var(--color-border);transition:all var(--norm) var(--eo)}
+.val-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+.val-num{font-family:var(--fd);font-size:var(--x5);font-weight:var(--fw3);color:var(--color-border);line-height:1;margin-bottom:var(--s2)}
+.val-title{font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s2)}
+.val-desc{font-size:var(--sm);color:var(--color-text2);line-height:1.65}
+.hist-q{padding:var(--s12) 0;background:var(--nuit-700)}
+.big-q{font-family:var(--fd);font-size:clamp(var(--x2),3vw,var(--x3));font-weight:var(--fw3);font-style:italic;color:white;text-align:center;max-width:820px;margin-inline:auto;line-height:1.4;letter-spacing:-.01em}
+.big-q-auth{text-align:center;margin-top:var(--s4);font-size:var(--sm);color:var(--nuit-400)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity var(--rev) var(--eo),transform var(--rev) var(--eo)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+
+/* ── FOOTER ── */
+.footer{background:var(--nuit-800);color:var(--gres-300);padding:var(--s10) 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s8);margin-bottom:var(--s8)}
+.footer-tagline{font-size:var(--sm);color:var(--nuit-400);line-height:1.7;max-width:280px}
+.footer-socials{display:flex;gap:var(--s2);margin-top:var(--s3)}
+.social{width:36px;height:36px;border-radius:50%;border:1px solid var(--nuit-600);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--nuit-400);cursor:pointer}
+.footer-col-title{font-size:var(--xs);font-weight:var(--fw6);letter-spacing:.1em;text-transform:uppercase;color:var(--gres-200);margin-bottom:var(--s3)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:var(--s2)}
+.footer-links li a{font-size:var(--sm);color:var(--nuit-400);transition:color var(--fast) var(--eo)}
+.footer-links li a:hover{color:var(--gres-200)}
+.footer-bottom{border-top:.5px solid var(--nuit-600);padding:var(--s4) 0;display:flex;align-items:center;justify-content:space-between;font-size:var(--xs);color:var(--nuit-500);flex-wrap:wrap;gap:var(--s2)}
+.footer-legal{display:flex;gap:var(--s3)}
+.footer-legal a{color:var(--nuit-500);text-decoration:none;transition:color var(--fast) var(--eo)}
+.footer-legal a:hover{color:var(--gres-400)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.hist-inner{grid-template-columns:1fr}.forest-vis{display:none}.vals-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s6)}}
+@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links{display:none}.mob-toggle{display:flex}.footer-grid{grid-template-columns:1fr}.cart-drawer{width:100vw}}
+</style>
+</head>
+<body>
+
+<!-- PROMO BANNER -->
+<div class="promo">
+  <span class="promo-badge">Artisan</span>
+  🌲 Bois des Vosges PEFC &nbsp;·&nbsp; 🏅 Artisan d'Art reconnu &nbsp;·&nbsp; Depuis 2020
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="c">
+    <nav class="nav">
+      <a href="/" class="nav-logo">Bois<span>enserie</span></a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Accueil</a>
+        <a href="/catalogue.html" class="nav-link">Catalogue</a>
+        <a href="/personnalisation.html" class="nav-link">Personnaliser</a>
+        <a href="/professionnels.html" class="nav-link">Professionnels</a>
+        <a href="/notre-histoire.html" class="nav-link active">Notre histoire</a>
+      </div>
+      <div class="nav-right">
+        <a href="/account.html" title="Mon compte" style="position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:9999px;background:var(--color-bg3);border:.5px solid var(--color-border);transition:all 140ms;text-decoration:none" onmouseover="this.style.background='var(--sapin-50)';this.style.borderColor='var(--sapin-200)'" onmouseout="this.style.background='var(--color-bg3)';this.style.borderColor='var(--color-border)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--nuit-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+        <button class="cart-icon-btn" onclick="openCart()" aria-label="Ouvrir le panier">
+          <svg class="cart-icon-svg" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+        <div class="mob-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+  <div class="mob-menu" id="mob-menu">
+    <a href="/" class="mob-link">Accueil</a>
+    <a href="/catalogue.html" class="mob-link">Catalogue</a>
+    <a href="/personnalisation.html" class="mob-link">Personnaliser</a>
+    <a href="/professionnels.html" class="mob-link">Professionnels</a>
+    <a href="/notre-histoire.html" class="mob-link active">Notre histoire</a>
+    <button class="mob-cta" onclick="openCart()">Mon panier 🛒</button>
+  </div>
+</header>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <div class="cart-header-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      Mon panier
+      <span class="cart-header-count" id="cart-header-count">0 article</span>
+    </div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-gift-row">
+      <input type="checkbox" id="gift-box-cart" onchange="toggleGiftCart(this)">
+      <label for="gift-box-cart">Ajouter un coffret cadeau premium (+4,90 €)</label>
+    </div>
+    <div class="cart-subtotal-row">
+      <span class="cart-subtotal-label">Sous-total</span>
+      <span class="cart-subtotal-val" id="cart-total">0,00 €</span>
+    </div>
+    <div class="cart-shipping-note" id="cart-shipping-note">🚚 Livraison offerte dès 60 €</div>
+    <button class="cart-checkout-btn" id="cart-checkout-btn" onclick="proceedToCheckout()">Payer en sécurité →</button>
+    <button class="cart-continue" onclick="closeCart()">Continuer mes achats</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CONTENU NOTRE HISTOIRE
+═══════════════════════════════════ -->
+<main>
+
+  <section class="hist-hero">
+    <div class="c">
+      <div class="hist-inner">
+        <div class="reveal">
+          <div class="sec-label">Notre histoire</div>
+          <h1 class="sec-title">Nés des forêts<br>des <em>Vosges.</em></h1>
+          <p style="font-size:var(--lg);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s4)">Boisenserie est né d'une conviction simple : l'Alsace mérite un souvenir à la hauteur de son histoire. Pas un objet importé — une planche vivante, taillée dans la forêt qui entoure nos villages.</p>
+          <p style="font-size:var(--md);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s4)">Depuis 2020, nous sélectionnons nos grumes chez des scieries partenaires des Vosges, laissons sécher le bois 18 mois, puis gravons chaque emblème avec une précision laser millimétrée.</p>
+          <p style="font-size:var(--md);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s5)">Chaque planche quitte notre atelier de Saint-Dié-des-Vosges avec une carte d'origine traçable, mentionnant la forêt et la scierie partenaire. Parce que la transparence n'est pas une option — c'est notre promesse.</p>
+          <div style="display:flex;gap:var(--s2);flex-wrap:wrap">
+            <span style="padding:8px 18px;background:var(--sapin-50);border-radius:var(--rf);border:.5px solid var(--sapin-200);font-size:.78rem;font-weight:500;color:var(--sapin-600)">🌲 PEFC certifié depuis 2020</span>
+            <span style="padding:8px 18px;background:var(--sapin-50);border-radius:var(--rf);border:.5px solid var(--sapin-200);font-size:.78rem;font-weight:500;color:var(--sapin-600)">🏅 Artisan d'Art reconnu</span>
+            <span style="padding:8px 18px;background:var(--sapin-50);border-radius:var(--rf);border:.5px solid var(--sapin-200);font-size:.78rem;font-weight:500;color:var(--sapin-600)">📍 Saint-Dié-des-Vosges</span>
+          </div>
+        </div>
+        <div class="forest-vis reveal rd2">
+          <div class="forest-text">
+            <div class="forest-main">Vosges</div>
+            <div class="forest-sub">Forêts certifiées PEFC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:var(--s12) 0;background:var(--color-bg2)" class="reveal">
+    <div class="c">
+      <div class="sec-label">Le bois</div>
+      <h2 class="sec-title">Un bois choisi<br>à la <em>source.</em></h2>
+      <p style="font-size:var(--lg);color:var(--color-text2);line-height:1.7;max-width:680px;margin-bottom:var(--s6)">Chaque planche Boisenserie est découpée dans du bois massif issu des forêts des Vosges. Chêne, hêtre, noyer, merisier — chaque essence est sélectionnée pour sa densité, sa résistance à l'humidité et sa beauté naturelle. Aucun bois exotique, aucun aggloméré, aucun traitement chimique.</p>
+      <div class="vals-grid">
+        <div class="val-card reveal rd1">
+          <div class="val-num">01</div>
+          <div class="val-title">Le vrai bois, pas du contreplaqué</div>
+          <p class="val-desc">Nous travaillons exclusivement du bois massif. Chaque planche est une pièce unique avec son propre grain, ses nœuds, sa signature naturelle. Aucune planche n'est identique à une autre.</p>
+        </div>
+        <div class="val-card reveal rd2">
+          <div class="val-num">02</div>
+          <div class="val-title">La traçabilité comme promesse</div>
+          <p class="val-desc">Chaque planche est livrée avec une carte d'origine mentionnant la forêt vosgienne et la scierie partenaire. Certification PEFC vérifiable. On ne cache rien de notre chaîne de fabrication.</p>
+        </div>
+        <div class="val-card reveal rd3">
+          <div class="val-num">03</div>
+          <div class="val-title">L'Alsace comme inspiration permanente</div>
+          <p class="val-desc">Chaque emblème est choisi pour sa profondeur historique. La cigogne, le bretzel, le sapin des Vosges, le colombage, la vigne de la Route des vins — des siècles d'histoire gravés dans le bois.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:var(--s12) 0;background:var(--gres-50)" class="reveal">
+    <div class="c">
+      <div class="sec-label">La gravure</div>
+      <h2 class="sec-title">La gravure laser —<br><em>précision artisanale.</em></h2>
+      <p style="font-size:var(--lg);color:var(--color-text2);line-height:1.7;max-width:680px;margin-bottom:var(--s6)">La gravure est réalisée au laser avec une précision au dixième de millimètre. Chaque emblème alsacien est gravé en profondeur dans la masse du bois. Le résultat est permanent, net, et s'embellit avec le temps au fur et à mesure que le bois patine naturellement.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)">
+        <div style="padding:var(--s4);background:var(--color-bg2);border-radius:var(--rx);border:.5px solid var(--color-border)">
+          <div style="font-size:2rem;margin-bottom:var(--s2)">⚡</div>
+          <div style="font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s1)">Gravure laser CO₂</div>
+          <p style="font-size:var(--sm);color:var(--color-text2);line-height:1.65">Précision au dixième de millimètre. Profondeur constante sur toute la surface. Aucune encre, aucun produit chimique.</p>
+        </div>
+        <div style="padding:var(--s4);background:var(--color-bg2);border-radius:var(--rx);border:.5px solid var(--color-border)">
+          <div style="font-size:2rem;margin-bottom:var(--s2)">🎨</div>
+          <div style="font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s1)">Design sur mesure</div>
+          <p style="font-size:var(--sm);color:var(--color-text2);line-height:1.65">Chaque emblème est dessiné et adapté au grain de chaque essence de bois. Votre texte est composé à la main avant chaque gravure.</p>
+        </div>
+        <div style="padding:var(--s4);background:var(--color-bg2);border-radius:var(--rx);border:.5px solid var(--color-border)">
+          <div style="font-size:2rem;margin-bottom:var(--s2)">✅</div>
+          <div style="font-size:var(--lg);font-weight:var(--fw5);margin-bottom:var(--s1)">Contrôle qualité</div>
+          <p style="font-size:var(--sm);color:var(--color-text2);line-height:1.65">Chaque planche est inspectée avant expédition. Si elle ne nous satisfait pas, elle est refaite. Sans discussion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hist-q reveal">
+    <div class="c">
+      <div class="big-q">"Chaque planche naît d'un arbre qui a poussé dans nos forêts. La gravure fixe l'histoire de l'Alsace dans son grain — pour que vous la portiez avec vous."</div>
+      <div class="big-q-auth">L'équipe Boisenserie · Saint-Dié-des-Vosges</div>
+    </div>
+  </section>
+
+  <section style="padding:var(--s10) 0;background:var(--sapin-50);border-top:.5px solid var(--sapin-100)" class="reveal">
+    <div class="c" style="text-align:center">
+      <div class="sec-label">Rejoignez l'aventure</div>
+      <h2 class="sec-title">Votre nom mérite<br>de rester gravé <em>quelque part.</em></h2>
+      <div style="display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-top:var(--s5)">
+        <a href="/personnalisation.html" class="btn btn-brand btn-arrow btn-lg">Personnaliser ma planche</a>
+        <a href="/catalogue.html" class="btn btn-outline btn-lg">Voir le catalogue</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="c">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="nav-logo" style="color:white;margin-bottom:var(--s3);display:block">Bois<span style="color:var(--sapin-300)">enserie</span></a>
+        <p class="footer-tagline">Planches à découper en bois massif des Vosges, gravées d'emblèmes alsaciens. Artisanat de précision, Alsace.</p>
+        <div style="margin-top:var(--s3);display:flex;gap:var(--s2)">
+          <span style="padding:4px 12px;background:rgba(34,90,59,.2);border-radius:var(--rf);font-size:.7rem;font-weight:500;color:var(--sapin-300)">🌲 PEFC</span>
+          <span style="padding:4px 12px;background:rgba(255,255,255,.06);border-radius:var(--rf);font-size:.7rem;font-weight:500;color:var(--nuit-400)">🇫🇷 Artisan d'Art</span>
+        </div>
+        <div class="footer-socials">
+          <div class="social">📸</div><div class="social">👍</div><div class="social">💼</div><div class="social">▶️</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Nos planches</div>
+        <ul class="footer-links">
+          <li><a href="/catalogue.html">Catalogue complet</a></li>
+          <li><a href="/catalogue.html">Emblèmes d'Alsace</a></li>
+          <li><a href="/catalogue.html">Choisir son bois</a></li>
+          <li><a href="/catalogue.html">Sets cadeaux</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Personnalisation</div>
+        <ul class="footer-links">
+          <li><a href="/personnalisation.html">Configurateur</a></li>
+          <li><a href="/professionnels.html">Offre Professionnels</a></li>
+          <li><a href="/professionnels.html">Cadeaux d'entreprise</a></li>
+          <li><a href="/professionnels.html">Demander un devis</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Service client</div>
+        <ul class="footer-links">
+          <li><a href="/">Livraison &amp; délais</a></li>
+          <li><a href="/">Retours &amp; échanges</a></li>
+          <li><a href="/">FAQ</a></li>
+          <li><a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Boisenserie — Saint-Dié-des-Vosges (88), Alsace, France.</span>
+      <div class="footer-legal">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="/cgv.html">CGV</a>
+        <a href="/cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════
+// PANIER
+// ══════════════════════════════════
+let cart = JSON.parse(localStorage.getItem('boisenserie_cart') || '[]');
+let giftBox = false;
+
+function saveCart() { localStorage.setItem('boisenserie_cart', JSON.stringify(cart)); }
+function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); renderCart(); updateCartBadge(); }
+function updateQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.quantity += delta;
+  if (item.quantity <= 0) { removeFromCart(id); return; }
+  saveCart(); renderCart(); updateCartBadge();
+}
+function getCartTotal() { return cart.reduce((s, i) => s + i.price * i.quantity, 0) + (giftBox ? 490 : 0); }
+function getCartCount() { return cart.reduce((s, i) => s + i.quantity, 0); }
+function updateCartBadge() {
+  const count = getCartCount();
+  const badge = document.getElementById('cart-badge');
+  badge.textContent = count;
+  badge.classList.toggle('show', count > 0);
+}
+function fmt(cents) { return (cents / 100).toFixed(2).replace('.', ',') + ' €'; }
+function renderCart() {
+  const body = document.getElementById('cart-body');
+  const footer = document.getElementById('cart-footer');
+  const headerCount = document.getElementById('cart-header-count');
+  const count = getCartCount();
+  headerCount.textContent = count === 0 ? '0 article' : count + ' article' + (count > 1 ? 's' : '');
+  if (cart.length === 0) {
+    footer.style.display = 'none';
+    body.innerHTML = `<div class="cart-empty">
+      <div class="cart-empty-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#225A3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+      <div class="cart-empty-title">Votre panier est vide.</div>
+      <p class="cart-empty-sub">Parcourez notre catalogue pour trouver votre planche.</p>
+      <a href="/catalogue.html" class="cart-empty-btn">Voir le catalogue →</a>
+    </div>`;
+    return;
+  }
+  let html = '';
+  for (const item of cart) {
+    html += `<div class="cart-item">
+      <div class="cart-item-img" style="background:${item.bg || 'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'}"><div class="cart-item-img-text">${item.icon || '🦢'}</div></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-detail"><span>${item.wood}</span> · <span>${item.format}</span></div>
+        <div class="cart-item-row">
+          <div class="qty-stepper">
+            <button class="qty-btn" onclick="updateQty('${item.id}', -1)">−</button>
+            <div class="qty-num">${item.quantity}</div>
+            <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+          </div>
+          <div class="cart-item-price">${fmt(item.price * item.quantity)}</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">Supprimer</button>
+      </div>
+    </div>`;
+  }
+  body.innerHTML = html;
+  footer.style.display = 'block';
+  document.getElementById('cart-total').textContent = fmt(getCartTotal());
+  const note = document.getElementById('cart-shipping-note');
+  const total = getCartTotal();
+  if (total >= 6000) {
+    note.innerHTML = '✅ Livraison offerte !';
+    note.style.background = 'var(--sapin-50)'; note.style.borderColor = 'var(--sapin-200)'; note.style.color = 'var(--sapin-600)';
+  } else {
+    note.innerHTML = `🚚 Plus que <strong>${fmt(6000 - total)}</strong> pour la livraison offerte !`;
+    note.style.background = 'var(--ble-50)'; note.style.borderColor = 'var(--ble-100)'; note.style.color = 'var(--ble-600)';
+  }
+}
+function toggleGiftCart(checkbox) { giftBox = checkbox.checked; renderCart(); }
+async function proceedToCheckout() {
+  if (cart.length === 0) return;
+  const btn = document.getElementById('cart-checkout-btn');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = 'Redirection en cours…'; btn.classList.add('loading'); btn.disabled = true;
+  try {
+    const itemsPayload = cart.map(item => ({ name: item.name, price: item.price, quantity: item.quantity, emblem: item.emblem || '', wood: item.wood || '', format: item.format || '', engravingText: item.engravingText || '', giftBox: false }));
+    if (giftBox) itemsPayload[0].giftBox = true;
+    const response = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: itemsPayload }) });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Erreur serveur');
+    if (data.url) { cart = []; saveCart(); window.location.href = data.url; }
+    else throw new Error('Pas d\'URL de paiement reçue.');
+  } catch (error) {
+    btn.innerHTML = originalText; btn.classList.remove('loading'); btn.disabled = false;
+    showToast('⚠ ' + error.message, 'error');
+  }
+}
+function openCart() { document.getElementById('cart-overlay').classList.add('open'); document.getElementById('cart-drawer').classList.add('open'); document.body.style.overflow = 'hidden'; renderCart(); }
+function closeCart() { document.getElementById('cart-overlay').classList.remove('open'); document.getElementById('cart-drawer').classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast ' + type + ' show';
+  setTimeout(() => { t.classList.remove('show'); }, 3000);
+}
+function toggleMobile() { document.getElementById('mob-menu').classList.toggle('open'); }
+
+// ══════════════════════════════════
+// SCROLL REVEAL
+// ══════════════════════════════════
+function observeReveals() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: .08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => { if (!el.classList.contains('visible')) obs.observe(el); });
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+});
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartBadge();
+  renderCart();
+  observeReveals();
+});
+</script>
+</body>
+</html>
