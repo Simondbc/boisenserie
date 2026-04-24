@@ -537,7 +537,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
       <div class="nav-logo" onclick="navigate('accueil')">Bois<span>enserie</span></div>
       <div class="nav-links">
         <span class="nav-link active" id="nav-accueil" onclick="navigate('accueil')">Accueil</span>
-        <span class="nav-link" id="nav-catalogue" onclick="navigate('catalogue')">Catalogue</span>
+        <span class="nav-link" id="nav-catalogue" onclick="href">Catalogue</span>
         <span class="nav-link" id="nav-personnalisation" onclick="navigate('personnalisation')">Personnaliser</span>
         <span class="nav-link" id="nav-b2b" onclick="navigate('b2b')">Professionnels</span>
         <span class="nav-link" id="nav-histoire" onclick="navigate('histoire')">Notre histoire</span>
@@ -567,7 +567,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
   </div>
   <div class="mob-menu" id="mob-menu">
     <span class="mob-link" onclick="navigate('accueil');toggleMobile()">Accueil</span>
-    <span class="mob-link" onclick="navigate('catalogue');toggleMobile()">Catalogue</span>
+    <span class="mob-link" onclick="href;toggleMobile()">Catalogue</span>
     <span class="mob-link" onclick="navigate('personnalisation');toggleMobile()">Personnaliser</span>
     <span class="mob-link" onclick="navigate('b2b');toggleMobile()">Professionnels</span>
     <span class="mob-link" onclick="navigate('histoire');toggleMobile()">Notre histoire</span>
@@ -633,7 +633,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
         <p class="hero-sub">Planches à découper en bois massif des Vosges, gravées d'emblèmes alsaciens. Un souvenir authentique à glisser dans vos bagages.</p>
         <div class="hero-ctas">
           <button class="btn btn-brand btn-arrow" onclick="navigate('personnalisation')">Personnaliser ma planche</button>
-          <button class="btn btn-outline" onclick="navigate('catalogue')">Voir les emblèmes</button>
+          <button class="btn btn-outline" onclick="href">Voir les emblèmes</button>
         </div>
         <div class="hero-trust">
           <span class="hero-trust-item">🌲 Bois des Vosges PEFC</span>
@@ -713,7 +713,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           <div style="font-size:2.4rem;margin-bottom:var(--s2)">🍇</div><div style="font-family:var(--fd);font-size:1.05rem">La Vigne</div><div style="font-size:.72rem;color:var(--color-text3)">Route des vins</div>
         </div>
       </div>
-      <div style="text-align:center;margin-top:var(--s5)"><button class="btn btn-ghost" onclick="navigate('catalogue')">Voir tous les emblèmes →</button></div>
+      <div style="text-align:center;margin-top:var(--s5)"><button class="btn btn-ghost" onclick="href">Voir tous les emblèmes →</button></div>
     </div>
   </section>
 
@@ -756,7 +756,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
         </div>
         <div style="display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-top:var(--s6)">
           <button class="btn btn-brand btn-arrow btn-lg" onclick="navigate('personnalisation')">Personnaliser ma planche</button>
-          <button class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.3)" onclick="navigate('catalogue')">Voir le catalogue</button>
+          <button class="btn btn-outline btn-lg" style="color:white;border-color:rgba(255,255,255,.3)" onclick="href">Voir le catalogue</button>
         </div>
       </div>
     </div>
@@ -940,7 +940,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
   <section class="hist-hero"><div class="c"><div class="hist-inner"><div class="reveal"><div class="sec-label">Notre histoire</div><h1 class="sec-title">Nés des forêts<br>des <em>Vosges.</em></h1><p style="font-size:var(--lg);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s4)">Boisenserie est né d'une conviction simple : l'Alsace mérite un souvenir à la hauteur de son histoire. Pas un objet importé — une planche vivante, taillée dans la forêt qui entoure nos villages.</p><p style="font-size:var(--md);color:var(--color-text2);line-height:1.7;margin-bottom:var(--s5)">Depuis 2020, nous sélectionnons nos grumes chez des scieries partenaires des Vosges, laissons sécher le bois 18 mois, puis gravons chaque emblème avec une précision laser millimétrée.</p><div style="display:flex;gap:var(--s2);flex-wrap:wrap"><span style="padding:8px 18px;background:var(--sapin-50);border-radius:var(--rf);border:.5px solid var(--sapin-200);font-size:.78rem;font-weight:500;color:var(--sapin-600)">🌲 PEFC certifié depuis 2020</span><span style="padding:8px 18px;background:var(--sapin-50);border-radius:var(--rf);border:.5px solid var(--sapin-200);font-size:.78rem;font-weight:500;color:var(--sapin-600)">🏅 Artisan d'Art reconnu</span></div></div><div class="forest-vis reveal rd2"><div class="forest-text"><div class="forest-main">Vosges</div><div class="forest-sub">Forêts certifiées PEFC</div></div></div></div></div></section>
   <section style="padding:var(--s12) 0;background:var(--color-bg2)" class="reveal"><div class="c"><div class="sec-label">Nos convictions</div><h2 class="sec-title">Ce qui nous guide<br>chaque <em>jour.</em></h2><div class="vals-grid"><div class="val-card reveal rd1"><div class="val-num">01</div><div class="val-title">Le vrai bois, pas du contreplaqué</div><p class="val-desc">Nous travaillons exclusivement du bois massif. Chaque planche est une pièce unique avec son propre grain, ses nœuds, sa signature naturelle.</p></div><div class="val-card reveal rd2"><div class="val-num">02</div><div class="val-title">La traçabilité comme promesse</div><p class="val-desc">Chaque planche est livrée avec une carte d'origine mentionnant la forêt vosgienne. Certification PEFC vérifiable.</p></div><div class="val-card reveal rd3"><div class="val-num">03</div><div class="val-title">L'Alsace comme inspiration permanente</div><p class="val-desc">Chaque emblème est choisi pour sa profondeur historique. Des siècles d'histoire gravés dans le bois.</p></div></div></div></section>
   <section class="hist-q reveal"><div class="c"><div class="big-q">"Chaque planche naît d'un arbre qui a poussé dans nos forêts. La gravure fixe l'histoire de l'Alsace dans son grain — pour que vous la portiez avec vous."</div><div class="big-q-auth">L'équipe Boisenserie · Saint-Dié-des-Vosges</div></div></section>
-  <section style="padding:var(--s10) 0;background:var(--sapin-50);border-top:.5px solid var(--sapin-100)" class="reveal"><div class="c" style="text-align:center"><div class="sec-label">Rejoignez l'aventure</div><h2 class="sec-title">Votre nom mérite<br>de rester gravé <em>quelque part.</em></h2><div style="display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-top:var(--s5)"><button class="btn btn-brand btn-arrow btn-lg" onclick="navigate('personnalisation')">Personnaliser ma planche</button><button class="btn btn-outline btn-lg" onclick="navigate('catalogue')">Voir le catalogue</button></div></div></section>
+  <section style="padding:var(--s10) 0;background:var(--sapin-50);border-top:.5px solid var(--sapin-100)" class="reveal"><div class="c" style="text-align:center"><div class="sec-label">Rejoignez l'aventure</div><h2 class="sec-title">Votre nom mérite<br>de rester gravé <em>quelque part.</em></h2><div style="display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap;margin-top:var(--s5)"><button class="btn btn-brand btn-arrow btn-lg" onclick="navigate('personnalisation')">Personnaliser ma planche</button><button class="btn btn-outline btn-lg" onclick="href">Voir le catalogue</button></div></div></section>
 </main>
 
 <!-- FOOTER -->
@@ -958,7 +958,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           <div class="social">📸</div><div class="social">👍</div><div class="social">💼</div><div class="social">▶️</div>
         </div>
       </div>
-      <div><div class="footer-col-title">Nos planches</div><ul class="footer-links"><li><span onclick="navigate('catalogue')">Catalogue complet</span></li><li><span onclick="navigate('catalogue')">Emblèmes d'Alsace</span></li><li><span onclick="navigate('catalogue')">Choisir son bois</span></li><li><span onclick="navigate('catalogue')">Sets cadeaux</span></li></ul></div>
+      <div><div class="footer-col-title">Nos planches</div><ul class="footer-links"><li><span onclick="href">Catalogue complet</span></li><li><span onclick="href">Emblèmes d'Alsace</span></li><li><span onclick="href">Choisir son bois</span></li><li><span onclick="href">Sets cadeaux</span></li></ul></div>
       <div><div class="footer-col-title">Personnalisation</div><ul class="footer-links"><li><span onclick="navigate('personnalisation')">Configurateur</span></li><li><span onclick="navigate('b2b')">Offre Professionnels</span></li><li><span onclick="navigate('b2b')">Cadeaux d'entreprise</span></li><li><span onclick="navigate('b2b')">Demander un devis</span></li></ul></div>
       <div><div class="footer-col-title">Service client</div><ul class="footer-links"><li><span>Livraison & délais</span></li><li><span>Retours & échanges</span></li><li><span>FAQ</span></li><li><a href="mailto:contact@boisenserie.fr">contact@boisenserie.fr</a></li></ul></div>
     </div>
@@ -1100,7 +1100,7 @@ function renderCart() {
         </div>
         <div class="cart-empty-title">Votre panier est vide.</div>
         <p class="cart-empty-sub">Aucune planche n'a encore reçu votre nom.<br>Parcourez notre catalogue pour trouver la vôtre.</p>
-        <button class="cart-empty-btn" onclick="closeCart();navigate('catalogue')">Voir le catalogue →</button>
+        <button class="cart-empty-btn" onclick="closeCart();href">Voir le catalogue →</button>
       </div>`;
     return;
   }
