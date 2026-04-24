@@ -1,4 +1,5 @@
 const { createClient } = require('@supabase/supabase-js');
+const { sendNewAccountNotification, sendWelcomeEmail } = require('../../emails');
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -21,37 +22,13 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // Créer le compte Supabase
     const { data, error } = await supabase.auth.admin.createUser({
       email,
       password,
-      email_confirm: true, // Pas besoin de confirmation email pour simplifier
+      email_confirm: true,
       user_metadata: {
         first_name: firstName,
         last_name: lastName || '',
         full_name: `${firstName} ${lastName || ''}`.trim()
       }
-    });
-
-    if (error) {
-      if (error.message.includes('already registered')) {
-        return res.status(409).json({ error: 'Un compte existe déjà avec cet email.' });
-      }
-      throw error;
     }
-
-    res.status(201).json({
-      success: true,
-      message: 'Compte créé avec succès.',
-      user: {
-        id: data.user.id,
-        email: data.user.email,
-        firstName
-      }
-    });
-
-  } catch (error) {
-    console.error('Erreur inscription:', error);
-    res.status(500).json({ error: error.message || 'Erreur lors de la création du compte.' });
-  }
-};
