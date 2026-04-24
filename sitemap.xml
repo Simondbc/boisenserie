@@ -26,7 +26,27 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://boisenserie.fr/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://boisenserie.fr/blog/cadeau-alsacien-original</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boisenserie.fr/blog/entretien-planche-bois</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boisenserie.fr/blog/cigogne-alsace-histoire</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boisenserie.fr/blog/cadeau-mariage-original</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
