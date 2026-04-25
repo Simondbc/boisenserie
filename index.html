@@ -70,6 +70,17 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .cart-overlay.open{opacity:1;pointer-events:all}
 .cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:420px;max-width:100vw;background:var(--color-bg2);z-index:401;transform:translateX(100%);transition:transform var(--slow) var(--eo);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(15,14,12,.12)}
 .cart-drawer.open{transform:translateX(0)}
+.cart-drag-handle{display:none;width:40px;height:4px;border-radius:2px;background:var(--color-border2);margin:12px auto 4px;flex-shrink:0}
+@media(max-width:768px){
+  .cart-drawer{top:auto;right:0;left:0;bottom:0;width:100%;height:92dvh;border-radius:20px 20px 0 0;transform:translateY(100%);box-shadow:0 -8px 40px rgba(15,14,12,.15)}
+  .cart-drawer.open{transform:translateY(0)}
+  .cart-drag-handle{display:block}
+  .cart-header{padding:4px 20px 16px}
+  .cart-body{padding:12px 20px}
+  .cart-footer{padding:12px 20px 32px}
+  .cart-item-img{width:72px;height:56px}
+  .cart-checkout-btn{padding:18px;font-size:1.05rem}
+}
 .cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:.5px solid var(--color-border);flex-shrink:0;background:var(--color-bg2)}
 .cart-header-title{display:flex;align-items:center;gap:10px;font-size:var(--lg);font-weight:var(--fw5);color:var(--color-text)}
 .cart-header-count{font-size:var(--xs);font-weight:var(--fw6);padding:2px 8px;background:var(--sapin-50);color:var(--sapin-600);border:.5px solid var(--sapin-200);border-radius:var(--rf)}
@@ -232,7 +243,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
   .emblemes-grid>a{flex:0 0 68vw;scroll-snap-align:start}
 }
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:var(--s6)}.hero-visual{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s6)}}
-@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.feat-grid,.testi-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.nl-form{flex-direction:column}.hero-ctas{flex-direction:column}.cart-drawer{width:100vw}}
+@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.feat-grid,.testi-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.nl-form{flex-direction:column}.hero-ctas{flex-direction:column}}
 @media(max-width:480px){.hero-h1{font-size:2.25rem}.trust-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -280,6 +291,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 
 <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drag-handle" id="cart-drag-handle"></div>
   <div class="cart-header">
     <div class="cart-header-title">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -534,9 +546,58 @@ async function proceedToCheckout(){
     else throw new Error("Pas d'URL de paiement reçue.");
   }catch(err){btn.innerHTML=orig;btn.classList.remove('loading');btn.disabled=false;showToast('⚠ '+err.message,'error');}
 }
-function openCart(){document.getElementById('cart-overlay').classList.add('open');document.getElementById('cart-drawer').classList.add('open');document.body.style.overflow='hidden';renderCart();}
-function closeCart(){document.getElementById('cart-overlay').classList.remove('open');document.getElementById('cart-drawer').classList.remove('open');document.body.style.overflow='';}
+function isMobile(){return window.innerWidth<=768;}
+function openCart(){
+  document.getElementById('cart-overlay').classList.add('open');
+  document.getElementById('cart-drawer').classList.add('open');
+  document.body.style.overflow='hidden';
+  renderCart();
+}
+function closeCart(){
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.getElementById('cart-drawer').classList.remove('open');
+  document.body.style.overflow='';
+}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart();});
+
+// ── SWIPE TO CLOSE (mobile bottom sheet)
+(function(){
+  let startY=0,currentY=0,dragging=false;
+  const drawer=document.getElementById('cart-drawer');
+  const handle=document.getElementById('cart-drag-handle');
+
+  function onStart(e){
+    if(!isMobile())return;
+    startY=e.touches?e.touches[0].clientY:e.clientY;
+    currentY=startY;
+    dragging=true;
+    drawer.style.transition='none';
+  }
+  function onMove(e){
+    if(!dragging||!isMobile())return;
+    currentY=e.touches?e.touches[0].clientY:e.clientY;
+    const delta=Math.max(0,currentY-startY);
+    drawer.style.transform=`translateY(${delta}px)`;
+  }
+  function onEnd(){
+    if(!dragging||!isMobile())return;
+    dragging=false;
+    drawer.style.transition='';
+    const delta=currentY-startY;
+    if(delta>100){
+      closeCart();
+      drawer.style.transform='';
+    } else {
+      drawer.style.transform='';
+    }
+  }
+  handle.addEventListener('touchstart',onStart,{passive:true});
+  handle.addEventListener('touchmove',onMove,{passive:true});
+  handle.addEventListener('touchend',onEnd);
+  handle.addEventListener('mousedown',onStart);
+  window.addEventListener('mousemove',onMove);
+  window.addEventListener('mouseup',onEnd);
+})();
 function showToast(msg,type='success'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type+' show';setTimeout(()=>{t.classList.remove('show');},3000);}
 function toggleMobile(){document.getElementById('mob-menu').classList.toggle('open');}
 function toggleFaq(el){const item=el.parentElement;const was=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
