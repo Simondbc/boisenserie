@@ -513,14 +513,32 @@ function logout() {
 // ══════════════════════════════════
 // MOT DE PASSE OUBLIÉ
 // ══════════════════════════════════
-function showForgot() {
+async function showForgot() {
   const email = document.getElementById('login-email').value.trim();
   if (!email) {
     showError('Saisissez d\'abord votre adresse e-mail ci-dessus.');
     document.getElementById('login-email').focus();
     return;
   }
-  showSuccess('Si un compte existe pour cet email, un lien de réinitialisation vous sera envoyé.');
+
+  const link = document.querySelector('.forgot-link a');
+  const original = link.textContent;
+  link.textContent = 'Envoi en cours…';
+  link.style.pointerEvents = 'none';
+
+  try {
+    await fetch('/api/auth/forgot-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    showSuccess('Si un compte existe pour cet email, un lien de réinitialisation vous a été envoyé. Vérifiez vos spams.');
+  } catch (err) {
+    showError('Une erreur est survenue. Réessayez dans quelques instants.');
+  } finally {
+    link.textContent = original;
+    link.style.pointerEvents = '';
+  }
 }
 
 // ══════════════════════════════════
