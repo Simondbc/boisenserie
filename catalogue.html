@@ -298,16 +298,10 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
     <div class="c">
       <div class="filters-row">
         <div class="filter-pills">
-          <button class="flt active" onclick="filterP(this,'all')">Tout</button>
-          <button class="flt" onclick="filterP(this,'cigogne')">Cigogne</button>
-          <button class="flt" onclick="filterP(this,'bretzel')">Bretzel</button>
-          <button class="flt" onclick="filterP(this,'sapin')">Sapin</button>
-          <button class="flt" onclick="filterP(this,'colombage')">Colombage</button>
-          <button class="flt" onclick="filterP(this,'vigne')">Vigne</button>
-          <button class="flt" onclick="filterP(this,'cathedrale')">Cathédrale</button>
-          <button class="flt" onclick="filterP(this,'coiffe')">Coiffe</button>
-          <button class="flt" onclick="filterP(this,'coeur')">Cœur</button>
-          <button class="flt" onclick="filterP(this,'chateau')">Château</button>
+          <button class="flt active" onclick="filterP(this,'all')">Tous</button>
+          <button class="flt" onclick="filterP(this,'strasbourg')">Strasbourg</button>
+          <button class="flt" onclick="filterP(this,'alsace')">Emblèmes alsaciens</button>
+          <button class="flt" onclick="filterP(this,'nature')">Nature & Vosges</button>
         </div>
         <div style="font-size:var(--sm);color:var(--color-text3)">9 produits</div>
       </div>
@@ -318,20 +312,22 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
     <div class="c">
       <div class="prod-grid">
 
-        <div class="prod-card reveal" data-cat="cigogne">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr">🦢<span class="e-sub">Cigogne</span></div></div></div><span class="prod-bdg new">Best-seller</span></div>
+        <!-- 1. Cathédrale de Strasbourg — Best seller -->
+        <div class="prod-card reveal" data-cat="strasbourg">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)"><div class="planche-engr">⛪<span class="e-sub">Cathédrale</span></div></div></div><span class="prod-bdg new">Best-seller</span></div>
           <div class="prod-info">
             <div class="prod-cat">Planche · Chêne</div>
-            <div class="prod-name">Cigogne des Vosges</div>
-            <p class="prod-desc">La Cigogne des Vosges est notre planche emblématique. Taillée dans un chêne massif des Vosges de 20 mm d'épaisseur, au format 40×25 cm, elle offre une surface généreuse pour cuisiner ou servir. Gravure laser profonde, personnalisation incluse. Idée cadeau alsacien parfaite.</p>
+            <div class="prod-name">Cathédrale de Strasbourg</div>
+            <p class="prod-desc">Chêne massif 40×25 cm, 20 mm. La cathédrale Notre-Dame de Strasbourg, chef-d'œuvre gothique et monument emblématique d'Alsace, gravée au laser avec une précision remarquable. Le souvenir de Strasbourg par excellence. Personnalisation incluse.</p>
             <div class="prod-footer">
               <div class="prod-price">49,90 €<span>&nbsp;· gravure incluse</span></div>
-              <button class="prod-add" onclick="addToCart({id:'cigogne-chene',name:'Planche Cigogne — Chêne des Vosges',price:4990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button>
+              <button class="prod-add" onclick="addToCart({id:'cathedrale-chene',name:'Planche Cathédrale de Strasbourg — Chêne',price:4990,emblem:'⛪ Cathédrale',wood:'Chêne des Vosges',format:'40×25 cm',icon:'⛪',bg:'linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd1" data-cat="bretzel">
+        <!-- 2. Bretzel d'Alsace -->
+        <div class="prod-card reveal rd1" data-cat="alsace">
           <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#D4B896,#BAA077,#9B8055)"><div class="planche-engr">🥨<span class="e-sub">Bretzel</span></div></div></div></div>
           <div class="prod-info">
             <div class="prod-cat">Planche · Hêtre</div>
@@ -344,20 +340,22 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           </div>
         </div>
 
-        <div class="prod-card reveal rd2" data-cat="sapin">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)"><div class="planche-engr" style="color:rgba(255,255,255,.5)">🌲<span class="e-sub">Sapin</span></div></div></div><span class="prod-bdg lim">Édition limitée</span></div>
+        <!-- 3. Cigogne des Vosges -->
+        <div class="prod-card reveal rd2" data-cat="alsace">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr">🦢<span class="e-sub">Cigogne</span></div></div></div></div>
           <div class="prod-info">
-            <div class="prod-cat">Planche · Noyer</div>
-            <div class="prod-name">Sapin des Vosges</div>
-            <p class="prod-desc">Notre essence la plus luxueuse. Noyer noir massif des Vosges, 45×30 cm, 22 mm. Le grain sombre et profond du noyer met en valeur le sapin des Vosges gravé au laser. Un cadeau d'exception pour les amoureux de la forêt alsacienne.</p>
+            <div class="prod-cat">Planche · Chêne</div>
+            <div class="prod-name">Cigogne des Vosges</div>
+            <p class="prod-desc">La Cigogne des Vosges est notre planche emblématique. Taillée dans un chêne massif des Vosges de 20 mm d'épaisseur, au format 40×25 cm, elle offre une surface généreuse pour cuisiner ou servir. Gravure laser profonde, personnalisation incluse. Idée cadeau alsacien parfaite.</p>
             <div class="prod-footer">
-              <div class="prod-price">69,90 €<span>&nbsp;· gravure incluse</span></div>
-              <button class="prod-add" onclick="addToCart({id:'sapin-noyer',name:'Planche Sapin — Noyer noir',price:6990,emblem:'🌲 Sapin',wood:'Noyer noir',format:'45×30 cm',icon:'🌲',bg:'linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)'})">🛒 Ajouter</button>
+              <div class="prod-price">49,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'cigogne-chene',name:'Planche Cigogne — Chêne des Vosges',price:4990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal" data-cat="colombage">
+        <!-- 4. Maison alsacienne -->
+        <div class="prod-card reveal" data-cat="strasbourg">
           <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr">🏠<span class="e-sub">Colombage</span></div></div></div></div>
           <div class="prod-info">
             <div class="prod-cat">Planche · Chêne</div>
@@ -370,35 +368,36 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           </div>
         </div>
 
-        <div class="prod-card reveal rd1" data-cat="vigne">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)"><div class="planche-engr" style="color:rgba(255,255,255,.5)">🍇<span class="e-sub">Vigne</span></div></div></div><span class="prod-bdg lim">Édition limitée</span></div>
+        <!-- 5. Sapin des Vosges -->
+        <div class="prod-card reveal rd1" data-cat="nature">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)"><div class="planche-engr" style="color:rgba(255,255,255,.5)">🌲<span class="e-sub">Sapin</span></div></div></div><span class="prod-bdg lim">Édition limitée</span></div>
           <div class="prod-info">
-            <div class="prod-cat">Planche · Merisier</div>
-            <div class="prod-name">La Vigne d'Alsace</div>
-            <p class="prod-desc">Merisier massif 40×25 cm. Essence rare à la patine rosée unique. La vigne de la Route des vins d'Alsace gravée au laser sur ce bois précieux. Idée cadeau originale pour les amoureux des vins alsaciens. Édition limitée.</p>
+            <div class="prod-cat">Planche · Noyer</div>
+            <div class="prod-name">Sapin des Vosges</div>
+            <p class="prod-desc">Notre essence la plus luxueuse. Noyer noir massif des Vosges, 45×30 cm, 22 mm. Le grain sombre et profond du noyer met en valeur le sapin des Vosges gravé au laser. Un cadeau d'exception pour les amoureux de la forêt alsacienne.</p>
             <div class="prod-footer">
-              <div class="prod-price">64,90 €<span>&nbsp;· gravure incluse</span></div>
-              <button class="prod-add" onclick="addToCart({id:'vigne-merisier',name:'Planche Vigne — Merisier',price:6490,emblem:'🍇 Vigne',wood:'Merisier',format:'40×25 cm',icon:'🍇',bg:'linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)'})">🛒 Ajouter</button>
+              <div class="prod-price">69,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'sapin-noyer',name:'Planche Sapin — Noyer noir',price:6990,emblem:'🌲 Sapin',wood:'Noyer noir',format:'45×30 cm',icon:'🌲',bg:'linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
 
-        <!-- Cathédrale de Strasbourg -->
-        <div class="prod-card reveal rd2" data-cat="cathedrale">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)"><div class="planche-engr">⛪<span class="e-sub">Cathédrale</span></div></div></div></div>
+        <!-- 6. Château du Haut-Kœnigsbourg -->
+        <div class="prod-card reveal rd2" data-cat="strasbourg">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)"><div class="planche-engr">🏰<span class="e-sub">Haut-Kœnigsbourg</span></div></div></div></div>
           <div class="prod-info">
-            <div class="prod-cat">Planche · Chêne</div>
-            <div class="prod-name">Cathédrale de Strasbourg</div>
-            <p class="prod-desc">Chêne massif 40×25 cm, 20 mm. La cathédrale Notre-Dame de Strasbourg, chef-d'œuvre gothique et monument emblématique d'Alsace, gravée au laser avec une précision remarquable. Le souvenir de Strasbourg par excellence. Personnalisation incluse.</p>
+            <div class="prod-cat">Planche · Noyer</div>
+            <div class="prod-name">Château du Haut-Kœnigsbourg</div>
+            <p class="prod-desc">Noyer noir massif 40×25 cm, 20 mm. Le château du Haut-Kœnigsbourg, forteresse médiévale dominant la plaine d'Alsace depuis les Vosges, gravé sur bois sombre. Un cadeau d'exception pour les amoureux du patrimoine alsacien. Personnalisation incluse.</p>
             <div class="prod-footer">
-              <div class="prod-price">49,90 €<span>&nbsp;· gravure incluse</span></div>
-              <button class="prod-add" onclick="addToCart({id:'cathedrale-chene',name:'Planche Cathédrale de Strasbourg — Chêne',price:4990,emblem:'⛪ Cathédrale',wood:'Chêne des Vosges',format:'40×25 cm',icon:'⛪',bg:'linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)'})">🛒 Ajouter</button>
+              <div class="prod-price">69,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'chateau-noyer',name:'Planche Château du Haut-Kœnigsbourg — Noyer',price:6990,emblem:'🏰 Château',wood:'Noyer massif',format:'40×25 cm',icon:'🏰',bg:'linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
 
-        <!-- Coiffe alsacienne -->
-        <div class="prod-card reveal" data-cat="coiffe">
+        <!-- 7. Coiffe alsacienne -->
+        <div class="prod-card reveal" data-cat="alsace">
           <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr">🎀<span class="e-sub">Coiffe alsacienne</span></div></div></div></div>
           <div class="prod-info">
             <div class="prod-cat">Planche · Hêtre</div>
@@ -411,8 +410,8 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           </div>
         </div>
 
-        <!-- Cœur alsacien -->
-        <div class="prod-card reveal rd1" data-cat="coeur">
+        <!-- 8. Cœur alsacien -->
+        <div class="prod-card reveal rd1" data-cat="alsace">
           <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)"><div class="planche-engr">❤️<span class="e-sub">Cœur alsacien</span></div></div></div></div>
           <div class="prod-info">
             <div class="prod-cat">Planche · Merisier</div>
@@ -425,16 +424,16 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           </div>
         </div>
 
-        <!-- Château du Haut-Kœnigsbourg -->
-        <div class="prod-card reveal rd2" data-cat="chateau">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)"><div class="planche-engr">🏰<span class="e-sub">Haut-Kœnigsbourg</span></div></div></div></div>
+        <!-- 9. La Vigne d'Alsace -->
+        <div class="prod-card reveal rd2" data-cat="nature">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)"><div class="planche-engr" style="color:rgba(255,255,255,.5)">🍇<span class="e-sub">Vigne</span></div></div></div><span class="prod-bdg lim">Édition limitée</span></div>
           <div class="prod-info">
-            <div class="prod-cat">Planche · Noyer</div>
-            <div class="prod-name">Château du Haut-Kœnigsbourg</div>
-            <p class="prod-desc">Noyer noir massif 40×25 cm, 20 mm. Le château du Haut-Kœnigsbourg, forteresse médiévale dominant la plaine d'Alsace depuis les Vosges, gravé sur bois sombre. Un cadeau d'exception pour les amoureux du patrimoine alsacien. Personnalisation incluse.</p>
+            <div class="prod-cat">Planche · Merisier</div>
+            <div class="prod-name">La Vigne d'Alsace</div>
+            <p class="prod-desc">Merisier massif 40×25 cm. Essence rare à la patine rosée unique. La vigne de la Route des vins d'Alsace gravée au laser sur ce bois précieux. Idée cadeau originale pour les amoureux des vins alsaciens. Édition limitée.</p>
             <div class="prod-footer">
-              <div class="prod-price">69,90 €<span>&nbsp;· gravure incluse</span></div>
-              <button class="prod-add" onclick="addToCart({id:'chateau-noyer',name:'Planche Château du Haut-Kœnigsbourg — Noyer',price:6990,emblem:'🏰 Château',wood:'Noyer massif',format:'40×25 cm',icon:'🏰',bg:'linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)'})">🛒 Ajouter</button>
+              <div class="prod-price">64,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'vigne-merisier',name:'Planche Vigne — Merisier',price:6490,emblem:'🍇 Vigne',wood:'Merisier',format:'40×25 cm',icon:'🍇',bg:'linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
