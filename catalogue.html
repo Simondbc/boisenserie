@@ -304,6 +304,10 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           <button class="flt" onclick="filterP(this,'sapin')">Sapin</button>
           <button class="flt" onclick="filterP(this,'colombage')">Colombage</button>
           <button class="flt" onclick="filterP(this,'vigne')">Vigne</button>
+          <button class="flt" onclick="filterP(this,'cathedrale')">Cathédrale</button>
+          <button class="flt" onclick="filterP(this,'coiffe')">Coiffe</button>
+          <button class="flt" onclick="filterP(this,'coeur')">Cœur</button>
+          <button class="flt" onclick="filterP(this,'chateau')">Château</button>
         </div>
         <div style="font-size:var(--sm);color:var(--color-text3)">9 produits</div>
       </div>
@@ -379,54 +383,58 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
           </div>
         </div>
 
-        <div class="prod-card reveal rd2" data-cat="cigogne">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535);width:80%"><div class="planche-engr">🦢🦢<span class="e-sub">Grand Format</span></div></div></div></div>
+        <!-- Cathédrale de Strasbourg -->
+        <div class="prod-card reveal rd2" data-cat="cathedrale">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)"><div class="planche-engr">⛪<span class="e-sub">Cathédrale</span></div></div></div></div>
           <div class="prod-info">
-            <div class="prod-cat">Planche · Chêne · Grand format</div>
-            <div class="prod-name">Cigogne — Grand format</div>
-            <p class="prod-desc">Chêne massif 60×40 cm, 22 mm. Notre plus grande planche, pensée pour les grandes tablées familiales et les cadeaux professionnels marquants. Gravure double cigogne + texte personnalisé. Idéal en cadeau d'entreprise alsacien.</p>
+            <div class="prod-cat">Planche · Chêne</div>
+            <div class="prod-name">Cathédrale de Strasbourg</div>
+            <p class="prod-desc">Chêne massif 40×25 cm, 20 mm. La cathédrale Notre-Dame de Strasbourg, chef-d'œuvre gothique et monument emblématique d'Alsace, gravée au laser avec une précision remarquable. Le souvenir de Strasbourg par excellence. Personnalisation incluse.</p>
             <div class="prod-footer">
-              <div class="prod-price">89,90 €<span>&nbsp;· gravure incluse</span></div>
-              <button class="prod-add" onclick="addToCart({id:'cigogne-grand',name:'Planche Cigogne Grand Format — Chêne 60×40',price:8990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'60×40 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button>
+              <div class="prod-price">49,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'cathedrale-chene',name:'Planche Cathédrale de Strasbourg — Chêne',price:4990,emblem:'⛪ Cathédrale',wood:'Chêne des Vosges',format:'40×25 cm',icon:'⛪',bg:'linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal" data-cat="cigogne">
-          <div class="prod-img"><div class="prod-img-inner" style="background:linear-gradient(135deg,var(--sapin-700),var(--sapin-500))"><div style="text-align:center;position:relative;z-index:1"><div style="font-size:2.4rem;margin-bottom:8px">🎁</div><div style="font-family:var(--fd);font-size:1rem;font-style:italic;color:rgba(255,255,255,.7)">Coffret Cigogne</div></div></div><span class="prod-bdg new">Nouveau</span></div>
+        <!-- Coiffe alsacienne -->
+        <div class="prod-card reveal" data-cat="coiffe">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr">🎀<span class="e-sub">Coiffe alsacienne</span></div></div></div></div>
           <div class="prod-info">
-            <div class="prod-cat">Set cadeau · Coffret premium</div>
-            <div class="prod-name">Coffret Cigogne &amp; Soin</div>
-            <p class="prod-desc">Planche Cigogne en chêne des Vosges + huile de soin naturelle + guide d'entretien du bois + coffret kraft élégant. Le cadeau alsacien complet, prêt à offrir. Idéal pour un mariage, un anniversaire ou un cadeau de Noël original.</p>
+            <div class="prod-cat">Planche · Hêtre</div>
+            <div class="prod-name">Coiffe alsacienne</div>
+            <p class="prod-desc">Hêtre clair 40×25 cm, 20 mm. La coiffe alsacienne — symbole de l'identité et des traditions de la région — gravée avec finesse sur bois clair. Un hommage à l'artisanat textile alsacien et à son patrimoine culturel unique. Personnalisation incluse.</p>
             <div class="prod-footer">
-              <div class="prod-price">62,90 €</div>
-              <button class="prod-add" onclick="addToCart({id:'coffret-cigogne',name:'Coffret Cigogne & Soin Premium',price:6290,emblem:'🎁 Coffret',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🎁',bg:'linear-gradient(135deg,#225A3B,#3A7A54)'})">🛒 Ajouter</button>
+              <div class="prod-price">49,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'coiffe-hetre',name:'Planche Coiffe alsacienne — Hêtre',price:4990,emblem:'🎀 Coiffe',wood:'Hêtre clair',format:'40×25 cm',icon:'🎀',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd1" data-cat="bretzel">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#D4B896,#BAA077,#9B8055);width:55%"><div class="planche-engr">🥨<span class="e-sub">Format bagage</span></div></div></div></div>
+        <!-- Cœur alsacien -->
+        <div class="prod-card reveal rd1" data-cat="coeur">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)"><div class="planche-engr">❤️<span class="e-sub">Cœur alsacien</span></div></div></div></div>
           <div class="prod-info">
-            <div class="prod-cat">Planche · Hêtre · Compact</div>
-            <div class="prod-name">Bretzel — Format bagage</div>
-            <p class="prod-desc">Hêtre 30×20 cm, 15 mm. Conçu pour tenir dans un bagage cabine. Le souvenir d'Alsace idéal pour les voyageurs. Bretzel gravé au laser + personnalisation incluse. Léger, solide, utilisable au quotidien dès le retour à la maison.</p>
+            <div class="prod-cat">Planche · Merisier</div>
+            <div class="prod-name">Cœur alsacien</div>
+            <p class="prod-desc">Merisier massif 40×25 cm, patine rosée unique. Le cœur alsacien — motif traditionnel de l'artisanat de la région — gravé sur ce bois précieux à la teinte chaleureuse. Idée cadeau parfaite pour un mariage, un anniversaire ou une déclaration. Édition limitée.</p>
             <div class="prod-footer">
-              <div class="prod-price">36,90 €<span>&nbsp;· gravure incluse</span></div>
-              <button class="prod-add" onclick="addToCart({id:'bretzel-mini',name:'Planche Bretzel Format Bagage — Hêtre',price:3690,emblem:'🥨 Bretzel',wood:'Hêtre clair',format:'30×20 cm',icon:'🥨',bg:'linear-gradient(135deg,#D4B896,#BAA077,#9B8055)'})">🛒 Ajouter</button>
+              <div class="prod-price">64,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'coeur-merisier',name:'Planche Cœur alsacien — Merisier',price:6490,emblem:'❤️ Cœur',wood:'Merisier',format:'40×25 cm',icon:'❤️',bg:'linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd2" data-cat="cigogne">
-          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)"><div class="planche-engr" style="font-size:2rem;letter-spacing:.05em">M·W<span class="e-sub">Monogramme</span></div></div></div></div>
+        <!-- Château du Haut-Kœnigsbourg -->
+        <div class="prod-card reveal rd2" data-cat="chateau">
+          <div class="prod-img"><div class="prod-img-inner"><div class="planche" style="background:linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)"><div class="planche-engr">🏰<span class="e-sub">Haut-Kœnigsbourg</span></div></div></div></div>
           <div class="prod-info">
-            <div class="prod-cat">Planche · Chêne · Monogramme</div>
-            <div class="prod-name">Monogramme &amp; Cigogne</div>
-            <p class="prod-desc">Chêne 40×25 cm. Vos initiales entrelacées gravées avec la cigogne d'Alsace. Un cadeau de mariage ou de naissance unique et personnalisé. Bois massif des Vosges, gravure laser permanente, personnalisation complète incluse.</p>
+            <div class="prod-cat">Planche · Noyer</div>
+            <div class="prod-name">Château du Haut-Kœnigsbourg</div>
+            <p class="prod-desc">Noyer noir massif 40×25 cm, 20 mm. Le château du Haut-Kœnigsbourg, forteresse médiévale dominant la plaine d'Alsace depuis les Vosges, gravé sur bois sombre. Un cadeau d'exception pour les amoureux du patrimoine alsacien. Personnalisation incluse.</p>
             <div class="prod-footer">
-              <div class="prod-price">54,90 €</div>
-              <button class="prod-add" onclick="addToCart({id:'monogramme-chene',name:'Planche Monogramme & Cigogne — Chêne',price:5490,emblem:'✦ Monogramme',wood:'Chêne des Vosges',format:'40×25 cm',icon:'✦',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">🛒 Ajouter</button>
+              <div class="prod-price">69,90 €<span>&nbsp;· gravure incluse</span></div>
+              <button class="prod-add" onclick="addToCart({id:'chateau-noyer',name:'Planche Château du Haut-Kœnigsbourg — Noyer',price:6990,emblem:'🏰 Château',wood:'Noyer massif',format:'40×25 cm',icon:'🏰',bg:'linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)'})">🛒 Ajouter</button>
             </div>
           </div>
         </div>
