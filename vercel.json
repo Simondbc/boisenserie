@@ -4,7 +4,15 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/success", "destination": "/success.html" },
-    { "source": "/produits/:slug", "destination": "/produits/:slug.html" }
+    { "source": "/produits/cathedrale-strasbourg-chene", "destination": "/produits/cathedrale-strasbourg-chene.html" },
+    { "source": "/produits/bretzel-alsace-hetre", "destination": "/produits/bretzel-alsace-hetre.html" },
+    { "source": "/produits/cigogne-vosges-chene", "destination": "/produits/cigogne-vosges-chene.html" },
+    { "source": "/produits/maison-alsacienne-chene", "destination": "/produits/maison-alsacienne-chene.html" },
+    { "source": "/produits/sapin-vosges-noyer", "destination": "/produits/sapin-vosges-noyer.html" },
+    { "source": "/produits/chateau-haut-koenigsbourg-noyer", "destination": "/produits/chateau-haut-koenigsbourg-noyer.html" },
+    { "source": "/produits/coiffe-alsacienne-hetre", "destination": "/produits/coiffe-alsacienne-hetre.html" },
+    { "source": "/produits/coeur-alsacien-merisier", "destination": "/produits/coeur-alsacien-merisier.html" },
+    { "source": "/produits/vigne-alsace-merisier", "destination": "/produits/vigne-alsace-merisier.html" }
   ],
   "headers": [
     {
