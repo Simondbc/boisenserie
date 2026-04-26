@@ -333,10 +333,10 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             <div style="flex:1">
               <div class="step-ct-title">Essence de bois</div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s3)">
-                <div class="flt active" onclick="selectWood(this,'Chêne des Vosges',4990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Chêne des Vosges</div><div style="font-size:.65rem;color:var(--color-text3)">Dense · Bestseller</div></div>
-                <div class="flt" onclick="selectWood(this,'Hêtre clair',4990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Hêtre clair</div><div style="font-size:.65rem;color:var(--color-text3)">Gravure fine</div></div>
-                <div class="flt" onclick="selectWood(this,'Noyer noir',6990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Noyer noir</div><div style="font-size:.65rem;color:var(--color-text3)">Luxueux</div></div>
-                <div class="flt" onclick="selectWood(this,'Merisier',6490)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Merisier · Éd. limitée</div><div style="font-size:.65rem;color:var(--color-text3)">Patine rosée</div></div>
+                <div class="flt active" data-wood="Chêne des Vosges" onclick="selectWood(this,'Chêne des Vosges',4990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Chêne des Vosges</div><div style="font-size:.65rem;color:var(--color-text3)">Dense · Bestseller</div></div>
+                <div class="flt" data-wood="Hêtre clair" onclick="selectWood(this,'Hêtre clair',4990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Hêtre clair</div><div style="font-size:.65rem;color:var(--color-text3)">Gravure fine</div></div>
+                <div class="flt" data-wood="Noyer noir" onclick="selectWood(this,'Noyer noir',6990)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Noyer noir</div><div style="font-size:.65rem;color:var(--color-text3)">Luxueux</div></div>
+                <div class="flt" data-wood="Merisier" onclick="selectWood(this,'Merisier',6490)" style="border-radius:var(--r);text-align:left;padding:var(--s2) var(--s3)"><div style="font-size:.75rem;font-weight:600;margin-bottom:2px">Merisier · Éd. limitée</div><div style="font-size:.65rem;color:var(--color-text3)">Patine rosée</div></div>
               </div>
             </div>
           </div>
@@ -589,15 +589,59 @@ function toggleMobile() { document.getElementById('mob-menu').classList.toggle('
 // ══════════════════════════════════
 // CONFIGURATEUR
 // ══════════════════════════════════
-let currentConfig = { price: 4990, wood: 'Chêne des Vosges', format: '40×25 cm', emblem: '🦢 Cigogne' };
+let currentConfig = { price: 4990, wood: 'Chêne des Vosges', format: '40×25 cm', emblem: '⛪ Cathédrale' };
+
+// Mapping emblème → essence imposée
+const WOOD_MAP = {
+  '⛪': { wood: 'Chêne des Vosges', price: 4990 },
+  '🥨': { wood: 'Hêtre clair',      price: 4990 },
+  '🦢': { wood: 'Chêne des Vosges', price: 4990 },
+  '🏠': { wood: 'Chêne des Vosges', price: 4290 },
+  '🌲': { wood: 'Noyer noir',       price: 6990 },
+  '🏰': { wood: 'Noyer noir',       price: 6990 },
+  '🎀': { wood: 'Hêtre clair',      price: 4990 },
+  '❤️': { wood: 'Merisier',         price: 6490 },
+  '🍇': { wood: 'Merisier',         price: 6490 },
+  '✦':  null, // Initiales → libre choix
+};
 
 function selectMotif(btn, motif, name) {
   document.querySelectorAll('.motif-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
   document.getElementById('preview-motif').textContent = motif;
   currentConfig.emblem = motif + ' ' + name;
+
+  const mapping = WOOD_MAP[motif];
+  const woodBtns = document.querySelectorAll('#step4 .flt');
+
+  if (mapping) {
+    // Auto-sélectionne l'essence et désactive les autres
+    woodBtns.forEach(b => {
+      const isMatch = b.dataset.wood === mapping.wood;
+      b.classList.remove('active');
+      if (isMatch) b.classList.add('active');
+      b.style.opacity = isMatch ? '1' : '0.35';
+      b.style.pointerEvents = isMatch ? 'auto' : 'none';
+    });
+    currentConfig.wood = mapping.wood;
+    currentConfig.price = mapping.price;
+    updatePD();
+  } else {
+    // Initiales → toutes les essences disponibles
+    woodBtns.forEach(b => {
+      b.style.opacity = '1';
+      b.style.pointerEvents = 'auto';
+    });
+  }
+
   activateStep('step1');
 }
+
+// Init au chargement — appliquer le mapping sur le motif par défaut
+window.addEventListener('DOMContentLoaded', () => {
+  const firstBtn = document.querySelector('.motif-btn.selected');
+  if (firstBtn) firstBtn.click();
+});
 function updatePreview(val) { document.getElementById('preview-name').textContent = val.toUpperCase() || 'VOTRE TEXTE'; }
 function updateCharCount(val) { document.getElementById('char-num').textContent = val.length; }
 function selectFont(el, style) {
