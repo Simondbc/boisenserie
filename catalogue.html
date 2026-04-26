@@ -343,7 +343,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
   <section class="prods">
     <div class="c">
       <div class="prod-grid" id="prod-grid">
-        <div class="prod-card reveal " data-cat="strasbourg">
+        <div class="prod-card reveal " data-cat="strasbourg" onclick="window.location='/produits/cathedrale-strasbourg-chene'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)">
               <div class="planche" style="background:linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)">
@@ -353,7 +353,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             <span class="prod-bdg new">Best-seller</span>
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'cathedrale-chene',name:'Planche Cathédrale de Strasbourg — Chêne',price:4990,emblem:'⛪ Cathédrale',wood:'Chêne des Vosges',format:'40×25 cm',icon:'⛪',bg:'linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'cathedrale-chene',name:'Planche Cathédrale de Strasbourg — Chêne',price:4990,emblem:'⛪ Cathédrale',wood:'Chêne des Vosges',format:'40×25 cm',icon:'⛪',bg:'linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)'})">Ajouter au panier</button>
                 <a href="/produits/cathedrale-strasbourg-chene" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -371,13 +371,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Chêne massif</span><span class="prod-spec-tag">40×25 cm</span><span class="prod-spec-tag">20 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'cathedrale-chene',name:'Planche Cathédrale de Strasbourg — Chêne',price:4990,emblem:'⛪ Cathédrale',wood:'Chêne des Vosges',format:'40×25 cm',icon:'⛪',bg:'linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'cathedrale-chene',name:'Planche Cathédrale de Strasbourg — Chêne',price:4990,emblem:'⛪ Cathédrale',wood:'Chêne des Vosges',format:'40×25 cm',icon:'⛪',bg:'linear-gradient(135deg,#8B7355,#6B5B3E,#4A3F2F)'})">Ajouter</button>
               <a href="/produits/cathedrale-strasbourg-chene" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd1" data-cat="alsace">
+        <div class="prod-card reveal rd1" data-cat="alsace" onclick="window.location='/produits/bretzel-alsace-hetre'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#D4B896,#BAA077,#9B8055)">
               <div class="planche" style="background:linear-gradient(135deg,#D4B896,#BAA077,#9B8055)">
@@ -387,7 +387,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'bretzel-hetre',name:'Planche Bretzel — Hêtre clair',price:4990,emblem:'🥨 Bretzel',wood:'Hêtre clair',format:'40×25 cm',icon:'🥨',bg:'linear-gradient(135deg,#D4B896,#BAA077,#9B8055)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'bretzel-hetre',name:'Planche Bretzel — Hêtre clair',price:4990,emblem:'🥨 Bretzel',wood:'Hêtre clair',format:'40×25 cm',icon:'🥨',bg:'linear-gradient(135deg,#D4B896,#BAA077,#9B8055)'})">Ajouter au panier</button>
                 <a href="/produits/bretzel-alsace-hetre" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -405,13 +405,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Hêtre clair</span><span class="prod-spec-tag">40×25 cm</span><span class="prod-spec-tag">20 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'bretzel-hetre',name:'Planche Bretzel — Hêtre clair',price:4990,emblem:'🥨 Bretzel',wood:'Hêtre clair',format:'40×25 cm',icon:'🥨',bg:'linear-gradient(135deg,#D4B896,#BAA077,#9B8055)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'bretzel-hetre',name:'Planche Bretzel — Hêtre clair',price:4990,emblem:'🥨 Bretzel',wood:'Hêtre clair',format:'40×25 cm',icon:'🥨',bg:'linear-gradient(135deg,#D4B896,#BAA077,#9B8055)'})">Ajouter</button>
               <a href="/produits/bretzel-alsace-hetre" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd2" data-cat="alsace">
+        <div class="prod-card reveal rd2" data-cat="alsace" onclick="window.location='/produits/cigogne-vosges-chene'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)">
               <div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)">
@@ -421,7 +421,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'cigogne-chene',name:'Planche Cigogne — Chêne des Vosges',price:4990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'cigogne-chene',name:'Planche Cigogne — Chêne des Vosges',price:4990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter au panier</button>
                 <a href="/produits/cigogne-vosges-chene" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -439,13 +439,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Chêne massif</span><span class="prod-spec-tag">40×25 cm</span><span class="prod-spec-tag">20 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'cigogne-chene',name:'Planche Cigogne — Chêne des Vosges',price:4990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'cigogne-chene',name:'Planche Cigogne — Chêne des Vosges',price:4990,emblem:'🦢 Cigogne',wood:'Chêne des Vosges',format:'40×25 cm',icon:'🦢',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter</button>
               <a href="/produits/cigogne-vosges-chene" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal " data-cat="strasbourg">
+        <div class="prod-card reveal " data-cat="strasbourg" onclick="window.location='/produits/maison-alsacienne-chene'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)">
               <div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)">
@@ -455,7 +455,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'colombage-chene',name:'Planche Colombage — Chêne',price:4290,emblem:'🏠 Colombage',wood:'Chêne des Vosges',format:'35×22 cm',icon:'🏠',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'colombage-chene',name:'Planche Colombage — Chêne',price:4290,emblem:'🏠 Colombage',wood:'Chêne des Vosges',format:'35×22 cm',icon:'🏠',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter au panier</button>
                 <a href="/produits/maison-alsacienne-chene" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -473,13 +473,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Chêne massif</span><span class="prod-spec-tag">35×22 cm</span><span class="prod-spec-tag">18 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'colombage-chene',name:'Planche Colombage — Chêne',price:4290,emblem:'🏠 Colombage',wood:'Chêne des Vosges',format:'35×22 cm',icon:'🏠',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'colombage-chene',name:'Planche Colombage — Chêne',price:4290,emblem:'🏠 Colombage',wood:'Chêne des Vosges',format:'35×22 cm',icon:'🏠',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter</button>
               <a href="/produits/maison-alsacienne-chene" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd1" data-cat="nature">
+        <div class="prod-card reveal rd1" data-cat="nature" onclick="window.location='/produits/sapin-vosges-noyer'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)">
               <div class="planche" style="background:linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)">
@@ -489,7 +489,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             <span class="prod-bdg lim">Édition limitée</span>
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'sapin-noyer',name:'Planche Sapin — Noyer noir',price:6990,emblem:'🌲 Sapin',wood:'Noyer noir',format:'45×30 cm',icon:'🌲',bg:'linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'sapin-noyer',name:'Planche Sapin — Noyer noir',price:6990,emblem:'🌲 Sapin',wood:'Noyer noir',format:'45×30 cm',icon:'🌲',bg:'linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)'})">Ajouter au panier</button>
                 <a href="/produits/sapin-vosges-noyer" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -507,13 +507,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Noyer noir</span><span class="prod-spec-tag">45×30 cm</span><span class="prod-spec-tag">22 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'sapin-noyer',name:'Planche Sapin — Noyer noir',price:6990,emblem:'🌲 Sapin',wood:'Noyer noir',format:'45×30 cm',icon:'🌲',bg:'linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'sapin-noyer',name:'Planche Sapin — Noyer noir',price:6990,emblem:'🌲 Sapin',wood:'Noyer noir',format:'45×30 cm',icon:'🌲',bg:'linear-gradient(135deg,#5C3D1E,#3F2A10,#2A1A08)'})">Ajouter</button>
               <a href="/produits/sapin-vosges-noyer" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd2" data-cat="strasbourg">
+        <div class="prod-card reveal rd2" data-cat="strasbourg" onclick="window.location='/produits/chateau-haut-koenigsbourg-noyer'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)">
               <div class="planche" style="background:linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)">
@@ -523,7 +523,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'chateau-noyer',name:'Planche Château du Haut-Kœnigsbourg — Noyer',price:6990,emblem:'🏰 Château',wood:'Noyer massif',format:'40×25 cm',icon:'🏰',bg:'linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'chateau-noyer',name:'Planche Château du Haut-Kœnigsbourg — Noyer',price:6990,emblem:'🏰 Château',wood:'Noyer massif',format:'40×25 cm',icon:'🏰',bg:'linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)'})">Ajouter au panier</button>
                 <a href="/produits/chateau-haut-koenigsbourg-noyer" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -541,13 +541,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Noyer massif</span><span class="prod-spec-tag">40×25 cm</span><span class="prod-spec-tag">20 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'chateau-noyer',name:'Planche Château du Haut-Kœnigsbourg — Noyer',price:6990,emblem:'🏰 Château',wood:'Noyer massif',format:'40×25 cm',icon:'🏰',bg:'linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'chateau-noyer',name:'Planche Château du Haut-Kœnigsbourg — Noyer',price:6990,emblem:'🏰 Château',wood:'Noyer massif',format:'40×25 cm',icon:'🏰',bg:'linear-gradient(135deg,#6B7B5E,#4E5E44,#33402C)'})">Ajouter</button>
               <a href="/produits/chateau-haut-koenigsbourg-noyer" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal " data-cat="alsace">
+        <div class="prod-card reveal " data-cat="alsace" onclick="window.location='/produits/coiffe-alsacienne-hetre'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)">
               <div class="planche" style="background:linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)">
@@ -557,7 +557,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'coiffe-hetre',name:'Planche Coiffe alsacienne — Hêtre',price:4990,emblem:'🎀 Coiffe',wood:'Hêtre clair',format:'40×25 cm',icon:'🎀',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'coiffe-hetre',name:'Planche Coiffe alsacienne — Hêtre',price:4990,emblem:'🎀 Coiffe',wood:'Hêtre clair',format:'40×25 cm',icon:'🎀',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter au panier</button>
                 <a href="/produits/coiffe-alsacienne-hetre" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -575,13 +575,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Hêtre clair</span><span class="prod-spec-tag">40×25 cm</span><span class="prod-spec-tag">20 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'coiffe-hetre',name:'Planche Coiffe alsacienne — Hêtre',price:4990,emblem:'🎀 Coiffe',wood:'Hêtre clair',format:'40×25 cm',icon:'🎀',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'coiffe-hetre',name:'Planche Coiffe alsacienne — Hêtre',price:4990,emblem:'🎀 Coiffe',wood:'Hêtre clair',format:'40×25 cm',icon:'🎀',bg:'linear-gradient(135deg,#C9A37A,#A67C52,#7A5535)'})">Ajouter</button>
               <a href="/produits/coiffe-alsacienne-hetre" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd1" data-cat="alsace">
+        <div class="prod-card reveal rd1" data-cat="alsace" onclick="window.location='/produits/coeur-alsacien-merisier'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)">
               <div class="planche" style="background:linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)">
@@ -591,7 +591,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'coeur-merisier',name:'Planche Cœur alsacien — Merisier',price:6490,emblem:'❤️ Cœur',wood:'Merisier',format:'40×25 cm',icon:'❤️',bg:'linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'coeur-merisier',name:'Planche Cœur alsacien — Merisier',price:6490,emblem:'❤️ Cœur',wood:'Merisier',format:'40×25 cm',icon:'❤️',bg:'linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)'})">Ajouter au panier</button>
                 <a href="/produits/coeur-alsacien-merisier" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -609,13 +609,13 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Merisier</span><span class="prod-spec-tag">40×25 cm</span><span class="prod-spec-tag">20 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'coeur-merisier',name:'Planche Cœur alsacien — Merisier',price:6490,emblem:'❤️ Cœur',wood:'Merisier',format:'40×25 cm',icon:'❤️',bg:'linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'coeur-merisier',name:'Planche Cœur alsacien — Merisier',price:6490,emblem:'❤️ Cœur',wood:'Merisier',format:'40×25 cm',icon:'❤️',bg:'linear-gradient(135deg,#D4857A,#B85E54,#8B3A32)'})">Ajouter</button>
               <a href="/produits/coeur-alsacien-merisier" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
         </div>
 
-        <div class="prod-card reveal rd2" data-cat="nature">
+        <div class="prod-card reveal rd2" data-cat="nature" onclick="window.location='/produits/vigne-alsace-merisier'">
           <div class="prod-img">
             <div class="prod-img-inner" style="background:linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)">
               <div class="planche" style="background:linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)">
@@ -625,7 +625,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             <span class="prod-bdg lim">Édition limitée</span>
             <div class="prod-overlay">
               <div class="prod-overlay-actions">
-                <button class="prod-btn-cart" onclick="addToCart({id:'vigne-merisier',name:'Planche Vigne — Merisier',price:6490,emblem:'🍇 Vigne',wood:'Merisier',format:'40×25 cm',icon:'🍇',bg:'linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)'})">Ajouter au panier</button>
+                <button class="prod-btn-cart" onclick="event.stopPropagation();addToCart({id:'vigne-merisier',name:'Planche Vigne — Merisier',price:6490,emblem:'🍇 Vigne',wood:'Merisier',format:'40×25 cm',icon:'🍇',bg:'linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)'})">Ajouter au panier</button>
                 <a href="/produits/vigne-alsace-merisier" class="prod-btn-fiche">Voir →</a>
               </div>
             </div>
@@ -643,7 +643,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
             </div>
             <div class="prod-specs"><span class="prod-spec-tag">Merisier</span><span class="prod-spec-tag">40×25 cm</span><span class="prod-spec-tag">20 mm</span></div>
             <div class="prod-mobile-cta">
-              <button class="prod-btn-cart-mob" onclick="addToCart({id:'vigne-merisier',name:'Planche Vigne — Merisier',price:6490,emblem:'🍇 Vigne',wood:'Merisier',format:'40×25 cm',icon:'🍇',bg:'linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)'})">Ajouter</button>
+              <button class="prod-btn-cart-mob" onclick="event.stopPropagation();addToCart({id:'vigne-merisier',name:'Planche Vigne — Merisier',price:6490,emblem:'🍇 Vigne',wood:'Merisier',format:'40×25 cm',icon:'🍇',bg:'linear-gradient(135deg,#9B6B3A,#7A5025,#572F0E)'})">Ajouter</button>
               <a href="/produits/vigne-alsace-merisier" class="prod-btn-fiche-mob">Voir la fiche →</a>
             </div>
           </div>
