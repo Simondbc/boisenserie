@@ -4,6 +4,9 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/success", "destination": "/success.html" },
+    { "source": "/livraison", "destination": "/livraison.html" },
+    { "source": "/retours", "destination": "/retours.html" },
+    { "source": "/faq", "destination": "/faq.html" },
     { "source": "/produits/cathedrale-strasbourg-chene", "destination": "/produits/cathedrale-strasbourg-chene.html" },
     { "source": "/produits/bretzel-alsace-hetre", "destination": "/produits/bretzel-alsace-hetre.html" },
     { "source": "/produits/cigogne-vosges-chene", "destination": "/produits/cigogne-vosges-chene.html" },
