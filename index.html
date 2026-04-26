@@ -214,10 +214,10 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
 .nl-title{font-family:var(--fd);font-size:var(--x2);font-weight:var(--fw3);color:white;margin-bottom:var(--s2);letter-spacing:-.02em}
 .nl-title em{font-style:italic;color:var(--ble-200)}
 .nl-sub{font-size:var(--sm);color:var(--nuit-400);margin-bottom:var(--s5)}
-.nl-form{display:flex;gap:0;max-width:400px;margin-inline:auto;border:.5px solid rgba(255,255,255,.15);border-radius:var(--rf);overflow:hidden}
-.nl-input{flex:1;min-width:0;padding:14px 20px;border:none;background:transparent;color:white;font-family:var(--fb);font-size:var(--sm);outline:none;-webkit-appearance:none;appearance:none}
+.nl-form{display:flex;gap:0;width:100%;max-width:400px;margin-inline:auto;border:.5px solid rgba(255,255,255,.15);border-radius:var(--rf);overflow:hidden}
+.nl-input{flex:1;min-width:0;padding:14px 20px;border:none;background:transparent;color:white;font-family:var(--fb);font-size:16px;outline:none;-webkit-appearance:none;appearance:none}
 .nl-input::placeholder{color:var(--nuit-400)}
-.nl-btn{padding:14px 22px;background:white;color:var(--nuit-700);border:none;font-family:var(--fb);font-size:var(--sm);font-weight:var(--fw6);cursor:pointer;white-space:nowrap;transition:background var(--fast) var(--eo);-webkit-appearance:none;appearance:none;flex-shrink:0}
+.nl-btn{padding:14px 22px;background:white;color:var(--nuit-700);border:none;font-family:var(--fb);font-size:var(--sm);font-weight:var(--fw6);cursor:pointer;white-space:nowrap;transition:background var(--fast) var(--eo);-webkit-appearance:none;appearance:none;flex-shrink:0;touch-action:manipulation}
 .nl-btn:hover{background:var(--gres-100)}
 .footer{background:var(--nuit-800);color:var(--gres-300);padding:var(--s10) 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s8);margin-bottom:var(--s8)}
@@ -243,7 +243,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
   .emblemes-grid>a{flex:0 0 68vw;scroll-snap-align:start}
 }
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:var(--s6)}.hero-visual{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:var(--s6)}}
-@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.feat-grid,.testi-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.nl-form{flex-direction:column;border:none;gap:var(--s2);width:100%;max-width:100%}.nl-input{width:100%;border:.5px solid rgba(255,255,255,.15);border-radius:var(--rf);padding:16px 20px;font-size:16px}.nl-btn{width:100%;border-radius:var(--rf);padding:16px;font-size:16px}.hero-ctas{flex-direction:column}}
+@media(max-width:768px){:root{--cpad:var(--s3)}.nav-links{display:none}.mob-toggle{display:flex}.hero-h1{font-size:2.75rem}.feat-grid,.testi-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.nl-form{flex-direction:column;border:none;gap:var(--s2);padding:0 var(--s3)}.nl-input{border:.5px solid rgba(255,255,255,.15);border-radius:var(--rf);padding:16px 20px;width:100%;box-sizing:border-box}.nl-btn{border-radius:var(--rf);padding:16px;width:100%;box-sizing:border-box}.hero-ctas{flex-direction:column}}
 @media(max-width:480px){.hero-h1{font-size:2.25rem}.trust-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -429,7 +429,7 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
       <h2 class="nl-title">La newsletter <em>Boisenserie.</em></h2>
       <p class="nl-sub">Nouvelles séries, offres exclusives, conseils bois. Sans spam.</p>
       <div class="nl-form" id="nl-form">
-        <input type="email" class="nl-input" id="nl-email" placeholder="Votre adresse e-mail" autocomplete="email" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="email">
+        <input type="email" class="nl-input" id="nl-email" placeholder="Votre adresse e-mail" autocomplete="email" autocorrect="off" autocapitalize="off" inputmode="email">
         <button type="button" class="nl-btn" id="nl-btn" onclick="subscribeNewsletter()">S'inscrire</button>
       </div>
       <div id="nl-msg" style="margin-top:12px;font-size:13px;min-height:20px;text-align:center"></div>
