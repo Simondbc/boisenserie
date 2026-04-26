@@ -428,10 +428,11 @@ button{cursor:pointer;font-family:var(--fb);border:none;background:none}
     <div class="c"><div class="nl-inner">
       <h2 class="nl-title">La newsletter <em>Boisenserie.</em></h2>
       <p class="nl-sub">Nouvelles séries, offres exclusives, conseils bois. Sans spam.</p>
-      <div class="nl-form">
-        <input type="email" class="nl-input" placeholder="Votre adresse e-mail">
-        <button class="nl-btn">S'inscrire</button>
+      <div class="nl-form" id="nl-form">
+        <input type="email" class="nl-input" id="nl-email" placeholder="Votre adresse e-mail">
+        <button class="nl-btn" id="nl-btn" onclick="subscribeNewsletter()">S'inscrire</button>
       </div>
+      <div id="nl-msg" style="margin-top:12px;font-size:13px;min-height:20px;text-align:center"></div>
     </div></div>
   </section>
 
@@ -555,7 +556,45 @@ function closeCart(){
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart();});
 
-// ── SWIPE TO CLOSE (mobile bottom sheet)
+// ── NEWSLETTER
+async function subscribeNewsletter() {
+  const email = document.getElementById('nl-email').value.trim();
+  const btn = document.getElementById('nl-btn');
+  const msg = document.getElementById('nl-msg');
+
+  if (!email || !email.includes('@')) {
+    msg.style.color = '#E5A49A';
+    msg.textContent = 'Veuillez entrer une adresse e-mail valide.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '...';
+  msg.textContent = '';
+
+  try {
+    const res = await fetch('/api/newsletter/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    const data = await res.json();
+    msg.style.color = '#66A47B';
+    msg.textContent = '✓ ' + (data.message || 'Inscription confirmée !');
+    document.getElementById('nl-email').value = '';
+  } catch (err) {
+    msg.style.color = '#E5A49A';
+    msg.textContent = 'Une erreur est survenue. Réessayez.';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "S'inscrire";
+  }
+}
+
+// Enter key on newsletter
+document.getElementById('nl-email')?.addEventListener('keydown', e => {
+  if (e.key === 'Enter') subscribeNewsletter();
+});
 (function(){
   let startY=0,currentY=0,dragging=false;
   const drawer=document.getElementById('cart-drawer');
