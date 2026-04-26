@@ -448,6 +448,72 @@ async function sendPasswordResetEmail(user) {
   });
 }
 
+// ════════════════════════════════════════════════════════════
+// EMAIL 7 — CLIENT : BIENVENUE NEWSLETTER
+// ════════════════════════════════════════════════════════════
+function buildNewsletterWelcomeEmail(user) {
+  const { email } = user;
+  return `${base}
+  <div class="wrap">
+    <div class="header">
+      <div class="logo">Bois<span>enserie</span></div>
+      <p style="color:#D3E8D9;font-size:13px;margin:10px 0 0;font-family:Georgia,serif;font-style:italic">"L'Alsace gravée dans le bois."</p>
+    </div>
+    <div class="body">
+      <h1 class="title">Bienvenue dans la communauté <em>Boisenserie.</em></h1>
+      <p class="subtitle">Vous êtes maintenant abonné à notre newsletter. Chaque mois, nous partageons nos nouvelles séries, des offres exclusives et des conseils d'entretien du bois — sans spam, promis.</p>
+
+      <div class="highlight">✦ En tant qu'abonné, vous serez les premiers informés de nos nouvelles éditions limitées et des offres réservées à notre communauté.</div>
+
+      <hr class="divider">
+      <div class="label">Ce qui vous attend</div>
+      <ul class="steps" style="margin-top:12px">
+        <li class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Nouvelles séries en avant-première</div>
+            <div class="step-text">Château du Haut-Kœnigsbourg, Cœur alsacien, Vigne d'Alsace — découvrez nos nouvelles planches avant tout le monde.</div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Offres exclusives abonnés</div>
+            <div class="step-text">Des réductions réservées à notre communauté, à chaque nouvelle saison.</div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Conseils d'entretien du bois</div>
+            <div class="step-text">Comment huiler, entretenir et garder votre planche belle pendant des décennies.</div>
+          </div>
+        </li>
+      </ul>
+
+      <hr class="divider">
+      <a href="https://boisenserie.fr/catalogue" class="btn">Découvrir la collection →</a>
+
+      <div style="text-align:center;margin-top:24px;font-size:12px;color:#9C9A90;line-height:1.7">
+        Pour vous désabonner, répondez "STOP" à cet email.<br>
+        <a href="mailto:contact@boisenserie.fr" style="color:#225A3B">contact@boisenserie.fr</a>
+      </div>
+    </div>
+    ${footer}`;
+}
+
+// 7. Email client — bienvenue newsletter
+async function sendNewsletterWelcomeEmail(user) {
+  if (!user.email) return;
+  return resend.emails.send({
+    from: `Boisenserie <contact@boisenserie.fr>`,
+    to: user.email,
+    reply_to: 'contact@boisenserie.fr',
+    subject: `Bienvenue dans la communauté Boisenserie 🌲`,
+    html: buildNewsletterWelcomeEmail(user),
+  });
+}
+
 module.exports = {
   sendOrderNotification,
   sendNewAccountNotification,
@@ -455,4 +521,5 @@ module.exports = {
   sendOrderConfirmation,
   sendShippingNotification,
   sendPasswordResetEmail,
+  sendNewsletterWelcomeEmail,
 };
